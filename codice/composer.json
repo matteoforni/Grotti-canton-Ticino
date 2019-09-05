@@ -1,18 +1,18 @@
 {
-    "name": "filippofinke/php-mvc",
-    "description": "Simple MVC base for php",
+    "name": "luca6/auto-cloud-tech",
+    "description": "Auto cloud Tech official website",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.0"
+    },
     "authors": [
         {
-            "name": "filippofinke",
-            "email": "filippo.finke@samtrevano.ch"
+            "name": "Luca Di Bello",
+            "email": "luca.dibello@samtrevano.ch"
+        },
+        {
+            "name": "Matteo Forni",
+            "email": "matteo.forni@samtrevano.ch"
         }
-    ],
-    "autoload": {
-    	"psr-4": {
-    		"Controllers\\":"application/controllers/",
-    		"Libs\\":"application/libs/",
-    		"Models\\":"application/models/"
-    	}
-    },
-    "require": {}
+    ]
 }

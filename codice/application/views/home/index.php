@@ -1,3 +1,7 @@
-<h1>Benvenuto!</h1>
-<a href="<?php echo URL.'home/home'; ?>">Vai alla home!</a>
-<a href="<?php echo URL.'home/login'; ?>">Esegui il login!</a>
+<head>
+    <title>Grotti cantone Ticino</title>
+</head>
+
+<body>
+    <h1>Home page</h1>
+</body>

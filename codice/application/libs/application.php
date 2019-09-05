@@ -1,47 +1,75 @@
 <?php
-namespace Libs;
-use Controllers;
-
-session_start();
-require __DIR__ . '/../../vendor/autoload.php';
 
 class Application
 {
     private $url_controller = null;
     private $url_action = null;
-    private $url_parameter = [];
+    private $url_parameter_1 = null;
+    private $url_parameter_2 = null;
+    private $url_parameter_3 = null;
 
     public function __construct()
     {
-        $this->init();
-        $controller = '\Controllers\\'.($this->url_controller);
-        if (class_exists($controller)) {
-            $this->url_controller = new $controller();
+        $this->splitUrl(); //funzione da creare per dividere l'URL
+        if (file_exists('./application/controller/' . $this->url_controller . '.php')) {
+            require './application/controller/' . $this->url_controller . '.php';
+            $this->url_controller = new $this->url_controller();
+
             if (method_exists($this->url_controller, $this->url_action)) {
-                call_user_func_array(array($this->url_controller, $this->url_action), $this->url_parameter);
+                if (isset($this->url_parameter_3)) {
+                    $this->url_controller->{$this->url_action}($this->url_parameter_1, $this->url_parameter_2,
+                        $this->url_parameter_3);
+                } elseif (isset($this->url_parameter_2)) {
+                    $this->url_controller->{$this->url_action}($this->url_parameter_1, $this->url_parameter_2);
+                } elseif (isset($this->url_parameter_1)) {
+                    $this->url_controller->{$this->url_action}($this->url_parameter_1);
+                } else {
+                    $this->url_controller->{$this->url_action}();
+                }
             } else {
                 $this->url_controller->index();
             }
         } else {
-            $error = new Controllers\ErrorPage();
-            $error->error404();
+            if($this->url_controller == ''){
+                //INDEX PAGE
+                require './application/controller/Home.php';
+                $home = new Home();
+                $home->index();
+            }
+            else{
+                //404 Not Found
+                ViewLoader::load("_templates/404");
+            }
         }
     }
 
-    private function init()
+    /**
+     * Splitto l'url URL
+     */
+    private function splitUrl()
     {
-        $url = $_SERVER['REQUEST_URI'];
-        $url = substr($url, 1, strlen($url));
-        $url = rtrim($url, '/');
-        $url = filter_var($url, FILTER_SANITIZE_URL);
-        $url = explode('/', $url);
+        if (isset($_GET['url'])) {
 
-        $this->url_controller = (isset($url[0]) ? $url[0] : null);
-        $this->url_action = (isset($url[1]) ? $url[1] : null);
-        if (count($url) > 2) {
-            for ($i = 2; $i < count($url); $i++) {
-                $this->url_parameter[] = $url[$i];
-            }
+            // tolgo il carattere / dalla fine della stringa
+            $url = rtrim($_GET['url'], '/');
+            //rimuove tutti i caratteri illegali dall'URL
+            $url = filter_var($url, FILTER_SANITIZE_URL);
+            //divido in un array in base al carattere /
+            $url = explode('/', $url);
+
+            // divido le parti dell'utl in base a controller, azione e 3 parametri
+            $this->url_controller = (isset($url[0]) ? $url[0] : null);
+            $this->url_action = (isset($url[1]) ? $url[1] : null);
+            $this->url_parameter_1 = (isset($url[2]) ? $url[2] : null);
+            $this->url_parameter_2 = (isset($url[3]) ? $url[3] : null);
+            $this->url_parameter_3 = (isset($url[4]) ? $url[4] : null);
+
+            // Per debug
+            // echo 'Controller: ' . $this->url_controller . '<br />';
+            // echo 'Action: ' . $this->url_action . '<br />';
+            // echo 'Parameter 1: ' . $this->url_parameter_1 . '<br />';
+            // echo 'Parameter 2: ' . $this->url_parameter_2 . '<br />';
+            // echo 'Parameter 3: ' . $this->url_parameter_3 . '<br />';
         }
     }
 }
