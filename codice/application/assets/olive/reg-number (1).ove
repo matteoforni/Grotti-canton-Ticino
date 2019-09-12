@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <version>190219</version>
+    <url>C:\Users\luca6\Google Drive\Repo\AutoCloudTech\application\assets\olive\reg-number.ove</url>
+    <folders/>
+    <media>
+        <footage id="1" folder="0" name="2019-07-09 11-12-51.flv" url="../../../../../../Videos/2019-07-09 11-12-51.flv" duration="122117000" using_inout="0" in="0" out="0" speed="1" alphapremul="0" startnumber="0" proxy="0" proxypath="">
+            <video id="0" width="1920" height="1080" framerate="60.0000000000" infinite="0"/>
+            <audio id="1" channels="2" layout="3" frequency="44100"/>
+        </footage>
+    </media>
+    <sequences>
+        <sequence id="1" folder="0" name="Sequence 01" width="1920" height="1080" framerate="60.0000000000" afreq="44100" alayout="3" open="1" workarea="0" workareaIn="0" workareaOut="0">
+            <clip id="0" enabled="1" name="2019-07-09 11-12-51.flv" clipin="2060" in="0" out="725" track="-1" r="128" g="128" b="192" autoscale="1" speed="1.0000000000" maintainpitch="0" reverse="0" type="0" media="1" stream="0">
+                <linked/>
+                <opening length="60" name="/Cross Dissolve" enabled="1"/>
+                <closing length="30" name="/Cross Dissolve" enabled="1"/>
+                <effect name="Distort/Transform" enabled="1">
+                    <row>
+                        <field id="posx" value="960"/>
+                        <field id="posy" value="540"/>
+                    </row>
+                    <row>
+                        <field id="scalex" value="100"/>
+                        <field id="scaley" value="100"/>
+                    </row>
+                    <row>
+                        <field id="uniformscale" value="1"/>
+                    </row>
+                    <row>
+                        <field id="rotation" value="0"/>
+                    </row>
+                    <row>
+                        <field id="anchorx" value="0"/>
+                        <field id="anchory" value="0"/>
+                    </row>
+                    <row>
+                        <field id="opacity" value="100"/>
+                    </row>
+                    <row>
+                        <field id="blendmode" value=""/>
+                    </row>
+                </effect>
+            </clip>
+            <clip id="1" enabled="1" name="Title" clipin="0" in="152" out="679" track="-2" r="192" g="192" b="64" autoscale="0" speed="1.0000000000" maintainpitch="0" reverse="0">
+                <linked/>
+                <opening length="30" name="/Cross Dissolve" enabled="1"/>
+                <closing length="30" name="/Cross Dissolve" enabled="1"/>
+                <effect name="Distort/Transform" enabled="1">
+                    <row>
+                        <field id="posx" value="269"/>
+                        <field id="posy" value="545"/>
+                    </row>
+                    <row>
+                        <field id="scalex" value="24.2708"/>
+                        <field id="scaley" value="19.4074"/>
+                    </row>
+                    <row>
+                        <field id="uniformscale" value="0"/>
+                    </row>
+                    <row>
+                        <field id="rotation" value="0.208333"/>
+                    </row>
+                    <row>
+                        <field id="anchorx" value="91"/>
+                        <field id="anchory" value="-22"/>
+                    </row>
+                    <row>
+                        <field id="opacity" value="100"/>
+                    </row>
+                    <row>
+                        <field id="blendmode" value=""/>
+                    </row>
+                </effect>
+                <effect name="Render/Rich Text" enabled="1">
+                    <row>
+                        <field id="text" value="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&#10;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&#10;p, li { white-space: pre-wrap; }&#10;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;&#10;&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:120pt; color:#55aaff;&quot;&gt;Insert a valid registration number&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"/>
+                    </row>
+                    <row>
+                        <field id="padding" value="0"/>
+                    </row>
+                    <row>
+                        <field id="posx" value="0"/>
+                        <field id="posy" value="0"/>
+                    </row>
+                    <row>
+                        <field id="valign" value="132"/>
+                    </row>
+                    <row>
+                        <field id="autoscroll" value="0"/>
+                    </row>
+                    <row>
+                        <field id="shadow" value="0"/>
+                    </row>
+                    <row>
+                        <field id="shadowcolor" value="#000000"/>
+                    </row>
+                    <row>
+                        <field id="shadowangle" value="0"/>
+                    </row>
+                    <row>
+                        <field id="shadowdistance" value="0"/>
+                    </row>
+                    <row>
+                        <field id="shadowsoftness" value="0"/>
+                    </row>
+                    <row>
+                        <field id="shadowopacity" value="0"/>
+                    </row>
+                </effect>
+            </clip>
+            <clip id="2" enabled="1" name="2019-07-09 11-12-51.flv" clipin="3004" in="725" out="2239" track="-1" r="128" g="128" b="192" autoscale="1" speed="1.0000000000" maintainpitch="0" reverse="0" type="0" media="1" stream="0">
+                <linked/>
+                <opening length="30" name="/Cross Dissolve" enabled="1"/>
+                <closing length="30" name="/Cross Dissolve" enabled="1"/>
+                <effect name="Distort/Transform" enabled="1">
+                    <row>
+                        <field id="posx" value="960"/>
+                        <field id="posy" value="540"/>
+                    </row>
+                    <row>
+                        <field id="scalex" value="100"/>
+                        <field id="scaley" value="100"/>
+                    </row>
+                    <row>
+                        <field id="uniformscale" value="1"/>
+                    </row>
+                    <row>
+                        <field id="rotation" value="0"/>
+                    </row>
+                    <row>
+                        <field id="anchorx" value="0"/>
+                        <field id="anchory" value="0"/>
+                    </row>
+                    <row>
+                        <field id="opacity" value="100"/>
+                    </row>
+                    <row>
+                        <field id="blendmode" value=""/>
+                    </row>
+                </effect>
+            </clip>
+        </sequence>
+    </sequences>
+</project>
