@@ -3,6 +3,6 @@
 .vs
 .htaccess
 application/config/config.php
-/vendor/
+vendor/
 .tmp.drivedownload
-/db/
+db/
