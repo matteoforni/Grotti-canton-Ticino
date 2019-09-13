@@ -1,7 +1,0 @@
-.idea
-.vscode
-.vs
-.htaccess
-application/config/config.php
-/vendor/
-.tmp.drivedownload
