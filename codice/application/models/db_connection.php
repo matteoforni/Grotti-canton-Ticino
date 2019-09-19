@@ -10,13 +10,14 @@ class db_connection
     }
 
     /**
-     * @return La connessione con il database
+     * @return PDO La connessione con il database
      */
     public function getConnection()
     {
         if($this->_connection == null){
             try{
                 $this->_connection = new PDO(DSN, USER, PASSWORD);
+                return $this->_connection;
             }catch(PDOException $e){
                 print "Error!: " . $e->getMessage() . "<br/>";
                 die();
