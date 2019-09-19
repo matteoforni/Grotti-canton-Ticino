@@ -1,15 +1,11 @@
 {
-    "name": "luca6/auto-cloud-tech",
-    "description": "Auto cloud Tech official website",
+    "name": "Grotti Canton Ticino",
+    "description": "Grotti Canton Ticino official website",
     "type": "project",
     "require": {
         "phpmailer/phpmailer": "^6.0"
     },
     "authors": [
-        {
-            "name": "Luca Di Bello",
-            "email": "luca.dibello@samtrevano.ch"
-        },
         {
             "name": "Matteo Forni",
             "email": "matteo.forni@samtrevano.ch"

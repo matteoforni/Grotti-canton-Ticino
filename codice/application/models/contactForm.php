@@ -1,8 +1,8 @@
 <?php
 
 class ContactForm{
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
+    //use PHPMailer\PHPMailer\PHPMailer;
+    //use PHPMailer\PHPMailer\Exception;
     
     function __construct(array $data)
     {
