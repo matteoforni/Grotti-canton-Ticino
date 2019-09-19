@@ -1,6 +1,14 @@
 <!-- Footer -->
-<footer>
+<footer class="page-footer font-small grey lighten-3 fixed-bottom">
+
+    <!-- Copyright -->
+    <div class=" text-center py-3 text-dark">© 2018 Copyright:
+        <a href="#" class="text-dark">Piattaforma per la scoperta dei grotti del Canton Ticino</a>
+    </div>
+    <!-- Copyright -->
+
 </footer>
+
 <!-- Footer -->
 
 <!-- Bootstrap core JavaScript -->
