@@ -54,18 +54,6 @@
                 },
             });
         }
-        /*function addMarkers(map){
-            <?php foreach ($_SESSION['grotti'] as $row): ?>
-            let contentString = `
-                <div class='content modal-body'>
-                    <h1 style='color:black;'><?php echo $row['nome']; ?></h1>
-                    <strong>Address</strong> <?php echo $row['via'] . "," . $row['no_civico'] . "," . $row['cap'] . "," . $row['paese']; ?>
-                    <br>
-                    <strong>Phone</strong> {{ marker.phone }}
-                    <br><br>
-                </div>`;
-            <?php endforeach; ?>
-        }*/
         $(document).ready(function () {
             $('#search').DataTable({
                 "searching": false,
