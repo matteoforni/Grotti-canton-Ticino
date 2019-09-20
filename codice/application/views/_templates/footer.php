@@ -26,6 +26,9 @@
 <!-- More text js script -->
 <script src="./application/assets/js/more.js"></script>
 
+<!-- Datatables addon -->
+<script src="./application/assets/mdb/js/addons/datatables.min.js"></script>
+
 </body>
 
 </html>

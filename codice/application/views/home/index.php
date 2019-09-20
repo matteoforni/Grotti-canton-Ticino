@@ -3,29 +3,33 @@
     </div>
 
     <div class="search my-5">
-        <table class="table table-hover table-responsive-sm">
-            <tr class="text-center">
-                <th scope="col">Nome</th>
-                <th scope="col">Via</th>
-                <th scope="col">No. Civico</th>
-                <th scope="col">Paese</th>
-                <th scope="col">CAP</th>
-                <th scope="col">Fascia di Prezzo</th>
-                <th scope="col">Valutazione</th>
-            </tr>
-            <?php if(isset($_SESSION['grotti'])): ?>
-                <?php foreach ($_SESSION['grotti'] as $row): ?>
+        <table id="search" class="table table-hover table-responsive-sm">
+            <thead>
                 <tr class="text-center">
-                    <td><?php echo $row['nome']; ?></td>
-                    <td><?php echo $row['via']; ?></td>
-                    <td><?php echo $row['no_civico']; ?></td>
-                    <td><?php echo $row['paese']; ?></td>
-                    <td><?php echo $row['cap']; ?></td>
-                    <td><?php echo $row['fascia_prezzo']; ?></td>
-                    <td><?php echo $row['valutazione']; ?></td>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Via</th>
+                    <th scope="col">No. Civico</th>
+                    <th scope="col">Paese</th>
+                    <th scope="col">CAP</th>
+                    <th scope="col">Fascia di Prezzo</th>
+                    <th scope="col">Valutazione</th>
                 </tr>
-                <?php endforeach; ?>
-            <?php endif; ?>
+            </thead>
+            <tbody>
+                <?php if(isset($_SESSION['grotti'])): ?>
+                    <?php foreach ($_SESSION['grotti'] as $row): ?>
+                    <tr class="text-center">
+                        <td><?php echo $row['nome']; ?></td>
+                        <td><?php echo $row['via']; ?></td>
+                        <td><?php echo $row['no_civico']; ?></td>
+                        <td><?php echo $row['paese']; ?></td>
+                        <td><?php echo $row['cap']; ?></td>
+                        <td><?php echo $row['fascia_prezzo']; ?></td>
+                        <td><?php echo $row['valutazione']; ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
         </table>
     </div>
     <script>
@@ -48,6 +52,15 @@
                 },
             });
         }
+        $(document).ready(function () {
+            $('#search').DataTable({
+                "searching": false,
+                "bLengthChange": false,
+                "info" : false,
+                "iDisplayLength": 15
+            });
+            $('.dataTables_length').addClass('bs-select');
+        });
     </script>
 
     <script async defer
