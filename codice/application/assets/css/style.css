@@ -1,7 +1,12 @@
 #map{
-    width: 70vw;
-    height: 70vh;
+    width: 60vw;
+    height: 80vh;
+    margin: auto;
 }
 .navbar{
     position: relative;
+}
+.search{
+    width: 60vw;
+    margin: auto;
 }

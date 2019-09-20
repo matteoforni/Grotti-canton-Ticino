@@ -5,8 +5,9 @@ class db_connection
 {
     private $_connection;
 
-    private function __construct()
+    function __construct()
     {
+
     }
 
     /**
