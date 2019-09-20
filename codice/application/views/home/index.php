@@ -11,6 +11,7 @@
                     <th scope="col">No. Civico</th>
                     <th scope="col">Paese</th>
                     <th scope="col">CAP</th>
+                    <th scope="col">Telefono</th>
                     <th scope="col">Fascia di Prezzo</th>
                     <th scope="col">Valutazione</th>
                 </tr>
@@ -24,6 +25,7 @@
                         <td><?php echo $row['no_civico']; ?></td>
                         <td><?php echo $row['paese']; ?></td>
                         <td><?php echo $row['cap']; ?></td>
+                        <td><?php echo $row['telefono']; ?></td>
                         <td><?php echo $row['fascia_prezzo']; ?></td>
                         <td><?php echo $row['valutazione']; ?></td>
                     </tr>
@@ -52,7 +54,7 @@
                 },
             });
         }
-        function addMarkers(map){
+        /*function addMarkers(map){
             <?php foreach ($_SESSION['grotti'] as $row): ?>
             let contentString = `
                 <div class='content modal-body'>
@@ -63,7 +65,7 @@
                     <br><br>
                 </div>`;
             <?php endforeach; ?>
-        }
+        }*/
         $(document).ready(function () {
             $('#search').DataTable({
                 "searching": false,
