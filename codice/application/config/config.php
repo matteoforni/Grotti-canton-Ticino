@@ -18,6 +18,7 @@ ini_set("display_errors", 1);
  * Configurazione di : URL del progetto
  */
 define('URL', 'http://localhost/Grotti-canton-Ticino/Codice/');
-define('DSN', 'mysql:host=127.0.0.1;dbname=grotti');
+define('DSN', 'mysql:host=127.0.0.1;dbname=grotti;charset=utf8mb4');
 define('USER', 'grotti_user');
 define('PASSWORD', 'GrottiUser&2019');
+define('API_KEY', 'AIzaSyCCOSBrPiB40uF9Oee8IxwUdxoIZu_9XBg');

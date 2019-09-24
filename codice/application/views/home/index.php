@@ -1,70 +1,119 @@
-    <div id="map" class="mt-5">
+<div id="map" class="mt-5">
 
-    </div>
-
-    <div class="search my-5">
-        <table id="search" class="table table-hover table-responsive-sm">
-            <thead>
-                <tr class="text-center">
-                    <th scope="col">Nome</th>
-                    <th scope="col">Via</th>
-                    <th scope="col">No. Civico</th>
-                    <th scope="col">Paese</th>
-                    <th scope="col">CAP</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">Fascia di Prezzo</th>
-                    <th scope="col">Valutazione</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if(isset($_SESSION['grotti'])): ?>
-                    <?php foreach ($_SESSION['grotti'] as $row): ?>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="search my-5">
+                <table id="search" class="table table-hover table-responsive-md">
+                    <thead>
                     <tr class="text-center">
-                        <td><?php echo $row['nome']; ?></td>
-                        <td><?php echo $row['via']; ?></td>
-                        <td><?php echo $row['no_civico']; ?></td>
-                        <td><?php echo $row['paese']; ?></td>
-                        <td><?php echo $row['cap']; ?></td>
-                        <td><?php echo $row['telefono']; ?></td>
-                        <td><?php echo $row['fascia_prezzo']; ?></td>
-                        <td><?php echo $row['valutazione']; ?></td>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Indirizzo</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Fascia di Prezzo</th>
+                        <th scope="col">Valutazione</th>
                     </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                    <?php if(isset($_SESSION['grotti'])): ?>
+                        <?php foreach ($_SESSION['grotti'] as $row): ?>
+                            <tr class="text-center">
+                                <td><?php echo $row['nome']; ?></td>
+                                <td><?php echo($row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?></td>
+                                <td><?php echo $row['telefono']; ?></td>
+                                <td><?php echo $row['fascia_prezzo']; ?></td>
+                                <td><?php echo $row['valutazione']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <script>
-        let map;
-        function initMap() {
-            let center_loc = {
-                lat: 46.029898,
-                lng: 8.962658
-            };
-            let tiBounds = new google.maps.LatLngBounds(
-                new google.maps.LatLng(45.796048, 8.344110),
-                new google.maps.LatLng(46.539085, 9.470215)
-            );
-            map = new google.maps.Map(window.document.getElementById('map'), {
-                zoom: 7,
-                center: center_loc,
-                restriction: {
-                    latLngBounds: tiBounds,
-                    strictBounds: false
-                },
-            });
-        }
-        $(document).ready(function () {
-            $('#search').DataTable({
-                "searching": false,
-                "bLengthChange": false,
-                "info" : false,
-                "iDisplayLength": 15
-            });
-            $('.dataTables_length').addClass('bs-select');
-        });
-    </script>
+</div>
 
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCOSBrPiB40uF9Oee8IxwUdxoIZu_9XBg&callback=initMap">
-    </script>
+<script>
+    let map;
+    var infowindowOpen = null;
+    function initMap() {
+        let center_loc = {
+            lat: 46.029898,
+            lng: 8.962658
+        };
+        let tiBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(45.796048, 8.344110),
+            new google.maps.LatLng(46.539085, 9.470215)
+        );
+        map = new google.maps.Map(window.document.getElementById('map'), {
+            zoom: 7,
+            center: center_loc,
+            restriction: {
+                latLngBounds: tiBounds,
+                strictBounds: false
+            },
+        });
+        setMarkers(map,<?php echo json_encode($_SESSION["grotti"]); ?>);
+        google.maps.event.addListener(map, "click", function(event) {
+            if(infowindowOpen != null){
+                infowindowOpen.close();
+                map.setZoom(7);
+            }
+        });
+    }
+    $(document).ready(function () {
+        $('#search').DataTable({
+            "searching": false,
+            "bLengthChange": false,
+            "info" : false,
+            "iDisplayLength": 15
+        });
+        $('.dataTables_length').addClass('bs-select');
+    });
+
+    function setMarkers(map, locations) {
+        <?php foreach ($_SESSION['grotti'] as $row): ?>
+
+            var contentString = `
+                <div class='content modal-body'>
+                    <h1 id="nome" style='color:black;'>  <?php echo $row['nome']; ?></h1>
+                    <strong id="indirizzo">Indirizzo</strong> <?php echo(" " . $row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?>
+                    <br>
+                    <strong id="telefono">Telefono</strong><?php echo " " . $row['telefono']; ?>
+                    <br>
+                    <strong id="valutazione">Valutazione</strong><?php echo " " . $row['valutazione']; ?>
+                    <br><br>
+                </div>`;
+
+            var infowindow<?php echo $row['id']; ?> = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var luogo = {lat: <?php echo floatval($row['lat']); ?>, lng: <?php echo floatval($row['lon']); ?> };
+
+            var marker<?php echo $row['id']; ?> = new google.maps.Marker({
+                position: luogo,
+                map: map,
+                animation: google.maps.Animation.DROP,
+                title: <?php echo "'" . $row['nome'] . "'"; ?>
+            });
+
+            marker<?php echo $row['id']; ?>.addListener('click', function() {
+
+                if (infowindowOpen != null){
+                    infowindowOpen.close();
+                }
+                infowindow<?php echo $row['id']; ?>.open(map, marker<?php echo $row['id']; ?>);
+                infowindowOpen = infowindow<?php echo $row['id']; ?>;
+
+                map.setZoom(13);
+                map.setCenter(marker<?php echo $row['id']; ?>.getPosition());
+            });
+        <?php endforeach; ?>
+    }
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=<?php echo API_KEY ?>&callback=initMap">
+</script>

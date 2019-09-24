@@ -32,7 +32,7 @@ class Application
         } else {
             if($this->url_controller == ''){
                 //INDEX PAGE
-                require './application/controller/Home.php';
+                require './application/controller/home.php';
                 $home = new Home();
                 $home->index();
             }
