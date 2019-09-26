@@ -8,7 +8,7 @@
 
                     <div class="form-row mb-4">
                         <div class="col">
-                            <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Nome">
+                            <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Nome" value="<?php echo ($_SESSION['data'] != null)?$_SESSION['data']['firstname']:'';  ?>">
                         </div>
                         <div class="col">
                             <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Cognome">
@@ -30,6 +30,8 @@
                     <input type="password" id="repassword" name="repassword" class="form-control" placeholder="Ripeti la password">
 
                     <button class="btn btn-info my-4 btn-block" type="submit">Registrati</button>
+
+                    <p></p>
                 </form>
             </div>
         </div>

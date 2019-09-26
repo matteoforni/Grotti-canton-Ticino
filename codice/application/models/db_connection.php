@@ -40,15 +40,17 @@ class db_connection
 
     public function addUser($firstname, $lastname, $username, $email, $password){
         $db = $this->getConnection();
-        $query = $db->prepare('insert into utente(email, nome, cognome, username, password) values (":email", ":firstname", ":lastname", ":username", ":password")');
+        $query = $db->prepare('insert into utente(email, nome, cognome, username, password, nome_ruolo) values (":email", ":firstname", ":lastname", ":username", ":password" , ":nome_ruolo")');
 
         $password = hash('sha256', $password);
+        $type = "utente";
 
         $query->bindParam(':email', $email, PDO::PARAM_STR);
         $query->bindParam(':firstname', $firstname, PDO::PARAM_STR);
         $query->bindParam(':lastname', $lastname, PDO::PARAM_STR);
         $query->bindParam(':username', $username, PDO::PARAM_STR);
         $query->bindParam(':password', $password, PDO::PARAM_STR);
+        $query->bindParam(':nome_ruolo', $type, PDO::PARAM_STR);
 
         $query->execute();
     }
