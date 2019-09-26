@@ -1,12 +1,13 @@
 <?php
 class Home
 {
+    /**
+     * Funzione che richiama la pagina principale caricando dal model i grotti.
+     */
     public function index()
     {
         require_once "./application/models/db_connection.php";
-        $db = (new db_connection)->getConnection();
-        $query = $db->prepare('SELECT * from grotto;');
-        $query->execute();
+        $query = (new db_connection)->getGrotti();
         $_SESSION['grotti'] = $query->fetchAll();
 
         //Show index page

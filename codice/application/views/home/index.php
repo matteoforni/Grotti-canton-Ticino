@@ -47,7 +47,7 @@
             new google.maps.LatLng(46.539085, 9.470215)
         );
         map = new google.maps.Map(window.document.getElementById('map'), {
-            zoom: 7,
+            zoom: 9,
             center: center_loc,
             restriction: {
                 latLngBounds: tiBounds,
@@ -58,7 +58,8 @@
         google.maps.event.addListener(map, "click", function(event) {
             if(infowindowOpen != null){
                 infowindowOpen.close();
-                map.setZoom(7);
+                map.setZoom(10);
+                infowindowOpen = null;
             }
         });
     }
@@ -79,11 +80,10 @@
                 <div class='content modal-body'>
                     <h1 id="nome" style='color:black;'>  <?php echo $row['nome']; ?></h1>
                     <strong id="indirizzo">Indirizzo</strong> <?php echo(" " . $row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?>
-                    <br>
-                    <strong id="telefono">Telefono</strong><?php echo " " . $row['telefono']; ?>
-                    <br>
-                    <strong id="valutazione">Valutazione</strong><?php echo " " . $row['valutazione']; ?>
                     <br><br>
+                    <strong id="telefono">Telefono</strong><?php echo " " . $row['telefono']; ?>
+                    <br><br>
+                    <strong id="valutazione">Valutazione</strong><?php echo " " . $row['valutazione']; ?>
                 </div>`;
 
             var infowindow<?php echo $row['id']; ?> = new google.maps.InfoWindow({
