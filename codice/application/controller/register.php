@@ -10,6 +10,8 @@ class Register
         ViewLoader::load("_templates/header_base");
         ViewLoader::load("register/index");
         ViewLoader::load("_templates/footer");
+        $_SESSION['data'] = null;
+        $_SESSION['warning'] = null;
     }
 
     public function createUser(){
@@ -19,8 +21,10 @@ class Register
         $errors = array();
 
         if($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['username']) &&
-                isset($_POST['email']) && isset($_POST['password']) && isset($_POST['repassword'])) {
+            if (isset($_POST['firstname']) && !empty($_POST['firstname']) && isset($_POST['lastname']) && !empty($_POST['lastname'])
+                && isset($_POST['username']) && !empty($_POST['username']) &&
+                isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']) &&
+                isset($_POST['repassword']) && !empty($_POST['repassword']) ) {
 
                 $exists = false;
                 $im = new InputManager();
@@ -48,7 +52,7 @@ class Register
                 }
 
                 if(count($errors) != 0){
-                    $_SESSION['errors'] = $errors;
+                    $_SESSION['warning'] = $errors;
                     $data = array(
                         'firstname' => $firstname,
                         'lastname' => $lastname,
@@ -57,13 +61,14 @@ class Register
                     );
                     $_SESSION['data'] = $data;
                     header('Location: ' . URL . 'register');
+                    return false;
                 }
 
                 if($password == $repassword) {
 
                     $db = (new db_connection)->getUsers();
 
-                    foreach ($db as $row) {
+                    foreach ($db->fetchAll() as $row) {
                         if ($row['email'] == $email) {
                             array_push($errors, "L'email è già in uso");
                             $exists = true;
@@ -72,11 +77,22 @@ class Register
                     if(!$exists) {
                         (new db_connection())->addUser($firstname, $lastname, $username, $email, $password);
                         header('Location: ' . URL . 'login');
+                    }else{
+                        $_SESSION['warning'] = $errors;
+                        $data = array(
+                            'firstname' => $firstname,
+                            'lastname' => $lastname,
+                            'username' => $username,
+                            'email' => $email
+                        );
+                        $_SESSION['data'] = $data;
+                        header('Location: ' . URL . 'register');
+                        return false;
                     }
 
                 }else{
                     array_push($errors, "Le password devono essere uguali");
-                    $_SESSION['errors'] = $errors;
+                    $_SESSION['warning'] = $errors;
                     $data = array(
                         'firstname' => $firstname,
                         'lastname' => $lastname,
@@ -85,10 +101,13 @@ class Register
                     );
                     $_SESSION['data'] = $data;
                     header('Location: ' . URL . 'register');
+                    return false;
                 }
             }else{
-                $_SESSION['errors'] = $errors;
+                array_push($errors, "Inserire tutti i dati");
+                $_SESSION['warning'] = $errors;
                 header('Location: ' . URL . 'register');
+                return false;
             }
         }
     }
