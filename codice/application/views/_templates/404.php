@@ -20,24 +20,7 @@
     <!-- Swiper Js Stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
 
-    <style>
-        .al-404 {
-            background-attachment: fixed;
-            background-image: linear-gradient( rgba(22, 0, 10, .2), rgba(252, 68, 69, .3)), url('https://source.unsplash.com/1024x768/?thunderstorm');
-            background-position: center bottom;
-            background-size: cover;
-            font-family: 'Poppins', sans-serif;
-            height: 100vh;
-        }
-        .al-404 h2 {
-            color: #fff;
-            font-size: 80px;
-        }
-        .al-404 p {
-            color: #dcdcdc;
-            font-size: 18px;
-        }
-    </style>
+
 </head>
 <body>
     <section class="al-404">

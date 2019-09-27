@@ -8,7 +8,7 @@
  */
 
 /**
- * Configurazione di : Error reporting
+ * Configurazione di : warning reporting
  * Utile per vedere tutti i piccoli problemi in fase di sviluppo, in produzione solo quelli gravi
  */
 error_reporting(E_ALL);

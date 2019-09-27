@@ -2,9 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/js/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/mdb/js/addons/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/mdb/js/addons/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/mdb/js/addons/datatables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/mdb/js/addons/datatables.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/mdb/js/addons/imagesloaded.pkgd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/mdb/js/addons/imagesloaded.pkgd.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/mdb/js/addons/masonry.pkgd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/mdb/js/addons/masonry.pkgd.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/mdb/js/jquery-3.4.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/mdb/js/jquery-3.4.1.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/mdb/js/mdb.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/mdb/js/mdb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/mdb/js/mdb.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/mdb/js/mdb.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/mdb/js/modules/chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/mdb/js/modules/chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/mdb/js/modules/velocity.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/mdb/js/modules/velocity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/mdb/js/modules/velocity.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/mdb/js/modules/velocity.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/config/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/controller/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/models/contactForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/models/contactForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/models/db_connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/models/db_connection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/_templates/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/_templates/404.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/views/register/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/register/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,19 +36,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/codice/application/controller/home.php">
+        <entry file="file://$PROJECT_DIR$/codice/application/models/db_connection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/codice/application/controller/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+            <state relative-caret-position="476">
+              <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-end-line="29" />
             </state>
           </provider>
         </entry>
@@ -42,8 +47,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codice/application/views/login/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="3" selection-end-column="30" />
+            <state relative-caret-position="204">
+              <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/codice/application/controller/warning.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -51,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codice/application/controller/register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+            <state relative-caret-position="204">
+              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -60,17 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/codice/application/views/register/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="199" selection-start-line="10" selection-start-column="199" selection-end-line="10" selection-end-column="199" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/codice/application/models/input_manager.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="12" selection-end-column="1" />
+            <state relative-caret-position="374">
+              <caret line="22" column="183" selection-start-line="22" selection-start-column="183" selection-end-line="22" selection-end-column="183" />
             </state>
           </provider>
         </entry>
@@ -88,12 +93,18 @@
         <option value="$PROJECT_DIR$/codice/application/views/home/index.php" />
         <option value="$PROJECT_DIR$/codice/application/controller/login.php" />
         <option value="$PROJECT_DIR$/codice/application/views/_templates/header_base.php" />
-        <option value="$PROJECT_DIR$/codice/application/views/login/index.php" />
         <option value="$PROJECT_DIR$/codice/application/models/input_manager.php" />
         <option value="$PROJECT_DIR$/codice/application/config/config.php" />
-        <option value="$PROJECT_DIR$/codice/application/controller/register.php" />
-        <option value="$PROJECT_DIR$/codice/application/models/db_connection.php" />
         <option value="$PROJECT_DIR$/codice/application/controller/home.php" />
+        <option value="$PROJECT_DIR$/codice/application/views/_templates/404.php" />
+        <option value="$PROJECT_DIR$/codice/application/views/error/db.php" />
+        <option value="$PROJECT_DIR$/codice/application/controller/Error.php" />
+        <option value="$PROJECT_DIR$/codice/application/views/login/index.php" />
+        <option value="$PROJECT_DIR$/codice/application/views/errors/db.php" />
+        <option value="$PROJECT_DIR$/codice/application/controller/error.php" />
+        <option value="$PROJECT_DIR$/codice/application/controller/warning.php" />
+        <option value="$PROJECT_DIR$/codice/application/models/db_connection.php" />
+        <option value="$PROJECT_DIR$/codice/application/controller/register.php" />
         <option value="$PROJECT_DIR$/codice/application/views/register/index.php" />
       </list>
     </option>
@@ -118,7 +129,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -223,6 +233,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -268,22 +279,24 @@
       <workItem from="1569150937183" duration="840000" />
       <workItem from="1569323952251" duration="10463000" />
       <workItem from="1569338800301" duration="1077000" />
-      <workItem from="1569496767771" duration="10480000" />
+      <workItem from="1569496767771" duration="10924000" />
+      <workItem from="1569583152244" duration="5157000" />
+      <workItem from="1569591851361" duration="1515000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22860000" />
+    <option name="totallyTimeSpent" value="29976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25773746" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26307365" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -352,10 +365,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/codice/application/models/input_manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codice/application/controller/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codice/application/views/_templates/404.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/codice/application/controller/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        <state>
+          <caret selection-end-line="13" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -366,45 +400,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codice/application/models/input_manager.php">
+    <entry file="file://$PROJECT_DIR$/codice/application/views/warning/db.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="12" selection-end-column="1" />
+        <state relative-caret-position="17">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/codice/application/views/login/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="3" selection-end-column="30" />
+        <state relative-caret-position="204">
+          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codice/application/controller/warning.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/codice/application/models/db_connection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="41" column="37" lean-forward="true" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/codice/application/controller/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="476">
+          <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-end-line="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/codice/application/controller/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+        <state relative-caret-position="204">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/codice/application/views/register/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="199" selection-start-line="10" selection-start-column="199" selection-end-line="10" selection-end-column="199" />
+        <state relative-caret-position="374">
+          <caret line="22" column="183" selection-start-line="22" selection-start-column="183" selection-end-line="22" selection-end-column="183" />
         </state>
       </provider>
     </entry>

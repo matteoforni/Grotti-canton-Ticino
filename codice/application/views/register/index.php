@@ -8,19 +8,19 @@
 
                     <div class="form-row mb-4">
                         <div class="col">
-                            <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Nome" value="<?php echo ($_SESSION['data'] != null)?$_SESSION['data']['firstname']:'';  ?>">
+                            <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Nome" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['firstname']:null;  ?>">
                         </div>
                         <div class="col">
-                            <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Cognome">
+                            <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Cognome" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['lastname']:null;  ?>">
                         </div>
                     </div>
 
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" aria-describedby="username-helpblock">
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" aria-describedby="username-helpblock" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['username']:null;  ?>">
                     <small id="username-helpblock" class="form-text text-muted mb-4">
                         Minimo 3 caratteri
                     </small>
 
-                    <input type="email" id="email" name="email" class="form-control mb-4" placeholder="E-mail">
+                    <input type="email" id="email" name="email" class="form-control mb-4" placeholder="E-mail" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['email']:null;  ?>">
 
                     <input type="password" id="password" name="password" class="form-control" placeholder="Password" aria-describedby="password-helpblock">
                     <small id="password-helpblock" class="form-text text-muted mb-4">
@@ -31,7 +31,13 @@
 
                     <button class="btn btn-info my-4 btn-block" type="submit">Registrati</button>
 
-                    <p></p>
+                        <?php
+                            if($_SESSION['warning'] != null){
+                                foreach ($_SESSION['warning'] as $item) {
+                                    echo "<p class='text-danger'>" . $item . "<br>";
+                                }
+                            }
+                        ?>
                 </form>
             </div>
         </div>
