@@ -16,8 +16,7 @@ class db_connection
                 $this->_connection = new PDO(DSN, USER, PASSWORD);
                 return $this->_connection;
             }catch(PDOException $e){
-                print "Error!: " . $e->getMessage() . "<br/>";
-                die();
+                header('Location: ' . URL . 'error');
             }
         }
     }
@@ -39,20 +38,24 @@ class db_connection
     }
 
     public function addUser($firstname, $lastname, $username, $email, $password){
-        $db = $this->getConnection();
-        $query = $db->prepare('insert into utente(email, nome, cognome, username, password, nome_ruolo) values (":email", ":firstname", ":lastname", ":username", ":password" , ":nome_ruolo")');
+        try {
+            $db = $this->getConnection();
+            $query = $db->prepare('INSERT INTO utente(email, nome, cognome, username, password, nome_ruolo) VALUES (?, ?, ?, ?, ? , ?)');
 
-        $password = hash('sha256', $password);
-        $type = "utente";
+            $password = hash('sha256', $password);
+            $type = "utente";
 
-        $query->bindParam(':email', $email, PDO::PARAM_STR);
-        $query->bindParam(':firstname', $firstname, PDO::PARAM_STR);
-        $query->bindParam(':lastname', $lastname, PDO::PARAM_STR);
-        $query->bindParam(':username', $username, PDO::PARAM_STR);
-        $query->bindParam(':password', $password, PDO::PARAM_STR);
-        $query->bindParam(':nome_ruolo', $type, PDO::PARAM_STR);
+            $query->bindParam(1, $email, PDO::PARAM_STR);
+            $query->bindParam(2, $firstname, PDO::PARAM_STR);
+            $query->bindParam(3, $lastname, PDO::PARAM_STR);
+            $query->bindParam(4, $username, PDO::PARAM_STR);
+            $query->bindParam(5, $password, PDO::PARAM_STR);
+            $query->bindParam(6, $type, PDO::PARAM_STR);
 
-        $query->execute();
+            $query->execute();
+        }catch (Exception $e){
+            header('Location: ' . URL . 'warning');
+        }
     }
 
     /**
@@ -60,9 +63,13 @@ class db_connection
      * @return bool|PDOStatement La query al database.
      */
     public function getGrotti(){
-        $db = $this->getConnection();
-        $query = $db->prepare('SELECT * from grotto;');
-        $query->execute();
-        return $query;
+        try {
+            $db = $this->getConnection();
+            $query = $db->prepare('SELECT * from grotto;');
+            $query->execute();
+            return $query;
+        }catch (Exception $e){
+            header('Location: ' . URL . 'error');
+        }
     }
 }
