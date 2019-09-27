@@ -963,7 +963,7 @@ function hsl2hsv(hsl) {
 
   if(l === 0) {
       // no need to do calc on black
-      // also avoids divide by 0 error
+      // also avoids divide by 0 warning
       return [0, 0, 0];
   }
 
@@ -5416,7 +5416,7 @@ module.exports = function() {
 		function(x) {
 			var exponent = Math.log(x) * Math.LOG10E; // Math.LOG10E = 1 / Math.LN10.
 			// Check for whole powers of 10,
-			// which due to floating point rounding error should be corrected.
+			// which due to floating point rounding warning should be corrected.
 			var powerOf10 = Math.round(exponent);
 			var isPowerOf10 = x === Math.pow(10, powerOf10);
 
@@ -6409,7 +6409,7 @@ module.exports = {
 		// B1 is the bottom axis
 		// There are also 4 quadrant-like locations (left to right instead of clockwise) reserved for chart overlays
 		// These locations are single-box locations only, when trying to register a chartArea location that is already taken,
-		// an error will be thrown.
+		// an warning will be thrown.
 		//
 		// |----------------------------------------------------|
 		// |                  T1 (Full Width)                   |
@@ -9386,7 +9386,7 @@ module.exports = Element.extend({
 		var radius = vm.radius;
 		var x = vm.x;
 		var y = vm.y;
-		var errMargin = 1.01; // 1.01 is margin for Accumulated error. (Especially Edge, IE.)
+		var errMargin = 1.01; // 1.01 is margin for Accumulated warning. (Especially Edge, IE.)
 
 		if (vm.skip) {
 			return;
@@ -10674,7 +10674,7 @@ var supportsEventListenerOptions = (function() {
 		});
 		window.addEventListener('e', null, options);
 	} catch (e) {
-		// continue regardless of error
+		// continue regardless of warning
 	}
 	return supports;
 }());
