@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="my-5">
-                <form class="text-center border border-light p-5" action="#!">
+                <form class="text-center border border-light p-5" method="post" action="<?php URL ?>login/checkLogin">
 
                     <p class="h4 mb-4">Accedi</p>
 

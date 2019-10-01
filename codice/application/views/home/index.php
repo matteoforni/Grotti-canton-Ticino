@@ -33,6 +33,10 @@
         </div>
     </div>
 </div>
+<?php
+
+echo hash('sha256', 'Password&1');
+?>
 
 <script>
     let map;
