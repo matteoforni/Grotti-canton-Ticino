@@ -6,12 +6,13 @@ class Register
      */
     public function index()
     {
+        $_SESSION['data'] = null;
+        $_SESSION['warning'] = null;
         //Show index page
         ViewLoader::load("_templates/header_base");
         ViewLoader::load("register/index");
         ViewLoader::load("_templates/footer");
-        $_SESSION['data'] = null;
-        $_SESSION['warning'] = null;
+
     }
 
     public function createUser(){
@@ -76,6 +77,7 @@ class Register
                     }
                     if(!$exists) {
                         (new db_connection())->addUser($firstname, $lastname, $username, $email, $password);
+                        unset($_POST);
                         header('Location: ' . URL . 'login');
                     }else{
                         $_SESSION['warning'] = $errors;
