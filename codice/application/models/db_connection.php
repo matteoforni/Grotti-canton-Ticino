@@ -33,8 +33,19 @@ class db_connection
     }
 
 
-    public function getUser(){
+    public function getUser($email){
+        try{
+            $db = $this->getConnection();
 
+            $query = $db->prepare('SELECT * FROM utente where email=?');
+            $query->bindParam(1, $email, PDO::PARAM_STR);
+
+            $query->execute();
+
+            return $query->fetchAll();
+        }catch (Exception $e){
+            header('Location: ' . URL . 'warning');
+        }
     }
 
     public function addUser($firstname, $lastname, $username, $email, $password){
