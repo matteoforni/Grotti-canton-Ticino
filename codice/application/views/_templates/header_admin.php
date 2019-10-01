@@ -29,20 +29,23 @@
 <body>
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light grey lighten-3 scrolling-navbar">
-        <a class="navbar-brand" href="#"><strong>Grotti Ticinesi</strong></a>
+        <a class="navbar-brand" href="<?php URL ?>home"><strong>Grotti Ticinesi</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="justify-content-end collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="<?php URL ?>home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Amministrazione</a>
+                    <a class="nav-link" href="<?php URL ?>admin">Amministrazione</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Aggiungi Grotto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php URL ?>home/logout">Logout</a>
                 </li>
             </ul>
         </div>

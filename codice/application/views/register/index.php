@@ -31,13 +31,13 @@
 
                     <button class="btn btn-info my-4 btn-block" type="submit">Registrati</button>
 
-                        <?php
-                            if($_SESSION['warning'] != null){
-                                foreach ($_SESSION['warning'] as $item) {
-                                    echo "<p class='text-danger'>" . $item . "<br>";
-                                }
-                            }
-                        ?>
+                    <?php
+                    if(isset($_SESSION['warning'])){
+                        foreach ($_SESSION['warning'] as $item) {
+                            echo "<p class='text-danger'>" . $item . "</p><br>";
+                        }
+                    }
+                    ?>
                 </form>
             </div>
         </div>
