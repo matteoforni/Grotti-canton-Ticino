@@ -10,9 +10,29 @@ class Home
         $query = (new db_connection)->getGrotti();
         $_SESSION['grotti'] = $query->fetchAll();
 
-        //Show index page
-        ViewLoader::load("_templates/header_base");
-        ViewLoader::load("home/index");
-        ViewLoader::load("_templates/footer");
+        if(isset($_SESSION['user'])){
+            //mostro l'index per gli utenti loggati
+
+            if($_SESSION['user'][0]['nome_ruolo'] == 'admin'){
+                ViewLoader::load("_templates/header_admin");
+                ViewLoader::load("home/index");
+                ViewLoader::load("_templates/footer");
+            }elseif($_SESSION['user'][0]['nome_ruolo'] == 'utente'){
+                ViewLoader::load("_templates/header_user");
+                ViewLoader::load("home/index");
+                ViewLoader::load("_templates/footer");
+            }
+        }else{
+            //mostro l'index di base
+            ViewLoader::load("_templates/header_base");
+            ViewLoader::load("home/index");
+            ViewLoader::load("_templates/footer");
+        }
+    }
+
+    public function logout(){
+        unset($_SESSION['user']);
+        header('Location: ' . URL . 'home');
+        exit();
     }
 }
