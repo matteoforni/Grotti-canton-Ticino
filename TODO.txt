@@ -1,0 +1,3 @@
+- aggiungere seguenti campi nel DB alla tabella utente:
+	-reset_token (token per resettare l'email, sarà null finché non si richiederà di resettare la password, unique)
+	-first_login (di base a false, se un admin crea un utente sarà a true e al primo login lo user dovrà cambiare password)
