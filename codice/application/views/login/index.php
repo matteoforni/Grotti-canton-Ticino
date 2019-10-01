@@ -21,6 +21,13 @@
                     <p>Non hai un account?
                         <a href="<?php URL ?>register">Registrati</a>
                     </p>
+                    <?php
+                    if(isset($_SESSION['warning'])){
+                        foreach ($_SESSION['warning'] as $item) {
+                            echo "<p class='text-danger'>" . $item . "</p><br>";
+                        }
+                    }
+                    ?>
                 </form>
             </div>
         </div>
