@@ -35,7 +35,7 @@
                     <input type="password" id="repassword" name="repassword" class="form-control" placeholder="Ripeti la password">
                     <div id="error-repassword" class="alert alert-danger" role="alert" >Inserire una password valida</div>
 
-                    <button class="btn btn-info my-4 btn-block" type="submit">Registrati</button>
+                    <button class="btn btn-info my-4 btn-block" type="submit" id="submit">Registrati</button>
 
                     <?php
                     if(isset($_SESSION['warning'])){
@@ -84,6 +84,7 @@
                 $('#error-lastname').css("display", "block");
                 inputs[1] = false;
             }
+            checkSubmit()
         });
         $("#username").keydown(function() {
             var input = this.value;
@@ -98,6 +99,7 @@
                 $('#error-username').css("display", "block");
                 inputs[2] = false;
             }
+            checkSubmit()
         });
         $("#email").keydown(function() {
             var input = this.value;
@@ -112,6 +114,7 @@
                 $('#error-email').css("display", "block");
                 inputs[3] = false;
             }
+            checkSubmit()
         });
         $("#password").keydown(function() {
             var input = this.value;
@@ -126,6 +129,7 @@
                 $('#error-password').css("display", "block");
                 inputs[4] = false;
             }
+            checkSubmit()
         });
         $("#repassword").keydown(function() {
             var input = this.value;
@@ -140,7 +144,19 @@
                 $('#error-repassword').css("display", "block");
                 inputs[5] = false;
             }
+            checkSubmit()
         });
+        function checkSubmit(){
+            for(var i = 0; i < inputs.length; i++){
+                if(inputs[i] != true){
+                    console.log("false");
+                    $('#submit').attr("disabled", true);
+                    return;
+                }
+            }
+            $('#submit').attr("disabled", false);
+            return;
+        }
     });
 
 </script>

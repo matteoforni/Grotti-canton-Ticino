@@ -16,7 +16,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-info btn-block my-4" type="submit">Accedi</button>
+                    <button class="btn btn-info btn-block my-4" type="submit" id="submit">Accedi</button>
 
                     <p>Non hai un account?
                         <a href="<?php URL ?>register">Registrati</a>
@@ -53,6 +53,7 @@
                 $('#error-email').css("display", "block");
                 inputs[3] = false;
             }
+            checkSubmit()
         });
         $("#password").keydown(function() {
             var input = this.value;
@@ -67,6 +68,18 @@
                 $('#error-password').css("display", "block");
                 inputs[4] = false;
             }
+            checkSubmit()
         });
+        function checkSubmit(){
+            for(var i = 0; i < inputs.length; i++){
+                if(inputs[i] != true){
+                    console.log("false");
+                    $('#submit').attr("disabled", true);
+                    return;
+                }
+            }
+            $('#submit').attr("disabled", false);
+            return;
+        }
     });
 </script>
