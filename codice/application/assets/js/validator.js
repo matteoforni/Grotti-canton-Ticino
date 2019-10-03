@@ -3,7 +3,7 @@ class Validator {
         console.log("[INFO] Loaded validator.js for local validation");
     }
 
-    name(text, lengthMin, lengthMax) {
+    firstname(text, lengthMin, lengthMax) {
         if (text.length > lengthMin && text.length < lengthMax) {
             var allChars = /^\s*([A-Za-z\u00C0-\u017F ]{1,}([\.,]|[-']|))*$/i;
             return allChars.test(text);
@@ -11,9 +11,25 @@ class Validator {
         return false;
     }
 
-    message(text, lengthMin, lengthMax) {
+    lastname(text, lengthMin, lengthMax) {
         if (text.length > lengthMin && text.length < lengthMax) {
             var allChars = /^\s*([A-Za-z\u00C0-\u017F0-9 ]{1,}([\.,]|[-']|))*$/i;
+            return allChars.test(text);
+        }
+        return false;
+    }
+
+    username(text, lengthMin, lengthMax) {
+        if (text.length > lengthMin && text.length < lengthMax) {
+            var allChars = /^\s*([A-Za-z\u00C0-\u017F0-9 ]{1,}([\.,]|[-']|))*$/i;
+            return allChars.test(text);
+        }
+        return false;
+    }
+
+    password(text, lengthMin, lengthMax) {
+        if (text.length > lengthMin && text.length < lengthMax) {
+            var allChars = /^\s*([A-Za-z\u00C0-\u017F0-9*%&!?$@+#]{1,}([\.,]|[-']|))*$/i;
             return allChars.test(text);
         }
         return false;

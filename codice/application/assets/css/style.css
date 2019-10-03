@@ -6,6 +6,9 @@
 .navbar{
     position: relative;
 }
+.alert{
+    display: none;
+}
 @media only screen and (max-width: 600px) {
     #map{
         width: 80vw;

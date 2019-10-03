@@ -1,34 +1,72 @@
 var validator = new Validator();
 
-function addListeners() {
+function addRegisterListeners() {
     //Aggiunge evento keydown ai campi
-    $("#name").keydown(function() {
-        manage(this, "name");
+    $("#firstname").keydown(function() {
+        manage(this, "firstname");
     });
-    $("#message").keydown(function() {
-        manage(this, "message");
+    $("#lastname").keydown(function() {
+        manage(this, "lastname");
+    });
+    $("#username").keydown(function() {
+        manage(this, "username");
     });
     $("#email").keydown(function() {
         manage(this, "email");
     });
+    $("#password").keydown(function() {
+        manage(this, "password");
+    });
+    $("#repassword").keydown(function() {
+        manage(this, "repassword");
+    });
+
+    //Aggiunge evento keyup ai campi
+    $("#firstname").keyup(function() {
+        manage(this, "firstname");
+    });
+    $("#lastname").keyup(function() {
+        manage(this, "lastname");
+    });
+    $("#username").keyup(function() {
+        manage(this, "email");
+    });
+    //Aggiunge evento keyup ai campi
+    $("#email").keyup(function() {
+        manage(this, "username");
+    });
+    $("#password").keyup(function() {
+        manage(this, "password");
+    });
+    $("#repassword").keyup(function() {
+        manage(this, "repassword");
+    });
+}
+
+function addLoginListeners() {
+    //Aggiunge evento keydown ai campi
+    $("#email").keydown(function() {
+        manage(this, "email");
+    });
+    $("#password").keydown(function() {
+        manage(this, "password");
+    });
 
 
     //Aggiunge evento keyup ai campi
-    $("#name").keyup(function() {
-        manage(this, "name");
-    });
-    $("#message").keyup(function() {
-        manage(this, "message");
-    });
     $("#email").keyup(function() {
         manage(this, "email");
     });
+    $("#password").keyup(function() {
+        manage(this, "password");
+    });
+
 }
 
 //PARAMS
 const global_length_min = 0;
-const name_length_max = 500;
-const message_length_max = 500;
+const name_length_max = 50;
+const pass_length_min = 8;
 
 function manage(obj, selector) {
     var status = false;
@@ -37,12 +75,18 @@ function manage(obj, selector) {
 
     obj.value = obj.value.replace(/[;]+/i, '');
 
-    if (selector == "name") {
-        status = validator.name(obj.value, global_length_min, name_length_max);
-    } else if (selector == "email") {
-        status = validator.email(obj.value)
-    } else if (selector == "message") {
-        status = validator.message(obj.value, global_length_min, global_length_max);
+    if (selector == "firstname") {
+        status = validator.firstname(obj.value, global_length_min, name_length_max);
+    } else if (selector == "lastname") {
+        status = validator.lastname(obj.value, global_length_min, name_length_max);
+    } else if (selector == "username") {
+        status = validator.username(obj.value, global_length_min, name_length_max);
+    }else if (selector == "email") {
+        status = validator.email(obj.value);
+    }else if (selector == "password") {
+        status = validator.password(obj.value, pass_length_min, name_length_max);
+    }else if (selector == "repassword") {
+        status = validator.password(obj.value, pass_length_min, name_length_max);
     }
 
     if (status) {
