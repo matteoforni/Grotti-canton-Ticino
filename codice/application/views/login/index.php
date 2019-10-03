@@ -33,3 +33,40 @@
         </div>
     </div>
 </div>
+<script>
+    var inputs = [false, false, false, false, false, false];
+    $(document).ready(function () {
+        addLoginListeners();
+        var validator = new Validator();
+        var min_value = 0;
+        var max_value = 50;
+        $("#email").keydown(function() {
+            var input = this.value;
+            if(validator.email(input)){
+                $('#email').addClass("has-success");
+                $('#email').removeClass("has-error");
+                $('#error-email').css("display", "none");
+                inputs[3] = true;
+            }else{
+                $('#email').addClass("has-error");
+                $('#email').removeClass("has-success");
+                $('#error-email').css("display", "block");
+                inputs[3] = false;
+            }
+        });
+        $("#password").keydown(function() {
+            var input = this.value;
+            if(validator.password(input, min_value, max_value)){
+                $('#password').addClass("has-success");
+                $('#password').removeClass("has-error");
+                $('#error-password').css("display", "none");
+                inputs[4] = true;
+            }else{
+                $('#password').addClass("has-error");
+                $('#password').removeClass("has-success");
+                $('#error-password').css("display", "block");
+                inputs[4] = false;
+            }
+        });
+    });
+</script>

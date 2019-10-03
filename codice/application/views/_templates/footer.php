@@ -26,6 +26,11 @@
 <!-- Datatables addon -->
 <script src="./application/assets/mdb/js/addons/datatables.min.js"></script>
 
+<!-- Validator and register  -->
+<script src="./application/assets/js/validator.js"></script>
+
+<script src="./application/assets/js/register.js"></script>
+
 </body>
 
 </html>

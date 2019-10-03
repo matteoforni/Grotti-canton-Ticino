@@ -3,6 +3,7 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
 <?php
 $grotto = $_SESSION['grotto'];
 $img = $_SESSION['img'];
+$i = 0;
 ?>
 <div class="container">
     <div class="row">
@@ -14,7 +15,7 @@ $img = $_SESSION['img'];
                     <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
                         <div class="carousel-inner">
                             <?php foreach ($img as $item): ?>
-                                <?php if($item['id'] == 1): ?>
+                                <?php if($i == 0): ?>
                                     <div class="carousel-item active">
                                         <img class="d-block w-100" src="<?php echo $item['path']; ?>" alt="<?php echo $item['titolo']; ?>">
                                     </div>
@@ -23,6 +24,7 @@ $img = $_SESSION['img'];
                                         <img class="d-block w-100" src="<?php echo $item['path']; ?>" alt="<?php echo $item['titolo']; ?>">
                                     </div>
                                 <?php endif; ?>
+                            <?php $i++; ?>
                             <?php endforeach; ?>
                         </div>
                         <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
