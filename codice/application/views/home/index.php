@@ -18,7 +18,7 @@
                     <tbody>
                     <?php if(isset($_SESSION['grotti'])): ?>
                         <?php foreach ($_SESSION['grotti'] as $row): ?>
-                            <tr class="text-center">
+                            <tr class="text-center click-row" data-href="<?php echo URL; ?>grotto/show/<?php echo $row['id']; ?>">
                                 <td><?php echo $row['nome']; ?></td>
                                 <td><?php echo($row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?></td>
                                 <td><?php echo $row['telefono']; ?></td>
@@ -35,6 +35,12 @@
 </div>
 
 <script>
+    jQuery(document).ready(function($) {
+        $(".click-row").click(function() {
+            window.location = $(this).data("href");
+        });
+    });
+
     let map;
     var infowindowOpen = null;
     function initMap() {
@@ -76,7 +82,7 @@
     function setMarkers(map, locations) {
         <?php foreach ($_SESSION['grotti'] as $row): ?>
 
-            var contentString = `
+        var contentString = `
                 <div class='content modal-body'>
                     <h1 id="nome" style='color:black;'>  <?php echo $row['nome']; ?></h1>
                     <strong id="indirizzo">Indirizzo</strong> <?php echo(" " . $row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?>
@@ -86,30 +92,30 @@
                     <strong id="valutazione">Valutazione</strong><?php echo " " . $row['valutazione']; ?>
                 </div>`;
 
-            var infowindow<?php echo $row['id']; ?> = new google.maps.InfoWindow({
-                content: contentString
-            });
+        var infowindow<?php echo $row['id']; ?> = new google.maps.InfoWindow({
+            content: contentString
+        });
 
-            var luogo = {lat: <?php echo floatval($row['lat']); ?>, lng: <?php echo floatval($row['lon']); ?> };
+        var luogo = {lat: <?php echo floatval($row['lat']); ?>, lng: <?php echo floatval($row['lon']); ?> };
 
-            var marker<?php echo $row['id']; ?> = new google.maps.Marker({
-                position: luogo,
-                map: map,
-                animation: google.maps.Animation.DROP,
-                title: <?php echo "'" . $row['nome'] . "'"; ?>
-            });
+        var marker<?php echo $row['id']; ?> = new google.maps.Marker({
+            position: luogo,
+            map: map,
+            animation: google.maps.Animation.DROP,
+            title: <?php echo "'" . $row['nome'] . "'"; ?>
+        });
 
-            marker<?php echo $row['id']; ?>.addListener('click', function() {
+        marker<?php echo $row['id']; ?>.addListener('click', function() {
 
-                if (infowindowOpen != null){
-                    infowindowOpen.close();
-                }
-                infowindow<?php echo $row['id']; ?>.open(map, marker<?php echo $row['id']; ?>);
-                infowindowOpen = infowindow<?php echo $row['id']; ?>;
+            if (infowindowOpen != null){
+                infowindowOpen.close();
+            }
+            infowindow<?php echo $row['id']; ?>.open(map, marker<?php echo $row['id']; ?>);
+            infowindowOpen = infowindow<?php echo $row['id']; ?>;
 
-                map.setZoom(13);
-                map.setCenter(marker<?php echo $row['id']; ?>.getPosition());
-            });
+            map.setZoom(13);
+            map.setCenter(marker<?php echo $row['id']; ?>.getPosition());
+        });
         <?php endforeach; ?>
     }
 </script>

@@ -24,7 +24,6 @@
     <!-- Datatables addon -->
     <link href="./application/assets/mdb/css/addons/datatables.min.css" rel="stylesheet">
     <link href="./application/assets/mdb/css/addons/datatables-select.min.css" rel="stylesheet">
-
 </head>
 
 <body>
