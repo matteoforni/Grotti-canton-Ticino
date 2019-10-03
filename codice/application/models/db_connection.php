@@ -83,4 +83,28 @@ class db_connection
             header('Location: ' . URL . 'error');
         }
     }
+
+    public function getGrotto($id){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('SELECT * FROM grotto WHERE id=?');
+            $query->bindParam(1, $id);
+            $query->execute();
+            return $query->fetchAll();
+        }catch (Exception $e){
+            header('Location: ' . URL . 'warning');
+        }
+    }
+
+    public function getImages($id){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('SELECT * FROM foto WHERE grotto=?');
+            $query->bindParam(1, $id);
+            $query->execute();
+            return $query->fetchAll();
+        }catch (Exception $e){
+            header('Location: ' . URL . 'warning');
+        }
+    }
 }
