@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="" />
+    <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/ecomm-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/expansion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/accounting.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/blue/18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/blue/19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/blue/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/blue/20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/blue/21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/blue/22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/header/burger-menu-30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/header/burger-menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/partnumber.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/reglookup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/reports.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/stockcontrol.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/tecdoc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/icons/website247.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/motorfactory-screenshots/accounting.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/motorfactory-screenshots/carmake.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/motorfactory-screenshots/partnumber.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/motorfactory-screenshots/payment-methods.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/motorfactory-screenshots/reglookup.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/slideshow/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/slideshow/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/slideshow/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/slideshow/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/slideshow/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/slideshow/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/slideshow/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/slideshow/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/tecalliance_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/models/db_connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/models/db_connection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/_templates/header_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/_templates/header_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/_templates/header_base.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/_templates/header_base.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/_templates/header_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/_templates/header_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/home/index.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,34 +55,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codice/application/models/db_connection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
-              <caret line="46" column="51" lean-forward="true" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
+            <state relative-caret-position="636">
+              <caret line="101" column="66" selection-start-line="101" selection-start-column="66" selection-end-line="101" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/codice/application/views/login/index.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/codice/application/controller/login.php">
+        <entry file="file://$PROJECT_DIR$/codice/application/controller/grotto.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="755">
+              <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/codice/application/views/register/index.php">
+        <entry file="file://$PROJECT_DIR$/codice/application/views/grotto/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+            <state relative-caret-position="850">
+              <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/codice/application/assets/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -51,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codice/application/controller/register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="687">
+            <state relative-caret-position="2040">
               <caret line="120" column="23" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
             </state>
           </provider>
@@ -60,26 +103,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codice/application/controller/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="36" selection-end-column="5" />
+            <state relative-caret-position="153">
+              <caret line="9" column="29" selection-start-line="9" selection-end-line="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/codice/application/views/_templates/header_admin.php">
+        <entry file="file://$PROJECT_DIR$/codice/application/views/home/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
-              <caret line="46" column="16" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="48" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/codice/application/views/_templates/header_user.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+            <state relative-caret-position="646">
+              <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -93,7 +127,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/codice/application/libs/application.php" />
-        <option value="$PROJECT_DIR$/codice/application/assets/css/style.css" />
         <option value="$PROJECT_DIR$/codice/application/models/input_manager.php" />
         <option value="$PROJECT_DIR$/codice/application/config/config.php" />
         <option value="$PROJECT_DIR$/codice/application/views/_templates/404.php" />
@@ -102,18 +135,21 @@
         <option value="$PROJECT_DIR$/codice/application/views/errors/db.php" />
         <option value="$PROJECT_DIR$/codice/application/controller/error.php" />
         <option value="$PROJECT_DIR$/codice/application/controller/warning.php" />
-        <option value="$PROJECT_DIR$/codice/application/views/_templates/header_base.php" />
-        <option value="$PROJECT_DIR$/codice/application/models/db_connection.php" />
         <option value="$PROJECT_DIR$/codice/application/views/admin/index.php" />
         <option value="$PROJECT_DIR$/codice/application/controller/admin.php" />
-        <option value="$PROJECT_DIR$/codice/application/views/home/index.php" />
         <option value="$PROJECT_DIR$/codice/application/views/login/index.php" />
         <option value="$PROJECT_DIR$/codice/application/views/register/index.php" />
         <option value="$PROJECT_DIR$/codice/application/controller/login.php" />
         <option value="$PROJECT_DIR$/codice/application/controller/register.php" />
         <option value="$PROJECT_DIR$/codice/application/views/_templates/header_admin.php" />
-        <option value="$PROJECT_DIR$/codice/application/controller/home.php" />
         <option value="$PROJECT_DIR$/codice/application/views/_templates/header_user.php" />
+        <option value="$PROJECT_DIR$/codice/application/views/_templates/header_base.php" />
+        <option value="$PROJECT_DIR$/codice/application/controller/home.php" />
+        <option value="$PROJECT_DIR$/codice/application/views/home/index.php" />
+        <option value="$PROJECT_DIR$/codice/application/models/db_connection.php" />
+        <option value="$PROJECT_DIR$/codice/application/controller/grotto.php" />
+        <option value="$PROJECT_DIR$/codice/application/views/grotto/index.php" />
+        <option value="$PROJECT_DIR$/codice/application/assets/css/style.css" />
       </list>
     </option>
   </component>
@@ -236,6 +272,14 @@
               <item name="codice" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Grotti-canton-Ticino" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Grotti-canton-Ticino" type="462c0819:PsiDirectoryNode" />
+              <item name="codice" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -307,18 +351,19 @@
       <workItem from="1569496767771" duration="10924000" />
       <workItem from="1569583152244" duration="5157000" />
       <workItem from="1569591851361" duration="2242000" />
-      <workItem from="1569928660241" duration="9419000" />
+      <workItem from="1569928660241" duration="10286000" />
+      <workItem from="1570101379751" duration="4401000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40122000" />
+    <option name="totallyTimeSpent" value="45390000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26627535" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26947704" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -377,13 +422,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codice/application/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/codice/application/libs/viewloader.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -405,13 +443,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codice/application/views/warning/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/codice/application/views/warning/db.php" />
     <entry file="file://$PROJECT_DIR$/codice/application/views/admin/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -419,27 +451,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codice/application/controller/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/codice/application/views/home/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/codice/application/controller/warning.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/codice/application/controller/warning.php" />
     <entry file="file://$PROJECT_DIR$/codice/index.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -460,10 +472,10 @@
     <entry file="file://$PROJECT_DIR$/codice/application/views/login/index.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/codice/application/views/_templates/header_base.php">
+    <entry file="file://$PROJECT_DIR$/codice/application/controller/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="39" column="62" lean-forward="true" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="62" />
+        <state relative-caret-position="544">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
@@ -476,43 +488,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/codice/application/controller/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="687">
+        <state relative-caret-position="2040">
           <caret line="120" column="23" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/codice/application/views/_templates/header_admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="46" column="16" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="48" selection-end-column="21" />
+        <state relative-caret-position="222">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codice/application/views/_templates/header_base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codice/application/controller/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/codice/application/views/_templates/header_user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        <state relative-caret-position="289">
+          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codice/application/controller/login.php">
+    <entry file="file://$PROJECT_DIR$/codice/application/views/home/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="646">
+          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/codice/application/controller/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="36" selection-end-column="5" />
+        <state relative-caret-position="153">
+          <caret line="9" column="29" selection-start-line="9" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codice/application/controller/grotto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="755">
+          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/codice/application/models/db_connection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="46" column="51" lean-forward="true" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
+        <state relative-caret-position="636">
+          <caret line="101" column="66" selection-start-line="101" selection-start-column="66" selection-end-line="101" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codice/application/views/grotto/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codice/application/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
         </state>
       </provider>
     </entry>
