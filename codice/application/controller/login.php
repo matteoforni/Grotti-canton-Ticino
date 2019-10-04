@@ -17,7 +17,7 @@ class Login
      */
     public function checkLogin(){
         //richiamo le classi di cui avrò bisogno
-        unset($_SESSION['warning']);
+        unset($_SESSION['errors']);
         require_once "./application/models/db_connection.php";
         require_once "./application/models/input_manager.php";
 
@@ -56,7 +56,7 @@ class Login
                         }else{
                             //se la password è sbagliata ritorno l'errore
                             array_push($errors, "Password o email sbagliate");
-                            $_SESSION['warning'] = $errors;
+                            $_SESSION['errors'] = $errors;
                             header('Location: ' . URL . 'login');
                             exit();
                         }
@@ -64,7 +64,7 @@ class Login
                 }
                 //se l'email non è in utilizzo da nessun user ritorno l'errore
                 array_push($errors, "Password o email sbagliate");
-                $_SESSION['warning'] = $errors;
+                $_SESSION['errors'] = $errors;
                 header('Location: ' . URL . 'login');
                 exit();
             }

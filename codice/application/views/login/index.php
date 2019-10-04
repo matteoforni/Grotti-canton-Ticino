@@ -22,8 +22,8 @@
                         <a href="<?php URL ?>register">Registrati</a>
                     </p>
                     <?php
-                    if(isset($_SESSION['warning'])){
-                        foreach ($_SESSION['warning'] as $item) {
+                    if(isset($_SESSION['errors'])){
+                        foreach ($_SESSION['errors'] as $item) {
                             echo "<p class='text-danger'>" . $item . "</p><br>";
                         }
                     }
@@ -34,24 +34,31 @@
     </div>
 </div>
 <script>
-    var inputs = [false, false, false, false, false, false];
+    //Array contenente gli input andati a buon fine o che hanno riportato problemi.
+    var inputs = [false, false];
+
     $(document).ready(function () {
+        //Quando la pagina ha caricato completamente aggiungo i listener agli input.
         addLoginListeners();
+
+        //Genero un nuovo validatore e le lunghezze minime e massime.
         var validator = new Validator();
         var min_value = 0;
         var max_value = 50;
+
+        //All'evento keydown verifico il contenuto degli input
         $("#email").keydown(function() {
             var input = this.value;
             if(validator.email(input)){
                 $('#email').addClass("has-success");
                 $('#email').removeClass("has-error");
                 $('#error-email').css("display", "none");
-                inputs[3] = true;
+                inputs[0] = true;
             }else{
                 $('#email').addClass("has-error");
                 $('#email').removeClass("has-success");
                 $('#error-email').css("display", "block");
-                inputs[3] = false;
+                inputs[0] = false;
             }
             checkSubmit()
         });
@@ -61,19 +68,20 @@
                 $('#password').addClass("has-success");
                 $('#password').removeClass("has-error");
                 $('#error-password').css("display", "none");
-                inputs[4] = true;
+                inputs[1] = true;
             }else{
                 $('#password').addClass("has-error");
                 $('#password').removeClass("has-success");
                 $('#error-password').css("display", "block");
-                inputs[4] = false;
+                inputs[1] = false;
             }
             checkSubmit()
         });
+
+        //Disattivo il bottone e lo riattivo solo se tutti gli input sono corretti.
         function checkSubmit(){
             for(var i = 0; i < inputs.length; i++){
                 if(inputs[i] != true){
-                    console.log("false");
                     $('#submit').attr("disabled", true);
                     return;
                 }
