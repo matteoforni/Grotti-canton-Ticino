@@ -57,7 +57,7 @@ class Register
 
                 //se sono di lunghezze sbagliate ritorno l'errore
                 if(count($errors) != 0){
-                    $_SESSION['warning'] = $errors;
+                    $_SESSION['errors'] = $errors;
                     $data = array(
                         'firstname' => $firstname,
                         'lastname' => $lastname,
@@ -88,7 +88,7 @@ class Register
                         exit();
                     }else{
                         //se è già in uso ritorno l'errore
-                        $_SESSION['warning'] = $errors;
+                        $_SESSION['errors'] = $errors;
                         $data = array(
                             'firstname' => $firstname,
                             'lastname' => $lastname,
@@ -102,7 +102,7 @@ class Register
                 //se le password non sono uguali ritorno l'errore
                 }else{
                     array_push($errors, "Le password devono essere uguali");
-                    $_SESSION['warning'] = $errors;
+                    $_SESSION['errors'] = $errors;
                     $data = array(
                         'firstname' => $firstname,
                         'lastname' => $lastname,
@@ -116,7 +116,7 @@ class Register
             }else{
                 //se non sono stati inseriti tutti i dati ritorno l'errore
                 array_push($errors, "Inserire tutti i dati");
-                $_SESSION['warning'] = $errors;
+                $_SESSION['errors'] = $errors;
                 header('Location: ' . URL . 'register');
                 exit();
             }

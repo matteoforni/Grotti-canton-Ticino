@@ -38,8 +38,8 @@
                     <button class="btn btn-info my-4 btn-block" type="submit" id="submit">Registrati</button>
 
                     <?php
-                    if(isset($_SESSION['warning'])){
-                        foreach ($_SESSION['warning'] as $item) {
+                    if(isset($_SESSION['errors'])){
+                        foreach ($_SESSION['errors'] as $item) {
                             echo "<p class='text-danger'>" . $item . "</p><br>";
                         }
                     }
@@ -50,13 +50,19 @@
     </div>
 </div>
 <script>
+    //Array contenente gli input andati a buon fine o che hanno riportato problemi.
     var inputs = [false, false, false, false, false, false];
+
     $(document).ready(function () {
+        //Quando la pagina ha caricato completamente aggiungo i listener agli input.
         addRegisterListeners();
+
+        //Genero un nuovo validatore e le lunghezze minime e massime.
         var validator = new Validator();
         var min_value = 0;
         var max_value = 50;
 
+        //All'evento keydown verifico il contenuto degli input
         $("#firstname").keydown(function() {
             var input = this.value;
             if(validator.firstname(input, min_value, max_value)){
@@ -146,10 +152,11 @@
             }
             checkSubmit()
         });
+
+        //Disattivo il bottone e lo riattivo solo se tutti gli input sono corretti.
         function checkSubmit(){
             for(var i = 0; i < inputs.length; i++){
                 if(inputs[i] != true){
-                    console.log("false");
                     $('#submit').attr("disabled", true);
                     return;
                 }
