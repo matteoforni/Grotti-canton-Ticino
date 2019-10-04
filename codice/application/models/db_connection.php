@@ -16,7 +16,9 @@ class db_connection
                 $this->_connection = new PDO(DSN, USER, PASSWORD);
                 return $this->_connection;
             }catch(PDOException $e){
-                header('Location: ' . URL . 'error');
+                $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+                header('Location: ' . URL . 'warning');
+                exit();
             }
         }
     }
@@ -26,13 +28,23 @@ class db_connection
      * @return bool|PDOStatement La query al database.
      */
     public function getUsers(){
-        $db = $this->getConnection();
-        $query = $db->prepare('SELECT * from utente');
-        $query->execute();
-        return $query;
+        try {
+            $db = $this->getConnection();
+            $query = $db->prepare('SELECT * from utente');
+            $query->execute();
+            return $query;
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
     }
 
-
+    /**
+     * Funzione che ritorna un utente in base all'email passata.
+     * @param $email string L'email dell'utente da ritornare.
+     * @return array Le informazioni dell'utente.
+     */
     public function getUser($email){
         try{
             $db = $this->getConnection();
@@ -42,12 +54,22 @@ class db_connection
 
             $query->execute();
 
-            return $query->fetchAll();
+            return $query->fetch();
         }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
             header('Location: ' . URL . 'warning');
+            exit();
         }
     }
 
+    /**
+     * Funzione che inserisce un utente nel database.
+     * @param $firstname string Il nome dell'utente da inserire nel db.
+     * @param $lastname string Il cognome dell'utente da inserire nel db.
+     * @param $username string Lo username dell'utente da inserire nel db.
+     * @param $email string L'email dell'utente da inserire nel db.
+     * @param $password string La password dell'utente da inserire nel db.
+     */
     public function addUser($firstname, $lastname, $username, $email, $password){
         try {
             $db = $this->getConnection();
@@ -65,7 +87,9 @@ class db_connection
 
             $query->execute();
         }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
             header('Location: ' . URL . 'warning');
+            exit();
         }
     }
 
@@ -75,27 +99,43 @@ class db_connection
      */
     public function getGrotti(){
         try {
+            $verificato = true;
             $db = $this->getConnection();
-            $query = $db->prepare('SELECT * from grotto;');
+            $query = $db->prepare('SELECT * from grotto WHERE verificato=?;');
+            $query->bindParam(1, $verificato);
             $query->execute();
-            return $query;
+            return $query->fetchAll();
         }catch (Exception $e){
-            header('Location: ' . URL . 'error');
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
         }
     }
 
+    /**
+     * Funzione che ritorna un grotto in base all'id passato.
+     * @param $id L'id del grotto desiderato.
+     * @return array Le informazioni relative al grotto.
+     */
     public function getGrotto($id){
         try{
             $db = $this->getConnection();
             $query = $db->prepare('SELECT * FROM grotto WHERE id=?');
             $query->bindParam(1, $id);
             $query->execute();
-            return $query->fetchAll();
+            return $query->fetch();
         }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
             header('Location: ' . URL . 'warning');
+            exit();
         }
     }
 
+    /**
+     * Funzione che ritorna le immagini relative al grotto con l'id passato.
+     * @param $id L'id del grotto desiderato.
+     * @return array Le immagini relative al grotto.
+     */
     public function getImages($id){
         try{
             $db = $this->getConnection();
@@ -104,7 +144,22 @@ class db_connection
             $query->execute();
             return $query->fetchAll();
         }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
             header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
+
+    public function getFascePrezzo(){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('SELECT * FROM fascia_prezzo');
+            $query->execute();
+            return $query->fetchAll();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
         }
     }
 }
