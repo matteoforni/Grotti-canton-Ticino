@@ -8,16 +8,16 @@ class Home
     {
         require_once "./application/models/db_connection.php";
         $query = (new db_connection)->getGrotti();
-        $_SESSION['grotti'] = $query->fetchAll();
+        $_SESSION['grotti'] = $query;
 
         if(isset($_SESSION['user'])){
             //mostro l'index per gli utenti loggati
 
-            if($_SESSION['user'][0]['nome_ruolo'] == 'admin'){
+            if($_SESSION['user']['nome_ruolo'] == 'admin'){
                 ViewLoader::load("_templates/header_admin");
                 ViewLoader::load("home/index");
                 ViewLoader::load("_templates/footer");
-            }elseif($_SESSION['user'][0]['nome_ruolo'] == 'utente'){
+            }elseif($_SESSION['user']['nome_ruolo'] == 'utente'){
                 ViewLoader::load("_templates/header_user");
                 ViewLoader::load("home/index");
                 ViewLoader::load("_templates/footer");

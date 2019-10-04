@@ -9,6 +9,12 @@
 .alert{
     display: none;
 }
+.rating-container{
+    font-size: 170%;
+}
+.valutazione{
+    display: inline;
+}
 @media only screen and (max-width: 600px) {
     #map{
         width: 80vw;
