@@ -26,7 +26,7 @@
 <!-- Datatables addon -->
 <script src="./application/assets/mdb/js/addons/datatables.min.js"></script>
 
-<!-- MDB Stars review plugin -->
+<!-- Auxiliary Stars review plugin -->
 <script src="./application/assets/auxiliary-rater/rater.js"></script>
 
 <!-- Validator and register  -->
