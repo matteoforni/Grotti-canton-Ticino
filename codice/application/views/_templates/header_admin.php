@@ -1,3 +1,4 @@
+<?php if(isset($_SESSION['user']) && $_SESSION['user']['nome_ruolo'] == 'admin'): ?>
 <!DOCTYPE html>
 <html>
 
@@ -24,6 +25,7 @@
     <!-- Datatables addon -->
     <link href="./application/assets/mdb/css/addons/datatables.min.css" rel="stylesheet">
     <link href="./application/assets/mdb/css/addons/datatables-select.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -42,7 +44,7 @@
                     <a class="nav-link" href="<?php URL ?>admin">Amministrazione</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Aggiungi Grotto</a>
+                    <a class="nav-link" href="<?php URL ?>add">Aggiungi Grotto</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php URL ?>home/logout">Logout</a>
@@ -54,3 +56,4 @@
 
 <!-- JQuery -->
 <script type="text/javascript" src="./application/assets/mdb/js/jquery-3.4.1.min.js"></script>
+<?php endif; ?>

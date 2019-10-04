@@ -1,3 +1,4 @@
+<?php if(isset($_SESSION['user']) && $_SESSION['user']['nome_ruolo'] == 'utente'): ?>
 <!DOCTYPE html>
 <html>
 
@@ -39,7 +40,7 @@
                     <a class="nav-link" href="<?php URL ?>home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Aggiungi grotto</a>
+                    <a class="nav-link" href="<?php URL ?>add">Aggiungi grotto</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php URL ?>home/logout">Logout</a>
@@ -51,3 +52,4 @@
 
 <!-- JQuery -->
 <script type="text/javascript" src="./application/assets/mdb/js/jquery-3.4.1.min.js"></script>
+<?php endif; ?>

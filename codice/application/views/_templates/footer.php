@@ -3,7 +3,7 @@
 
     <!-- Copyright -->
     <div class=" text-center py-3 text-dark">© 2018 Copyright:
-        <a href="#" class="text-dark">Piattaforma per la scoperta dei grotti del Canton Ticino</a>
+        <a href="<?php echo URL; ?>home" class="text-dark">Piattaforma per la scoperta dei grotti del Canton Ticino</a>
     </div>
     <!-- Copyright -->
 
@@ -25,6 +25,9 @@
 
 <!-- Datatables addon -->
 <script src="./application/assets/mdb/js/addons/datatables.min.js"></script>
+
+<!-- MDB Stars review plugin -->
+<script src="./application/assets/auxiliary-rater/rater.js"></script>
 
 <!-- Validator and register  -->
 <script src="./application/assets/js/validator.js"></script>
