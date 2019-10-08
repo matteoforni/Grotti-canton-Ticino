@@ -150,12 +150,55 @@ class db_connection
         }
     }
 
+    /**
+     * Funzione che ritorna tutte le fasce di prezzo nel database.
+     * @return array L'array con tutte le fasce di prezzo
+     */
     public function getFascePrezzo(){
         try{
             $db = $this->getConnection();
             $query = $db->prepare('SELECT * FROM fascia_prezzo');
             $query->execute();
             return $query->fetchAll();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
+
+    /**
+     * Funzione che aggiunge un nuovo grotto al database.
+     * @param $nome string Il nome del grotto.
+     * @param $lon float La longitudine del grotto.
+     * @param $lat float La latitudine del grotto.
+     * @param $no_civico string Il numero civico.
+     * @param $via string La via dove si trova il grotto.
+     * @param $paese string Il paese in cui si trova il grotto.
+     * @param $cap int Il CAP del paese.
+     * @param $telefono string Il numero di telefono del grotto.
+     * @param $fascia_prezzo string La fascia di prezzo del locale.
+     * @param $valutazione float La valutazione del grotto.
+     * @param $verificato bool Se il grotto è stato verificato da un admin o meno.
+     */
+    public function addGrotto($nome, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, $valutazione, $verificato){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('INSERT INTO grotto(nome, lon, lat, no_civico, via, paese, cap, telefono, fascia_prezzo, valutazione, verificato) values (?,?,?,?,?,?,?,?,?,?,?)');
+
+            $query->bindParam(1, $nome, PDO::PARAM_STR);
+            $query->bindParam(2, $lon);
+            $query->bindParam(3, $lat);
+            $query->bindParam(4, $no_civico, PDO::PARAM_STR);
+            $query->bindParam(5, $via, PDO::PARAM_STR);
+            $query->bindParam(6, $paese, PDO::PARAM_STR);
+            $query->bindParam(7, $cap, PDO::PARAM_INT);
+            $query->bindParam(8, $telefono, PDO::PARAM_STR);
+            $query->bindParam(9, $fascia_prezzo, PDO::PARAM_STR);
+            $query->bindParam(10, $valutazione);
+            $query->bindParam(11, $verificato, PDO::PARAM_BOOL);
+
+            $query->execute();
         }catch (Exception $e){
             $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
             header('Location: ' . URL . 'warning');
