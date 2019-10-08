@@ -60,7 +60,7 @@
                                 <p class="btn btn-info my-4 btn-block" id="submit"> Aggiungi </p>
                             </div>
                             <div class="col">
-                                <button class="btn btn-info my-4 btn-block" type="submit" id="check">Verifica</button>
+                                <button class="btn btn-info my-4 btn-block" type="button" id="check">Verifica</button>
                             </div>
                         </div>
 
@@ -72,20 +72,21 @@
                         }
                         ?>
                     </form>
-                    <div id="map">
 
-                    </div>
                 </div>
             </div>
         </div>
+        <div id="mapResults" class="mb-5"></div>
     </div>
     <!--<script src="./application/assets/js/grotto.js"></script>-->
     <script>
+        //Istanzio le variabili che vanno a completare l'indirizzo
         var nocivico;
         var via;
         var paese;
         var cap;
         var submitInvoked = false;
+
         $(document).ready(function () {
 
             //Imposto le opzioni
@@ -115,6 +116,7 @@
             addGrottoListeners();
         });
 
+        //Genero la mappa
         function initMap() {
             let center_loc = {
                 lat: 46.029898,
@@ -124,7 +126,7 @@
                 new google.maps.LatLng(45.796048, 8.344110),
                 new google.maps.LatLng(46.539085, 9.470215)
             );
-            map = new google.maps.Map(window.document.getElementById('map'), {
+            map = new google.maps.Map(window.document.getElementById('mapResults'), {
                 zoom: 9,
                 center: center_loc,
                 restriction: {
@@ -150,12 +152,14 @@
             cap = document.getElementById('cap').value;
         });
 
+        //Funzione che esegue il submit di un form dopo aver inserito negli input nascosti i valori di lat e lng
         function submitForm(lat, long){
             $('#lat').val(lat);
             $('#lng').val(long);
             $('#submit').submit();
         }
 
+        //Eseguo il geocoding dell'indirizzo
         function geocodeAddress(geocoder, resultsMap) {
             var nazione = "Ticino, Switzerland";
             if(nocivico != '' && via != '' && paese != '' && cap != ''){
