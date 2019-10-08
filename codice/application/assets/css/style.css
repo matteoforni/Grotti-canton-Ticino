@@ -15,10 +15,21 @@
 .valutazione{
     display: inline;
 }
+#mapResults{
+    width: 50vw;
+    height: 70vh;
+    margin: auto;
+}
 @media only screen and (max-width: 600px) {
     #map{
         width: 80vw;
         height: 80vh;
         margin: auto;
     }
+    #mapResults{
+        width: 80vw;
+        height: 70vh;
+        margin: auto;
+    }
+
 }
