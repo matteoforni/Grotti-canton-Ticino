@@ -39,16 +39,16 @@ class Register
                 $repassword = filter_var($im->checkInput($_POST['repassword']), FILTER_SANITIZE_STRING);
 
                 //verifico che la lunghezza dei campi corrisponda con quella consentita
-                if(!(strlen($firstname) > 0 && strlen($firstname) < 50)){
+                if(!(strlen($firstname) > 0 && strlen($firstname) <= 50)){
                     array_push($errors, "Il nome deve essere lungo tra gli 1 e 50 caratteri");
                 }
-                if(!(strlen($lastname) > 0 && strlen($lastname) < 50)){
+                if(!(strlen($lastname) > 0 && strlen($lastname) <= 50)){
                     array_push($errors, "Il cognome deve essere lungo tra gli 1 e 50 caratteri");
                 }
-                if(!(strlen($username) > 0 && strlen($username) < 50)){
+                if(!(strlen($username) > 0 && strlen($username) <= 50)){
                     array_push($errors, "Lo username deve essere lungo tra gli 1 e 50 caratteri");
                 }
-                if(!(strlen($email) > 0 && strlen($email) < 50)){
+                if(!(strlen($email) > 0 && strlen($email) <= 50)){
                     array_push($errors, "L'email deve essere formattata nel seguente modo: indirizzo@dominio.xx");
                 }
                 if(!(strlen($password) >= 8)){
