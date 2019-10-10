@@ -23,7 +23,11 @@
                                 <td><?php echo($row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?></td>
                                 <td><?php echo $row['telefono']; ?></td>
                                 <td><?php echo $row['fascia_prezzo']; ?></td>
-                                <td><?php echo $row['valutazione']; ?></td>
+                                <td>
+                                    <div class="rating-container">
+                                        <div id="valutazione" class="rating" data-rate-value=<?php echo $row['valutazione']; ?>></div>
+                                    </div>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -36,6 +40,17 @@
 
 <script>
     jQuery(document).ready(function($) {
+        //Imposto le opzioni
+        var options = {
+            max_value: 5,
+            step_size: 0.5,
+            readonly: true,
+        };
+
+        //Istanzio la valutazione
+        $(".rating").rate(options);
+
+
         $(".click-row").click(function() {
             window.location = $(this).data("href");
         });
@@ -89,7 +104,10 @@
                     <br><br>
                     <strong id="telefono">Telefono</strong><?php echo " " . $row['telefono']; ?>
                     <br><br>
-                    <strong id="valutazione">Valutazione</strong><?php echo " " . $row['valutazione']; ?>
+                    <strong id="valutazione">Valutazione</strong>
+                    <div class="rating-container">
+                        <div id="valutazione" class="rating" data-rate-value=<?php echo $row['valutazione']; ?>></div>
+                    </div>
                 </div>`;
 
         var infowindow<?php echo $row['id']; ?> = new google.maps.InfoWindow({
