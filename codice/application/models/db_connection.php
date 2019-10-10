@@ -181,10 +181,10 @@ class db_connection
      * @param $valutazione float La valutazione del grotto.
      * @param $verificato bool Se il grotto è stato verificato da un admin o meno.
      */
-    public function addGrotto($nome, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, $valutazione, $verificato){
+    public function addGrotto($nome, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, $verificato){
         try{
             $db = $this->getConnection();
-            $query = $db->prepare('INSERT INTO grotto(nome, lon, lat, no_civico, via, paese, cap, telefono, fascia_prezzo, valutazione, verificato) values (?,?,?,?,?,?,?,?,?,?,?)');
+            $query = $db->prepare('INSERT INTO grotto(nome, lon, lat, no_civico, via, paese, cap, telefono, fascia_prezzo, verificato) values (?,?,?,?,?,?,?,?,?,?)');
 
             $query->bindParam(1, $nome, PDO::PARAM_STR);
             $query->bindParam(2, $lon);
@@ -195,8 +195,23 @@ class db_connection
             $query->bindParam(7, $cap, PDO::PARAM_INT);
             $query->bindParam(8, $telefono, PDO::PARAM_STR);
             $query->bindParam(9, $fascia_prezzo, PDO::PARAM_STR);
-            $query->bindParam(10, $valutazione);
             $query->bindParam(11, $verificato, PDO::PARAM_BOOL);
+
+            $query->execute();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
+
+    public function addVoto($grotto, $utente, $voto){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('INSERT INTO voto(email_utente, id_grotto, voto) VALUES (?, ?, ?)');
+            $query->bindParam(1, $utente);
+            $query->bindParam(2, $grotto);
+            $query->bindParam(3, $voto);
 
             $query->execute();
         }catch (Exception $e){
