@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="my-5">
-                    <form method="post" class="text-center border border-light p-5" action="<?php URL ?>add/addGrotto">
+                    <form id="addForm" method="post" class="text-center border border-light p-5" action="<?php URL ?>add/addGrotto">
 
                         <p class="h4 mb-4">Aggiungi un grotto</p>
 
@@ -44,14 +44,6 @@
                             <?php endforeach; ?>
                         </select>
 
-
-                        <p class="font-weight-bold">Valutazione: </p>
-
-                        <input type="hidden" id="val" name="val" value="" />
-                        <div class="rating-container">
-                            <div id="valutazione" name="valutazione" class="rating"></div>
-                        </div>
-
                         <input type="hidden" id="lat" name="lat" value="">
                         <input type="hidden" id="lng" name="lng" value="">
 
@@ -88,30 +80,6 @@
         var submitInvoked = false;
 
         $(document).ready(function () {
-
-            //Imposto le opzioni
-            var options = {
-                max_value: 5,
-                step_size: 0.5,
-            };
-
-            //Istanzio la valutazione
-            $(".rating").rate(options);
-
-            //Ad ogni click setto come value dell'input nascosto val il valore della valutazione
-            $(".rating").click(function () {
-                var value = String($(".rating").rate("getValue"));
-                $('#val').val(value);
-            });
-
-            //Mantengo sempre centrate le stelle
-            var margin = $('.rating-container').width()/2 - $('.rating').width()/2;
-            $(".rating").css('margin-left', margin);
-            $(window).resize(function () {
-                var margin = $('.rating-container').width()/2 - $('.rating').width()/2;
-                $(".rating").css('margin-left', margin);
-            });
-
             //Quando la pagina ha caricato completamente aggiungo i listener agli input.
             addGrottoListeners();
         });
@@ -135,13 +103,13 @@
                 },
             });
             var geocoder = new google.maps.Geocoder();
-            $('#submit').click(function () {
+            /*$('#submit').click(function () {
                 submitInvoked = true;
                 geocodeAddress(geocoder, map);
             });
             $('#check').click(function () {
                 geocodeAddress(geocoder, map);
-            });
+            });*/
         }
 
         //Al click di "verifica" prendo i valori dell'indirizzo
@@ -151,12 +119,14 @@
             paese = document.getElementById('paese').value;
             cap = document.getElementById('cap').value;
         });
-
+        $('#submit').click(function () {
+            submitForm(8.888888, 7.77777777);
+        });
         //Funzione che esegue il submit di un form dopo aver inserito negli input nascosti i valori di lat e lng
         function submitForm(lat, long){
             $('#lat').val(lat);
             $('#lng').val(long);
-            $('#submit').submit();
+            $('#addForm').submit();
         }
 
         //Eseguo il geocoding dell'indirizzo

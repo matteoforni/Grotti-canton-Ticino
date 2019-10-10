@@ -19,7 +19,7 @@ class Add
                 ViewLoader::load("_templates/footer");
             }
         }else{
-            ViewLoader::load("_templates/header_admin");
+            ViewLoader::load("_templates/header_base");
             ViewLoader::load("home/index");
             ViewLoader::load("_templates/footer");
         }
@@ -36,7 +36,7 @@ class Add
             if (isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['cap']) && !empty($_POST['cap'])
                 && isset($_POST['paese']) && !empty($_POST['paese']) && isset($_POST['via']) && !empty($_POST['via'])
                 && isset($_POST['no_civico']) && !empty($_POST['no_civico']) && isset($_POST['telefono']) && !empty($_POST['telefono'])
-                && isset($_POST['fascia_prezzo']) && !empty($_POST['fascia_prezzo']) && isset($_POST['val']) && !empty($_POST['val'])) {
+                && isset($_POST['fascia_prezzo']) && !empty($_POST['fascia_prezzo'])) {
 
                 //genero un nuovo InputManager e testo gli inserimenti
                 $im = new InputManager();
@@ -48,9 +48,8 @@ class Add
                 $no_civico = filter_var($im->checkInput($_POST['no_civico']), FILTER_SANITIZE_STRING);
                 $telefono = filter_var($im->checkInput($_POST['telefono']), FILTER_SANITIZE_STRING);
                 $fascia_prezzo = filter_var($im->checkInput($_POST['fascia_prezzo']), FILTER_SANITIZE_STRING);
-                $valutazione = filter_var($im->checkInput($_POST['val']), FILTER_SANITIZE_NUMBER_FLOAT);
                 $lat = filter_var($im->checkInput($_POST['lat']), FILTER_SANITIZE_NUMBER_FLOAT);
-                $lon = filter_var($im->checkInput($_POST['lon']), FILTER_SANITIZE_NUMBER_FLOAT);
+                $lon = filter_var($im->checkInput($_POST['lng']), FILTER_SANITIZE_NUMBER_FLOAT);
 
                 //verifico che la lunghezza dei campi corrisponda con quella consentita
                 if(!(strlen($name) > 0 && strlen($name) <= 50)){
@@ -96,12 +95,14 @@ class Add
                         $exists = true;
                         //se l'utente è admin il grotto è già verificato mentre se non lo è il grotto è da verificare
                         if($_SESSION['user']['nome_ruolo'] == 'admin'){
-                            (new db_connection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, $valutazione, "1");
+                            echo "admin";
+                            (new db_connection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, "1");
                         }elseif($_SESSION['user']['nome_ruolo'] == 'utente'){
-                            (new db_connection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, $valutazione, "0");
+                            echo "user";
+                            (new db_connection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, "0");
                         }
-                        //header('Location: ' . URL . 'home');
-                        //exit();
+                        header('Location: ' . URL . 'success');
+                        exit();
                     }
                 }
 
