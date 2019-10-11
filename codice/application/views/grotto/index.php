@@ -52,9 +52,11 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
                         <p class="ml-2">Fascia di prezzo: <?php echo $grotto['fascia_prezzo']; ?><br>
                             Valutazione: <?php echo $grotto['valutazione']; ?></p>
                     </div>
+                    <?php if(isset($_SESSION['user'])): ?>
                     <div class="my-5 col-md-6 offset-md-3">
                         <form method="post" class="text-center border border-light p-5" action="<?php URL ?>grotto/vota">
-                            <p class="h4 mb-4">Vota</p>
+                            <p class="h3 mb-2">Vota</p>
+                            <p class="mb-4">Puoi votare un grotto solo una volta</p>
                             <input type="hidden" id="val" name="val" value="" />
                             <div class="rating-container">
                                 <div id="valutazione" name="valutazione" class="rating"></div>
@@ -69,6 +71,7 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
                             ?>
                         </form>
                     </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

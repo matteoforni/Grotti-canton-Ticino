@@ -24,7 +24,7 @@
                                 <td><?php echo $row['telefono']; ?></td>
                                 <td><?php echo $row['fascia_prezzo']; ?></td>
                                 <td>
-                                    <div class="rating-container">
+                                    <div class="rating-container-home">
                                         <div id="valutazione" class="rating" data-rate-value=<?php echo $row['valutazione']; ?>></div>
                                     </div>
                                 </td>
@@ -49,6 +49,14 @@
 
         //Istanzio la valutazione
         $(".rating").rate(options);
+
+        //Mantengo sempre centrate le stelle
+        var margin = $('.rating-container-home').width()/2 - $('.rating').width()/2;
+        $(".rating").css('margin-left', margin);
+        $(window).resize(function () {
+            var margin = $('.rating-container-home').width()/2 - $('.rating').width()/2;
+            $(".rating").css('margin-left', margin);
+        });
 
 
         $(".click-row").click(function() {

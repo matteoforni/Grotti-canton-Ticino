@@ -12,7 +12,7 @@
 
                     <div class="d-flex justify-content-around">
                         <div>
-                            <a href="">Password dimenticata?</a>
+                            <a href="<?php URL ?>reset">Password dimenticata?</a>
                         </div>
                     </div>
 
@@ -34,9 +34,6 @@
     </div>
 </div>
 <script>
-    //Array contenente gli input andati a buon fine o che hanno riportato problemi.
-    var inputs = [false, false];
-
     $(document).ready(function () {
         //Quando la pagina ha caricato completamente aggiungo i listener agli input.
         addLoginListeners();
