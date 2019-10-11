@@ -15,7 +15,8 @@ class Login
     /**
      * Funzione che verifica il login dell'utente.
      */
-    public function checkLogin(){
+    public function checkLogin()
+    {
         //richiamo le classi di cui avrò bisogno
         unset($_SESSION['errors']);
         require_once "./application/models/db_connection.php";
@@ -24,7 +25,7 @@ class Login
         $errors = array();
 
         //verifico il metodo di richiesta
-        if($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //verifico che i campi siano impostati e che non siano stringhe vuote
             if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])) {
 
@@ -43,17 +44,17 @@ class Login
                     //controllo che l'email sia in uso da un utente
                     if ($row['email'] == $email) {
                         //controllo che la password corrisponda
-                        if($row['password'] == $password){
+                        if ($row['password'] == $password) {
                             $_SESSION['user'] = (new db_connection)->getUser($email);
                             //verifico se è admin o utente normale
-                            if($row['nome_ruolo'] == 'admin'){
+                            if ($row['nome_ruolo'] == 'admin') {
                                 header('Location: ' . URL . 'admin');
                                 exit();
-                            }elseif($row['nome_ruolo'] == 'utente'){
+                            } elseif ($row['nome_ruolo'] == 'utente') {
                                 header('Location: ' . URL . 'home');
                                 exit();
                             }
-                        }else{
+                        } else {
                             //se la password è sbagliata ritorno l'errore
                             array_push($errors, "Password o email sbagliate");
                             $_SESSION['errors'] = $errors;

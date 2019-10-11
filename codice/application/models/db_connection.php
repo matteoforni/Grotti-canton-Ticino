@@ -205,6 +205,12 @@ class db_connection
         }
     }
 
+    /**
+     * Funzione che consente di assegnare un voto ad un grotto.
+     * @param $grotto int L'id del grotto che ha ricevuto il voto.
+     * @param $utente string L'email dell'utente che ha votato.
+     * @param $voto float Il voto da assegnare alla località.
+     */
     public function addVoto($grotto, $utente, $voto){
         try{
             $db = $this->getConnection();
@@ -214,6 +220,26 @@ class db_connection
             $query->bindParam(3, $voto);
 
             $query->execute();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
+
+    public function setToken($email){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('UPDATE utente SET reset_token=? WHERE email=?');
+
+            $token = bin2hex(random_bytes(15));
+
+            $query->bindParam(1, $token);
+            $query->bindParam(2, $email);
+
+            $query->execute();
+
+            return $token;
         }catch (Exception $e){
             $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
             header('Location: ' . URL . 'warning');

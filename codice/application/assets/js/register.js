@@ -63,6 +63,19 @@ function addLoginListeners() {
 
 }
 
+function addResetListeners() {
+    //Aggiunge evento keydown ai campi
+    $("#email").keydown(function() {
+        manage(this, "email");
+    });
+
+    //Aggiunge evento keyup ai campi
+    $("#email").keyup(function() {
+        manage(this, "email");
+    });
+}
+
+
 function addGrottoListeners() {
     //Aggiunge evento keydown ai campi
     $("#name").keydown(function() {

@@ -12,6 +12,9 @@
 .rating-container{
     font-size: 170%;
 }
+.rating-container{
+    font-size: 150%;
+}
 .valutazione{
     display: inline;
 }
