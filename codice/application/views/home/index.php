@@ -39,7 +39,7 @@
 </div>
 
 <script>
-    jQuery(document).ready(function($) {
+    $(document).ready(function($) {
         //Imposto le opzioni
         var options = {
             max_value: 5,

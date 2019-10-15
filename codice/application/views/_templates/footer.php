@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="page-footer font-small grey lighten-3">
+<footer class="page-footer font-small grey lighten-3 fixed-bottom">
 
     <!-- Copyright -->
     <div class=" text-center py-3 text-dark">© 2018 Copyright:

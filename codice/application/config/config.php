@@ -21,5 +21,5 @@ define('URL', 'http://localhost/Grotti-canton-Ticino/codice/');
 define('DSN', 'mysql:host=127.0.0.1;dbname=grotti;charset=utf8mb4');
 define('USER', 'grotti_user');
 define('PASSWORD', 'GrottiUser&2019');
-define('API_KEY', 'AIzaSyCCOSBrPiB40uF9Oee8IxwUdxoIZu_9XBg');
+define('API_KEY', 'AIzaSyAr7KuBtEj8NW_rUUOQT--axYuJ3D6VeeA');
 define('EMAIL', 'grottiticino@gmail.com');

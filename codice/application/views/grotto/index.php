@@ -49,28 +49,32 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
                     </div>
                     <div class="my-5">
                         <h5 class="h5">Valutazioni</h5>
-                        <p class="ml-2">Fascia di prezzo: <?php echo $grotto['fascia_prezzo']; ?><br>
-                            Valutazione: <?php echo $grotto['valutazione']; ?></p>
+                        <p class="ml-2">Fascia di prezzo: <?php echo $grotto['fascia_prezzo']; ?></p>
+                        <span class="ml-2">Valutazione:
+                            <div class="rating-container-home ml-2">
+                                <div id="valutazione" class="rating" data-rate-value=<?php echo $grotto['valutazione']; ?>></div>
+                            </div>
+                        </span>
                     </div>
                     <?php if(isset($_SESSION['user'])): ?>
-                    <div class="my-5 col-md-6 offset-md-3">
-                        <form method="post" class="text-center border border-light p-5" action="<?php URL ?>grotto/vota">
-                            <p class="h3 mb-2">Vota</p>
-                            <p class="mb-4">Puoi votare un grotto solo una volta</p>
-                            <input type="hidden" id="val" name="val" value="" />
-                            <div class="rating-container">
-                                <div id="valutazione" name="valutazione" class="rating"></div>
-                            </div>
-                            <input class="btn btn-info mt-4" type="submit" id="submit">
-                            <?php
-                            if(isset($_SESSION['errors'])){
-                                foreach ($_SESSION['errors'] as $item) {
-                                    echo "<p class='text-danger'>" . $item . "</p><br>";
+                        <div class="my-5 col-md-6 offset-md-3">
+                            <form method="post" class="text-center border border-light p-5" action="<?php URL ?>grotto/vota">
+                                <p class="h3 mb-2">Vota</p>
+                                <p class="mb-4">Puoi votare un grotto solo una volta</p>
+                                <input type="hidden" id="val" name="val" value="" />
+                                <div class="rating-container">
+                                    <div id="valutazione" name="valutazione" class="rating"></div>
+                                </div>
+                                <input class="btn btn-info mt-4" type="submit" id="submit">
+                                <?php
+                                if(isset($_SESSION['errors'])){
+                                    foreach ($_SESSION['errors'] as $item) {
+                                        echo "<p class='text-danger'>" . $item . "</p><br>";
+                                    }
                                 }
-                            }
-                            ?>
-                        </form>
-                    </div>
+                                ?>
+                            </form>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
@@ -83,17 +87,11 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
             var options = {
                 max_value: 5,
                 step_size: 0.5,
+                readonly: true,
             };
 
             //Istanzio la valutazione
             $(".rating").rate(options);
-
-            //Ad ogni click setto come value dell'input nascosto val il valore della valutazione
-            $(".rating").click(function () {
-                var value = String($(".rating").rate("getValue"));
-                $('#val').val(value);
-                console.log(value);
-            });
 
             //Mantengo sempre centrate le stelle
             var margin = $('.rating-container').width()/2 - $('.rating').width()/2;
