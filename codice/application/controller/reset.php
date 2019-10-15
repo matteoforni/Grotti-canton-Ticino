@@ -39,12 +39,12 @@ class Reset
                 $repassword = filter_var($im->checkInput($_POST['repassword']), FILTER_SANITIZE_STRING);
 
                 if($password == $repassword){
-                    $users = (new db_connection())->getUsers();
+                    $users = (new DBConnection())->getUsers();
                     $_SESSION['password'] = $password;
 
                     foreach ($users as $user) {
                         if($user['email'] == $email){
-                            $token = (new db_connection())->setToken($email);
+                            $token = (new DBConnection())->setToken($email);
                             if($mm->sendMail($email, $token)){
                                 $_SESSION['mail_sent'] = $email;
                                 header('Location: ' . URL . 'reset');
@@ -74,9 +74,9 @@ class Reset
         $token = filter_var($im->checkInput($token), FILTER_SANITIZE_STRING);
 
         if(isset($_SESSION['mail_sent']) && isset($_SESSION['password'])){
-            $user = (new db_connection())->getUser($_SESSION['mail_sent']);
+            $user = (new DBConnection())->getUser($_SESSION['mail_sent']);
             if($user['reset_token'] == $token){
-                (new db_connection())->setPassword($_SESSION['mail_sent'], $_SESSION['password']);
+                (new DBConnection())->setPassword($_SESSION['mail_sent'], $_SESSION['password']);
                 $_SESSION['password_change'] = true;
                 unset($_SESSION['mail_sent']);
             }else{

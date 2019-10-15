@@ -1,7 +1,7 @@
 <?php
 
 
-class db_connection
+class DBConnection
 {
     private $_connection;
 
@@ -252,6 +252,11 @@ class db_connection
         }
     }
 
+    /**
+     * Funzione che consente di settare la password di un account. Usata nella parte di recupero della password dimenticata.
+     * @param $email string L'email dell'utente da modificare.
+     * @param $password string La password da impostare.
+     */
     public function setPassword($email, $password){
         try{
             $db = $this->getConnection();

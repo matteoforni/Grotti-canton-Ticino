@@ -6,7 +6,7 @@ class Add
     public function index()
     {
         require_once "./application/models/db_connection.php";
-        $query = (new db_connection)->getFascePrezzo();
+        $query = (new DBConnection)->getFascePrezzo();
         $_SESSION['fasce_prezzo'] = $query;
         if(isset($_SESSION['user'])) {
             if ($_SESSION['user']['nome_ruolo'] == 'admin') {
@@ -89,15 +89,15 @@ class Add
                 }
 
                 //verifico che la fascia di prezzo esista nel DB
-                $fasce_prezzo = (new db_connection())->getFascePrezzo();
+                $fasce_prezzo = (new DBConnection())->getFascePrezzo();
                 foreach($fasce_prezzo as $item){
                     //se esiste inserisco il campo nel DB
                     if($fascia_prezzo == $item['nome']){
                         //se l'utente è admin il grotto è già verificato mentre se non lo è il grotto è da verificare
                         if($_SESSION['user']['nome_ruolo'] == 'admin'){
-                            (new db_connection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, 1);
+                            (new DBConnection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, 1);
                         }elseif($_SESSION['user']['nome_ruolo'] == 'utente'){
-                            (new db_connection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, 0);
+                            (new DBConnection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, 0);
                         }
                         $_SESSION['grotto_aggiunto'] = true;
                         header('Location: ' . URL . 'add');

@@ -41,8 +41,8 @@ class Grotto
         //Carico dal DB il grotto e le sue immagini
         $im = new InputManager();
         $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
-        $grotto = (new db_connection)->getGrotto($id);
-        $images = (new db_connection)->getImages($id);
+        $grotto = (new DBConnection)->getGrotto($id);
+        $images = (new DBConnection)->getImages($id);
         $_SESSION['grotto'] = $grotto;
         $_SESSION['img'] = $images;
         header('Location: ' . URL . 'grotto');
@@ -66,7 +66,7 @@ class Grotto
 
                 if($valutazione >= 0 && $valutazione <= 5) {
                     //Inserisco il voto nel DB
-                    (new db_connection())->addVoto($grotto, $utente, $valutazione);
+                    (new DBConnection())->addVoto($grotto, $utente, $valutazione);
                     header('Location: ' . URL . 'grotto/show/' . $grotto['id']);
                     exit();
                 }else{

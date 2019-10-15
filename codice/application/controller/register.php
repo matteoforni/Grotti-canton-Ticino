@@ -72,7 +72,7 @@ class Register
                 //verifico che la password sia la stessa in entrambi i campi
                 if($password == $repassword) {
 
-                    $db = (new db_connection)->getUsers();
+                    $db = (new DBConnection)->getUsers();
                     //verifico che l'email non sia già in uso
                     foreach ($db->fetchAll() as $row) {
                         if ($row['email'] == $email) {
@@ -82,7 +82,7 @@ class Register
                     }
                     //se non esiste inserisco il nuovo utente nel db
                     if(!$exists) {
-                        (new db_connection())->addUser($firstname, $lastname, $username, $email, $password);
+                        (new DBConnection())->addUser($firstname, $lastname, $username, $email, $password);
                         unset($_POST);
                         header('Location: ' . URL . 'login');
                         exit();
