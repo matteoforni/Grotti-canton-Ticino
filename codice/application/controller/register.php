@@ -31,8 +31,8 @@ class Register
                 //genero un nuovo InputManager e testo gli inserimenti
                 $exists = false;
                 $im = new InputManager();
-                $firstname = filter_var($im->checkInput($_POST['firstname']), FILTER_SANITIZE_STRING);
-                $lastname = filter_var($im->checkInput($_POST['lastname']), FILTER_SANITIZE_STRING);
+                $firstname = filter_var($im->checkInputSpace($_POST['firstname']), FILTER_SANITIZE_STRING);
+                $lastname = filter_var($im->checkInputSpace($_POST['lastname']), FILTER_SANITIZE_STRING);
                 $username = filter_var($im->checkInput($_POST['username']), FILTER_SANITIZE_STRING);
                 $email = filter_var($im->checkInput($_POST['email']), FILTER_SANITIZE_EMAIL);
                 $password = filter_var($im->checkInput($_POST['password']), FILTER_SANITIZE_STRING);

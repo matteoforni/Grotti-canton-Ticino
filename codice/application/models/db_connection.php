@@ -195,7 +195,7 @@ class db_connection
             $query->bindParam(7, $cap, PDO::PARAM_INT);
             $query->bindParam(8, $telefono, PDO::PARAM_STR);
             $query->bindParam(9, $fascia_prezzo, PDO::PARAM_STR);
-            $query->bindParam(11, $verificato, PDO::PARAM_BOOL);
+            $query->bindParam(10, $verificato, PDO::PARAM_BOOL);
 
             $query->execute();
         }catch (Exception $e){
