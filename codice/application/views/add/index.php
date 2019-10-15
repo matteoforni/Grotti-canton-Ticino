@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="my-5">
+                    <?php if(!isset($_SESSION['grotto_aggiunto'])): ?>
                     <form id="addForm" method="post" class="text-center border border-light p-5" action="<?php URL ?>add/addGrotto">
 
                         <p class="h4 mb-4">Aggiungi un grotto</p>
@@ -64,7 +65,18 @@
                         }
                         ?>
                     </form>
-
+                    <?php elseif($_SESSION['grotto_aggiunto'] == true): ?>
+                        <h1 class="h1 text-center">Grotto creato con successo!</h1>
+                        <?php if(isset($_SESSION['user'])): ?>
+                            <?php if($_SESSION['user']['nome_ruolo'] == 'utente'): ?>
+                                <h5 class="h5 text-center">La località verrà valutata da uno dei nostri admin, potrebbe volerci un pò di tempo</h5>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                        <div class="col-md-12 text-center">
+                            <a class="btn btn-info mt-5 text-center" href="<?php URL ?>home">Alla Home</a>
+                            <a class="btn btn-info mt-5 text-center" href="<?php URL ?>add/unsetSession">Aggiungi ancora</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -78,6 +90,8 @@
         var paese;
         var cap;
         var submitInvoked = false;
+        var markers = [];
+        var i = 0;
 
         $(document).ready(function () {
             //Quando la pagina ha caricato completamente aggiungo i listener agli input.
@@ -103,13 +117,15 @@
                 },
             });
             var geocoder = new google.maps.Geocoder();
-            /*$('#submit').click(function () {
+            $('#submit').click(function () {
                 submitInvoked = true;
+                setMapOnAll(null);
                 geocodeAddress(geocoder, map);
             });
             $('#check').click(function () {
+                setMapOnAll(null);
                 geocodeAddress(geocoder, map);
-            });*/
+            });
         }
 
         //Al click di "verifica" prendo i valori dell'indirizzo
@@ -119,9 +135,14 @@
             paese = document.getElementById('paese').value;
             cap = document.getElementById('cap').value;
         });
+
         $('#submit').click(function () {
-            submitForm(8.888888, 7.77777777);
+            nocivico = document.getElementById('no_civico').value;
+            via = document.getElementById('via').value;
+            paese = document.getElementById('paese').value;
+            cap = document.getElementById('cap').value;
         });
+
         //Funzione che esegue il submit di un form dopo aver inserito negli input nascosti i valori di lat e lng
         function submitForm(lat, long){
             $('#lat').val(lat);
@@ -141,6 +162,8 @@
                             map: resultsMap,
                             position: results[0].geometry.location
                         });
+                        markers[i] = marker;
+                        i ++;
                         map.setZoom(16);
                         map.panTo(marker.position);
                         var lat = results[0].geometry.location.lat();
@@ -152,6 +175,12 @@
                         alert('Geocode was not successful for the following reason: ' + status);
                     }
                 });
+            }
+        }
+
+        function setMapOnAll(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
             }
         }
     </script>

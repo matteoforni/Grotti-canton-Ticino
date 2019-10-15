@@ -41,15 +41,16 @@ class Add
                 //genero un nuovo InputManager e testo gli inserimenti
                 $im = new InputManager();
 
-                $name = filter_var($im->checkInput($_POST['name']), FILTER_SANITIZE_STRING);
+                $via = "Via ";
+                $name = filter_var($im->checkInputSpace($_POST['name']), FILTER_SANITIZE_STRING);
                 $cap = filter_var($im->checkInput($_POST['cap']), FILTER_SANITIZE_NUMBER_INT);
-                $paese = filter_var($im->checkInput($_POST['paese']), FILTER_SANITIZE_STRING);
-                $via = filter_var($im->checkInput($_POST['via']), FILTER_SANITIZE_EMAIL);
+                $paese = filter_var($im->checkInputSpace($_POST['paese']), FILTER_SANITIZE_STRING);
+                $via .= filter_var($im->checkInputSpace($_POST['via']), FILTER_SANITIZE_STRING);
                 $no_civico = filter_var($im->checkInput($_POST['no_civico']), FILTER_SANITIZE_STRING);
                 $telefono = filter_var($im->checkInput($_POST['telefono']), FILTER_SANITIZE_STRING);
                 $fascia_prezzo = filter_var($im->checkInput($_POST['fascia_prezzo']), FILTER_SANITIZE_STRING);
-                $lat = filter_var($im->checkInput($_POST['lat']), FILTER_SANITIZE_NUMBER_FLOAT);
-                $lon = filter_var($im->checkInput($_POST['lng']), FILTER_SANITIZE_NUMBER_FLOAT);
+                $lat = filter_var($im->checkInput($_POST['lat']), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+                $lon = filter_var($im->checkInput($_POST['lng']), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
                 //verifico che la lunghezza dei campi corrisponda con quella consentita
                 if(!(strlen($name) > 0 && strlen($name) <= 50)){
@@ -92,16 +93,14 @@ class Add
                 foreach($fasce_prezzo as $item){
                     //se esiste inserisco il campo nel DB
                     if($fascia_prezzo == $item['nome']){
-                        $exists = true;
                         //se l'utente è admin il grotto è già verificato mentre se non lo è il grotto è da verificare
                         if($_SESSION['user']['nome_ruolo'] == 'admin'){
-                            echo "admin";
-                            (new db_connection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, "1");
+                            (new db_connection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, 1);
                         }elseif($_SESSION['user']['nome_ruolo'] == 'utente'){
-                            echo "user";
-                            (new db_connection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, "0");
+                            (new db_connection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, 0);
                         }
-                        header('Location: ' . URL . 'success');
+                        $_SESSION['grotto_aggiunto'] = true;
+                        header('Location: ' . URL . 'add');
                         exit();
                     }
                 }
@@ -121,5 +120,11 @@ class Add
                 exit();
             }
         }
+    }
+
+    public function unsetSession(){
+        unset($_SESSION['grotto_aggiunto']);
+        header('Location: ' . URL . 'add');
+        exit();
     }
 }
