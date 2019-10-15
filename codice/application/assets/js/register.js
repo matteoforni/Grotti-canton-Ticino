@@ -68,10 +68,22 @@ function addResetListeners() {
     $("#email").keydown(function() {
         manage(this, "email");
     });
+    $("#password").keydown(function() {
+        manage(this, "password");
+    });
+    $("#repassword").keydown(function() {
+        manage(this, "repassword");
+    });
 
     //Aggiunge evento keyup ai campi
     $("#email").keyup(function() {
         manage(this, "email");
+    });
+    $("#password").keyup(function() {
+        manage(this, "password");
+    });
+    $("#repassword").keyup(function() {
+        manage(this, "repassword");
     });
 }
 

@@ -227,6 +227,11 @@ class db_connection
         }
     }
 
+    /**
+     * Funzione che imposta un token di reset della password all'utente.
+     * @param $email string L'email dell'utente a cui impostare il token.
+     * @return string Il token impostato.
+     */
     public function setToken($email){
         try{
             $db = $this->getConnection();
@@ -240,6 +245,24 @@ class db_connection
             $query->execute();
 
             return $token;
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
+
+    public function setPassword($email, $password){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('UPDATE utente SET password=? WHERE email=?');
+
+            $password = hash('sha256', $password);
+            $query->bindParam(1, $password);
+            $query->bindParam(2, $email);
+
+            $query->execute();
+
         }catch (Exception $e){
             $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
             header('Location: ' . URL . 'warning');

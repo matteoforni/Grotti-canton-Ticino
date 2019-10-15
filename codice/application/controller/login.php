@@ -6,6 +6,10 @@ class Login
      */
     public function index()
     {
+        //Se è appena stata camabiata la password elimino la sessione così che l'utente può ricambiare la password
+        if(isset($_SESSION['password_change'])){
+            unset($_SESSION['password_change']);
+        }
         //Show index page
         ViewLoader::load("_templates/header_base");
         ViewLoader::load("login/index");

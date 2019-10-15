@@ -9,16 +9,16 @@ class MailManager
         require_once "./vendor/phpmailer/phpmailer/src/PHPMailer.php";
         require_once "./vendor/phpmailer/phpmailer/src/SMTP.php";
 
-        $body = "Per reimpostare la tua password premi sul seguente link: \n" . URL . "reset/reset/" . $token;
+        $body = "Per reimpostare la tua password premi sul seguente link: <br><a href='" . URL . "reset/resetPassword/" . $token . "'>Reimposta la tua password</a>";
 
         try{
             $mail = new PHPMailer();
             $mail->IsSMTP();
             $mail->SMTPDebug = 1;
             $mail->SMTPAuth = true;
-            $mail->SMTPSecure = 'ssl';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Host = "smtp.gmail.com";
-            $mail->Port = 465;
+            $mail->Port = 587;
             $mail->IsHTML(true);
             $mail->Username = EMAIL;
             $mail->Password = PASSWORD;
