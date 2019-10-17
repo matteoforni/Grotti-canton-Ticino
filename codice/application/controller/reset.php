@@ -18,7 +18,7 @@ class Reset
      * per inviare l'email di reset.
      */
     public function sendEmail(){
-        require_once "./application/models/db_connection.php";
+        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
         require_once "./application/models/mail_manager.php";
 
@@ -67,7 +67,7 @@ class Reset
     }
 
     public function resetPassword($token){
-        require_once "./application/models/db_connection.php";
+        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
         $im = new InputManager();

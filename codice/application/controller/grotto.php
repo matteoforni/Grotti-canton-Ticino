@@ -5,7 +5,7 @@ class Grotto
 {
     public function index()
     {
-        require_once "./application/models/db_connection.php";
+        require_once "./application/models/DBConnection.php";
 
         if(isset($_SESSION['user'])){
             //mostro l'index per gli utenti loggati
@@ -28,7 +28,7 @@ class Grotto
 
     //funzione che mostra il grotto scelto dalla tabella
     public function show($id){
-        require_once "./application/models/db_connection.php";
+        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
         if(isset($_SESSION['grotto'])){
@@ -46,11 +46,12 @@ class Grotto
         $_SESSION['grotto'] = $grotto;
         $_SESSION['img'] = $images;
         header('Location: ' . URL . 'grotto');
+        exit();
     }
 
     //Funzione che consente di votare un grotto
     public function vota(){
-        require_once "./application/models/db_connection.php";
+        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
         $im = new InputManager();
         $errors = Array();
@@ -58,7 +59,6 @@ class Grotto
 
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             if(isset($_POST['val']) && !empty($_POST['val']) && isset($_SESSION['user'])){
-
                 //Prendo i dati dell'utente, del grotto e la votazione
                 $grotto = $_SESSION['grotto']['id'];
                 $utente = $_SESSION['user']['email'];
@@ -67,7 +67,7 @@ class Grotto
                 if($valutazione >= 0 && $valutazione <= 5) {
                     //Inserisco il voto nel DB
                     (new DBConnection())->addVoto($grotto, $utente, $valutazione);
-                    header('Location: ' . URL . 'grotto/show/' . $grotto['id']);
+                    header('Location: ' . URL . 'grotto/show/' . $grotto);
                     exit();
                 }else{
                     //se non vengono inseriti i dati in maniera corretta

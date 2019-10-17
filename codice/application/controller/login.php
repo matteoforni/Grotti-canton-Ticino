@@ -25,7 +25,7 @@ class Login
     {
         //richiamo le classi di cui avrò bisogno
         unset($_SESSION['errors']);
-        require_once "./application/models/db_connection.php";
+        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
         $errors = array();
@@ -42,11 +42,11 @@ class Login
                 $password = filter_var($im->checkInput($_POST['password']), FILTER_SANITIZE_STRING);
 
                 //prendo tutti gli utenti nel database
-                $db = (new DBConnection)->getUsers();
+                $users = (new DBConnection)->getUsers();
 
                 //eseguo l'hash della password così da poterla comparare con quella nel db
                 $password = hash('sha256', $password);
-                foreach ($db->fetchAll() as $row) {
+                foreach ($users as $row) {
                     //controllo che l'email sia in uso da un utente
                     if ($row['email'] == $email) {
                         //controllo che la password corrisponda

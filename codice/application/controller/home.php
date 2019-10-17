@@ -6,8 +6,8 @@ class Home
      */
     public function index()
     {
-        require_once "./application/models/db_connection.php";
-        $query = (new DBConnection)->getGrotti();
+        require_once "./application/models/DBConnection.php";
+        $query = (new DBConnection)->getGrotti(true);
         $_SESSION['grotti'] = $query;
 
         if(isset($_SESSION['user'])){

@@ -5,7 +5,7 @@ class Add
 {
     public function index()
     {
-        require_once "./application/models/db_connection.php";
+        require_once "./application/models/DBConnection.php";
         $query = (new DBConnection)->getFascePrezzo();
         $_SESSION['fasce_prezzo'] = $query;
         if(isset($_SESSION['user'])) {
@@ -26,7 +26,7 @@ class Add
     }
 
     public function addGrotto(){
-        require_once "./application/models/db_connection.php";
+        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
         $errors = array();
         $exists = false;
