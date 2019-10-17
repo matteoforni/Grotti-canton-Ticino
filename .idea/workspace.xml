@@ -3,21 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/controller/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/grotto.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/grotto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/reset.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/reset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/models/DBConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/models/DBConnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/_templates/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/_templates/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/grotto/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/grotto/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/home/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/codice/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" beforeDir="false" afterPath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/gestione.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/gestione.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +93,7 @@
       <workItem from="1570798923072" duration="4890000" />
       <workItem from="1571138148093" duration="10801000" />
       <workItem from="1571242139427" duration="11000" />
-      <workItem from="1571311094902" duration="9484000" />
+      <workItem from="1571311094902" duration="10248000" />
     </task>
     <servers />
   </component>

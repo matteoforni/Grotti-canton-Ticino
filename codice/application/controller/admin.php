@@ -48,6 +48,9 @@ class Admin
                     if(isset($_SESSION['utente'])){
                         unset($_SESSION['utente']);
                     }
+                    if(isset($_SESSION['grotto'])){
+                        unset($_SESSION['grotto']);
+                    }
 
                     //Carico dal DB l'utente
                     $im = new InputManager();
@@ -69,6 +72,9 @@ class Admin
                 if(isset($_SESSION['grotti_validati'])){
                     if(isset($_SESSION['grotto'])){
                         unset($_SESSION['grotto']);
+                    }
+                    if(isset($_SESSION['utente'])){
+                        unset($_SESSION['utente']);
                     }
 
                     //Carico dal DB il grotto
