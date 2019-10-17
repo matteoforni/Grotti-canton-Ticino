@@ -15,7 +15,7 @@ class Register
 
     public function createUser(){
         //richiamo le classi di cui avrò bisogno
-        require_once "./application/models/db_connection.php";
+        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
         $errors = array();
@@ -72,9 +72,9 @@ class Register
                 //verifico che la password sia la stessa in entrambi i campi
                 if($password == $repassword) {
 
-                    $db = (new DBConnection)->getUsers();
+                    $users = (new DBConnection)->getUsers();
                     //verifico che l'email non sia già in uso
-                    foreach ($db->fetchAll() as $row) {
+                    foreach ($users as $row) {
                         if ($row['email'] == $email) {
                             array_push($errors, "L'email è già in uso");
                             $exists = true;
