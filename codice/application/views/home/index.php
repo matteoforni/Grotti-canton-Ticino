@@ -24,7 +24,8 @@
                                 <td><?php echo $row['telefono']; ?></td>
                                 <td><?php echo $row['fascia_prezzo']; ?></td>
                                 <td>
-                                    <div class="rating-container-home">
+                                    <p class="hidden"><?php echo $row['valutazione']; ?></p>
+                                    <div class="rating-container-small">
                                         <div id="valutazione" class="rating" data-rate-value=<?php echo $row['valutazione']; ?>></div>
                                     </div>
                                 </td>
@@ -51,10 +52,10 @@
         $(".rating").rate(options);
 
         //Mantengo sempre centrate le stelle
-        var margin = $('.rating-container-home').width()/2 - $('.rating').width()/2;
+        var margin = $('.rating-container-small').width()/2 - $('.rating').width()/2;
         $(".rating").css('margin-left', margin);
         $(window).resize(function () {
-            var margin = $('.rating-container-home').width()/2 - $('.rating').width()/2;
+            var margin = $('.rating-container-small').width()/2 - $('.rating').width()/2;
             $(".rating").css('margin-left', margin);
         });
 
@@ -100,6 +101,7 @@
             "iDisplayLength": 15
         });
         $('.dataTables_length').addClass('bs-select');
+
     });
 
     function setMarkers(map, locations) {

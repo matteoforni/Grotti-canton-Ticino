@@ -51,19 +51,19 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
                         <h5 class="h5">Valutazioni</h5>
                         <p class="ml-2">Fascia di prezzo: <?php echo $grotto['fascia_prezzo']; ?></p>
                         <span class="ml-2">Valutazione:
-                            <div class="rating-container-home ml-2">
-                                <div id="valutazione" class="rating" data-rate-value=<?php echo $grotto['valutazione']; ?>></div>
+                            <div class="rating-container-small ml-2">
+                                <div id="valutazione" class="rating-small" data-rate-value=<?php echo $grotto['valutazione']; ?>></div>
                             </div>
                         </span>
                     </div>
                     <?php if(isset($_SESSION['user'])): ?>
                         <div class="my-5 col-md-6 offset-md-3">
-                            <form method="post" class="text-center border border-light p-5" action="<?php URL ?>grotto/vota">
+                            <form method="post" class="mb-5 text-center border border-light p-5" action="<?php URL ?>grotto/vota">
                                 <p class="h3 mb-2">Vota</p>
                                 <p class="mb-4">Puoi votare un grotto solo una volta</p>
                                 <input type="hidden" id="val" name="val" value="" />
-                                <div class="rating-container">
-                                    <div id="valutazione" name="valutazione" class="rating"></div>
+                                <div class="rating-add-container">
+                                    <div id="valutazione" name="valutazione" class="rating-add"></div>
                                 </div>
                                 <input class="btn btn-info mt-4" type="submit" id="submit">
                                 <?php
@@ -83,23 +83,36 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
     <script>
         $(document).ready(function () {
 
-            //Imposto le opzioni
-            var options = {
+            //Imposto le opzioni per l'aggiunta di un voto
+            var optionsAdd = {
+                max_value: 5,
+                step_size: 0.5,
+            };
+
+            //Istanzio la valutazione
+            $(".rating-add").rate(optionsAdd);
+
+            //Mantengo sempre centrate le stelle
+            var margin = $('.rating-add-container').width()/2 - $('.rating-add').width()/2;
+            $(".rating-add").css('margin-left', margin);
+            $(window).resize(function () {
+                var margin = $('.rating-add-container').width()/2 - $('.rating-add').width()/2;
+                $(".rating-add").css('margin-left', margin);
+            });
+
+            $(".rating-add").click(function () {
+                $("#val").val($(".rating-add").rate("getValue"));
+            });
+
+            //Imposto le opzioni per il rating readonly più piccolo
+            var optionsSmall = {
                 max_value: 5,
                 step_size: 0.5,
                 readonly: true,
             };
 
             //Istanzio la valutazione
-            $(".rating").rate(options);
-
-            //Mantengo sempre centrate le stelle
-            var margin = $('.rating-container').width()/2 - $('.rating').width()/2;
-            $(".rating").css('margin-left', margin);
-            $(window).resize(function () {
-                var margin = $('.rating-container').width()/2 - $('.rating').width()/2;
-                $(".rating").css('margin-left', margin);
-            });
+            $(".rating-small").rate(optionsSmall);
         });
     </script>
 <?php endif; ?>
