@@ -28,11 +28,13 @@ class DBConnection
      * @return bool|PDOStatement La query al database.
      */
     public function getUsers(){
+
         try {
             $db = $this->getConnection();
+
             $query = $db->prepare('SELECT * from utente');
             $query->execute();
-            return $query;
+            return $query->fetchAll();
         }catch (Exception $e){
             $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
             header('Location: ' . URL . 'warning');
@@ -95,11 +97,17 @@ class DBConnection
 
     /**
      * Funzione che ritorna tutti i grotti.
-     * @return bool|PDOStatement La query al database.
+     * @param bool validati Se si vogliono ottenere i grotti validati o quelli non ancora validati
+     * @return array La query al database.
      */
-    public function getGrotti(){
+    public function getGrotti($validati){
         try {
-            $verificato = true;
+            if($validati){
+                $verificato = 1;
+            }else{
+                $verificato = 0;
+            }
+
             $db = $this->getConnection();
             $query = $db->prepare('SELECT * from grotto WHERE verificato=?;');
             $query->bindParam(1, $verificato);
