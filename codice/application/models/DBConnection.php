@@ -176,6 +176,23 @@ class DBConnection
     }
 
     /**
+     * Funzione che ritorna tutti i ruoli presenti nel database.
+     * @return array L'array di ruoli.
+     */
+    public function getRuoli(){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('SELECT * FROM ruolo');
+            $query->execute();
+            return $query->fetchAll();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
+
+    /**
      * Funzione che aggiunge un nuovo grotto al database.
      * @param $nome string Il nome del grotto.
      * @param $lon float La longitudine del grotto.
@@ -276,6 +293,58 @@ class DBConnection
 
             $query->execute();
 
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
+
+    /**
+     * Funzione che imposta il valore "verificato" ad 1 (true)
+     * @param $id int L'id del grotto da verificare.
+     */
+    public function setVerificato($id){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('UPDATE grotto SET verificato=? WHERE id=?');
+
+            $validato = 1;
+
+            $query->bindParam(1, $validato);
+            $query->bindParam(2, $id);
+
+            $query->execute();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
+
+    /**
+     * Funzione che elimina un utente o un grotto dal database.
+     * @param $type string Il tipo di dato da eliminare (utente o grotto).
+     * @param $id int/string L'id / l'email del grotto / utente da eliminare.
+     */
+    public function delete($type, $id){
+        try{
+            $db = $this->getConnection();
+            $query = null;
+
+            if($type == 'grotto'){
+                $query = $db->prepare('DELETE FROM grotto WHERE id=?');
+
+                $query->bindParam(1, $id);
+
+            }elseif ($type == 'utente'){
+
+                $query = $db->prepare('DELETE FROM utente WHERE email=?');
+
+                $query->bindParam(1, $id);
+            }
+
+            $query->execute();
         }catch (Exception $e){
             $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
             header('Location: ' . URL . 'warning');

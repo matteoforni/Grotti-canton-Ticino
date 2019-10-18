@@ -3,8 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/illustrator/logo-blue.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/illustrator/logo.ai" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/illustrator/logo.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/controller/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/controller/gestione.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/gestione.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/grotto.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/grotto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/registrazione.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/models/DBConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/models/DBConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/gestione/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/gestione/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,12 +68,12 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="registrazione.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/codice/application/controller/registrazione.php">
+    <configuration name="register.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/codice/application/controller/register.php">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHP Script.registrazione.php" />
+        <item itemvalue="PHP Script.register.php" />
       </list>
     </recent_temporary>
   </component>
@@ -93,7 +101,8 @@
       <workItem from="1570798923072" duration="4890000" />
       <workItem from="1571138148093" duration="10801000" />
       <workItem from="1571242139427" duration="11000" />
-      <workItem from="1571311094902" duration="10248000" />
+      <workItem from="1571311094902" duration="10493000" />
+      <workItem from="1571397399476" duration="9805000" />
     </task>
     <servers />
   </component>

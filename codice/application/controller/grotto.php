@@ -54,7 +54,7 @@ class Grotto
         require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
         $im = new InputManager();
-        $errors = Array();
+        $errors = array();
         unset($_SESSION['errors']);
 
         if($_SERVER["REQUEST_METHOD"] == "POST") {
