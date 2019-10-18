@@ -5,11 +5,18 @@
                 <div class="my-5 text-center">
                     <h1 class="h1 d-block">Amministrazione grotti Ticino</h1>
                     <h6 class="h6">Connesso come: <?php echo $_SESSION['user']['nome'] . " " . $_SESSION['user']['cognome'] . " (" .$_SESSION['user']['username'] . ")" ?></h6>
-
+                    
+                    <?php
+                        if(isset($_SESSION['errors'])){
+                            foreach ($_SESSION['errors'] as $error) {
+                                echo "<p class='text-danger'>" . $error . "</p>";
+                            }
+                        }
+                    ?>
+                    
                     <!-- Sezione di gestione degli utenti -->
-                    <div class="my-5">
+                    <div class="my-5" id="utenti">
                         <h3 class="h3-responsive">Gestione utenti</h3>
-                        <input type="button" class="btn btn-info" value="Gestisci utenti" id="utenti">
 
                         <table id="utenti_table" class="table table-hover table-responsive-md">
                             <thead>
@@ -25,14 +32,14 @@
                             </thead>
                             <tbody>
                             <?php foreach ($_SESSION['users'] as $row): ?>
-                                <tr class="text-center table-row" data-href="<?php echo URL; ?>admin/showUser/<?php echo $row['email']; ?>">
+                                <tr class="text-center table-row">
                                     <td><?php echo $row['email']; ?></td>
                                     <td><?php echo $row['nome']; ?></td>
                                     <td><?php echo $row['cognome']; ?></td>
                                     <td><?php echo $row['username']; ?></td>
                                     <td><?php echo $row['nome_ruolo']; ?></td>
-                                    <td><button type="button" class="btn btn-sm btn-warning">Modifica</button></td>
-                                    <td><button type="button" class="btn btn-sm btn-danger">Elimina</button></td>
+                                    <td><a type="button" class="btn btn-sm btn-warning" href="<?php echo URL; ?>admin/updateUser/<?php echo $row['email']; ?>">Modifica</a></td>
+                                    <td><a type="button" class="btn btn-sm btn-danger" href="<?php echo URL; ?>gestione/elimina/utente/<?php echo $row['email']; ?>">Elimina</a></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -40,9 +47,8 @@
                     </div>
 
                     <!-- Sezione di gestione dei grotti -->
-                    <div class="my-5">
+                    <div class="my-5" id="grotti">
                         <h3 class="h3-responsive">Gestione Grotti</h3>
-                        <input type="button" class="btn btn-info" value="Gestisci Grotti" id="grotti">
 
                         <table id="grotti_table" class="table table-hover table-responsive-md">
                             <thead>
@@ -69,8 +75,8 @@
                                             <div id="valutazione" class="rating" data-rate-value=<?php echo $row['valutazione']; ?>></div>
                                         </div>
                                     </td>
-                                    <td><button type="button" class="btn btn-sm btn-warning">Modifica</button></td>
-                                    <td><button type="button" class="btn btn-sm btn-danger">Elimina</button></td>
+                                    <td><a type="button" class="btn btn-sm btn-warning" href="<?php echo URL; ?>admin/updateGrotto/<?php echo $row['id']; ?>">Modifica</a></td>
+                                    <td><a type="button" class="btn btn-sm btn-danger" href="<?php echo URL; ?>gestione/elimina/grotto/<?php echo $row['id']; ?>">Elimina</a></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -78,10 +84,8 @@
                     </div>
 
                     <!-- Sezione di gestione degli inserimenti -->
-                    <div class="my-5">
+                    <div class="my-5" id="inserimenti">
                         <h3 class="h3-responsive">Gestione Inserimenti</h3>
-                        <input type="button" class="btn btn-info" value="Gestisci inserimenti" id="inserimenti">
-
                         <table id="ins_table" class="table table-hover table-responsive-md">
                             <thead>
                                 <tr class="text-center">
@@ -100,8 +104,8 @@
                                     <td><?php echo($row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?></td>
                                     <td><?php echo $row['telefono']; ?></td>
                                     <td><?php echo $row['fascia_prezzo']; ?></td>
-                                    <td><button type="button" class="btn btn-sm btn-success">Accetta</button></td>
-                                    <td><button type="button" class="btn btn-sm btn-danger">Elimina</button></td>
+                                    <td><a type="button" class="btn btn-sm btn-warning" href="<?php echo URL; ?>gestione/acceptGrotto/<?php echo $row['id']; ?>">Accetta</a></td>
+                                    <td><a type="button" class="btn btn-sm btn-danger" href="<?php echo URL; ?>gestione/elimina/grotto/<?php echo $row['id']; ?>">Elimina</a></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -114,11 +118,6 @@
 
     <script>
         $(document).ready(function () {
-            //Rendo le righe delle tabelle cliccabili grazie all'attributo data-href
-            $(".table-row").click(function() {
-                window.location = $(this).data("href");
-            });
-
             //Imposto le opzioni della valutazione
             var options = {
                 max_value: 5,
@@ -137,38 +136,27 @@
                 $(".rating").css('margin-left', margin);
             });
 
-            //Nascondo le tabelle
-            $('#utenti_table').hide();
-            $('#grotti_table').hide();
-            $('#ins_table').hide();
-
-            //Al click del bottone utenti mostro la tabella relativa
-            $('#utenti').click(function () {
-                if($("#utenti_table").is(":visible")) {
-                    $('#utenti_table').hide();
-                    $('#utenti_table').find('thead').eq(1).hide();
-                }else {
-                    $('#utenti_table').show();
-                }
+            //Genero le datatables con i loro attributi
+            $('#utenti_table').DataTable({
+                "searching": false,
+                "bLengthChange": false,
+                "info" : false,
+                "iDisplayLength": 7,
             });
-
-            //Al click del bottone grotti mostro la tabella relativa
-            $('#grotti').click(function () {
-                if($("#grotti_table").is(":visible")) {
-                    $('#grotti_table').hide();
-                }else {
-                    $('#grotti_table').show();
-                }
+            $('#grotti_table').DataTable({
+                "searching": false,
+                "bLengthChange": false,
+                "info" : false,
+                "iDisplayLength": 7,
             });
-
-            //Al click del bottone inserimenti mostro la tabella relativa
-            $('#inserimenti').click(function () {
-                if($("#ins_table").is(":visible")) {
-                    $('#ins_table').hide();
-                }else {
-                    $('#ins_table').show();
-                }
+            $('#ins_table').DataTable({
+                "searching": false,
+                "bLengthChange": false,
+                "info" : false,
+                "iDisplayLength": 7,
             });
+            $('.dataTables_length').addClass('bs-select');
+
         });
     </script>
 <?php endif; ?>

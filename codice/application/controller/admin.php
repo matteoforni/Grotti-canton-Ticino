@@ -38,32 +38,42 @@ class Admin
         }
     }
 
-    public function showUser($email){
+    public function updateUser($email){
+        echo "in<br>";
         require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
         if(isset($_SESSION['user'])) {
             if ($_SESSION['user']['nome_ruolo'] == 'admin') {
-                if(isset($_SESSION['utenti'])){
+                if(isset($_SESSION['users'])){
                     if(isset($_SESSION['utente'])){
                         unset($_SESSION['utente']);
                     }
                     if(isset($_SESSION['grotto'])){
                         unset($_SESSION['grotto']);
                     }
+                    if(!isset($_SESSION['ruoli'])){
+                        $ruoli = (new DBConnection)->getRuoli();
+                        $_SESSION['ruoli'] = $ruoli;
+                    }
 
                     //Carico dal DB l'utente
                     $im = new InputManager();
                     $email = filter_var($im->checkInput($email), FILTER_SANITIZE_EMAIL);
                     $utente = (new DBConnection)->getUser($email);
+                    if($utente == null){
+                        header('Location: ' . URL . 'admin');
+                        exit();
+                    }
                     $_SESSION['utente'] = $utente;
-                    header('Location: ' . URL . '');
+                    header('Location: ' . URL . 'gestione');
+                    exit();
                 }
             }
         }
     }
 
-    public function showGrotto($id){
+    public function updateGrotto($id){
         require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
@@ -76,13 +86,22 @@ class Admin
                     if(isset($_SESSION['utente'])){
                         unset($_SESSION['utente']);
                     }
+                    if(!isset($_SESSION['fasce_prezzo'])){
+                        $fasce_prezzo = (new DBConnection)->getFascePrezzo();
+                        $_SESSION['fasce_prezzo'] = $fasce_prezzo;
+                    }
 
                     //Carico dal DB il grotto
                     $im = new InputManager();
                     $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
                     $grotto = (new DBConnection)->getGrotto($id);
+                    if($grotto == null){
+                        header('Location: ' . URL . 'admin');
+                        exit();
+                    }
                     $_SESSION['grotto'] = $grotto;
-                    header('Location: ' . URL . '');
+                    header('Location: ' . URL . 'gestione');
+                    exit();
                 }
             }
         }
