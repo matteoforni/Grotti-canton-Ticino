@@ -50,7 +50,7 @@
 
                         <div class="form-row mb-4">
                             <div class="col">
-                                <p class="btn btn-info my-4 btn-block" id="submit"> Aggiungi </p>
+                                <p class="btn btn-info my-4 btn-block" id="submitbtn"> Aggiungi </p>
                             </div>
                             <div class="col">
                                 <button class="btn btn-info my-4 btn-block" type="button" id="check">Verifica</button>
@@ -117,31 +117,24 @@
                 },
             });
             var geocoder = new google.maps.Geocoder();
-            $('#submit').click(function () {
+            $('#submitbtn').click(function () {
+                nocivico = document.getElementById('no_civico').value;
+                via = document.getElementById('via').value;
+                paese = document.getElementById('paese').value;
+                cap = document.getElementById('cap').value;
                 submitInvoked = true;
                 setMapOnAll(null);
                 geocodeAddress(geocoder, map);
             });
             $('#check').click(function () {
+                nocivico = document.getElementById('no_civico').value;
+                via = document.getElementById('via').value;
+                paese = document.getElementById('paese').value;
+                cap = document.getElementById('cap').value;
                 setMapOnAll(null);
                 geocodeAddress(geocoder, map);
             });
         }
-
-        //Al click di "verifica" prendo i valori dell'indirizzo
-        $('#check').click(function () {
-            nocivico = document.getElementById('no_civico').value;
-            via = document.getElementById('via').value;
-            paese = document.getElementById('paese').value;
-            cap = document.getElementById('cap').value;
-        });
-
-        $('#submit').click(function () {
-            nocivico = document.getElementById('no_civico').value;
-            via = document.getElementById('via').value;
-            paese = document.getElementById('paese').value;
-            cap = document.getElementById('cap').value;
-        });
 
         //Funzione che esegue il submit di un form dopo aver inserito negli input nascosti i valori di lat e lng
         function submitForm(lat, long){

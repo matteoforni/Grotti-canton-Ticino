@@ -45,7 +45,8 @@ class Reset
                     foreach ($users as $user) {
                         if($user['email'] == $email){
                             $token = (new DBConnection())->setToken($email);
-                            if($mm->sendMail($email, $token)){
+                            $body = "Per reimpostare la tua password premi sul seguente link: <br><a href='" . URL . "reset/resetPassword/" . $token . "'>Reimposta la tua password</a>";
+                            if($mm->sendMail($email, $body)){
                                 $_SESSION['mail_sent'] = $email;
                                 header('Location: ' . URL . 'reset');
                                 exit();
