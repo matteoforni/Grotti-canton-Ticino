@@ -351,4 +351,50 @@ class DBConnection
             exit();
         }
     }
+
+    /**
+     * Funzione che consente di modificare uno dei campi di un utente.
+     * @param $email string L'email dell'utente.
+     * @param $campo string Il campo che si vuole modificare.
+     * @param $valore string Il valore che si vuole impostare al campo.
+     */
+    public function updateUtente($email, $campo, $valore){
+        try{
+            $db = $this->getConnection();
+            $stmt = "UPDATE utente SET " . $campo . "=? WHERE email=?";
+            $query = $db->prepare($stmt);
+
+            $query->bindParam(1, $valore);
+            $query->bindParam(2, $email);
+
+            $query->execute();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
+
+    /**
+     * Funzione che consente di modificare uno dei campi di un grotto.
+     * @param $id string L'id del grotto.
+     * @param $campo string Il campo che si vuole modificare.
+     * @param $valore string Il valore che si vuole impostare al campo.
+     */
+    public function updateGrotto($id, $campo, $valore){
+        try{
+            $db = $this->getConnection();
+            $stmt = "UPDATE grotto SET " . $campo . "=? WHERE id=?";
+            $query = $db->prepare($stmt);
+
+            $query->bindParam(1, $valore);
+            $query->bindParam(2, $id);
+
+            $query->execute();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
 }

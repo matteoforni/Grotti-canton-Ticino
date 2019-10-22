@@ -4,12 +4,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 class MailManager
 {
-    public function sendMail($email, $token){
+    public function sendMail($email, $body){
         require_once "./vendor/phpmailer/phpmailer/src/Exception.php";
         require_once "./vendor/phpmailer/phpmailer/src/PHPMailer.php";
         require_once "./vendor/phpmailer/phpmailer/src/SMTP.php";
-
-        $body = "Per reimpostare la tua password premi sul seguente link: <br><a href='" . URL . "reset/resetPassword/" . $token . "'>Reimposta la tua password</a>";
 
         try{
             $mail = new PHPMailer();
