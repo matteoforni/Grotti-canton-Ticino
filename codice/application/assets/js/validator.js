@@ -4,32 +4,32 @@ class Validator {
     }
 
     firstname(text, lengthMin, lengthMax) {
-        if (text.length > lengthMin && text.length < lengthMax) {
-            var allChars = /^\s*([A-Za-z\u00C0-\u017F ]{1,}([\.,]|[-']|))*$/i;
+        if (text.length > lengthMin && text.length <= lengthMax) {
+            var allChars = /^\s*([A-Za-z\u00C0-\u017F ]{1}([\.]|[-']|))*$/i;
             return allChars.test(text);
         }
         return false;
     }
 
     lastname(text, lengthMin, lengthMax) {
-        if (text.length > lengthMin && text.length < lengthMax) {
-            var allChars = /^\s*([A-Za-z\u00C0-\u017F0-9 ]{1,}([\.,]|[-']|))*$/i;
+        if (text.length > lengthMin && text.length <= lengthMax) {
+            var allChars = /^\s*([A-Za-z\u00C0-\u017F0-9 ]{1}([\.,]|[-']|))*$/i;
             return allChars.test(text);
         }
         return false;
     }
 
     username(text, lengthMin, lengthMax) {
-        if (text.length > lengthMin && text.length < lengthMax) {
-            var allChars = /^\s*([A-Za-z\u00C0-\u017F0-9 ]{1,}([\.,]|[-']|))*$/i;
+        if (text.length > lengthMin && text.length <= lengthMax) {
+            var allChars = /^\s*([A-Za-z\u00C0-\u017F0-9 ]{1}([\.,]|[-']|))*$/i;
             return allChars.test(text);
         }
         return false;
     }
 
     password(text, lengthMin, lengthMax) {
-        if (text.length > lengthMin && text.length < lengthMax) {
-            var allChars = /^\s*([A-Za-z\u00C0-\u017F0-9*%&!?$@+#]{1,}([\.,]|[-']|))*$/i;
+        if (text.length >= lengthMin && text.length <= lengthMax) {
+            var allChars = /^\s*([A-Za-z\u00C0-\u017F0-9*%&!?$@+#\-_+]{1}([\.,]|[-']|))*$/i;
             return allChars.test(text);
         }
         return false;
@@ -48,7 +48,7 @@ class Validator {
     }
 
     name(text, lengthMin, lengthMax){
-        if (text.length > lengthMin && text.length < lengthMax) {
+        if (text.length > lengthMin && text.length <= lengthMax) {
             var allChars = /^\s*([A-Za-z\u00C0-\u017F ]{1,}([\.,]|[-']|))*$/i;
             return allChars.test(text);
         }
@@ -56,7 +56,7 @@ class Validator {
     }
 
     paese(text, lengthMin, lengthMax){
-        if (text.length > lengthMin && text.length < lengthMax) {
+        if (text.length > lengthMin && text.length <= lengthMax) {
             var allChars = /^\s*([A-Za-z\u00C0-\u017F ]{1,}([\.,]|[-']|))*$/i;
             return allChars.test(text);
         }
@@ -64,7 +64,7 @@ class Validator {
     }
 
     via(text, lengthMin, lengthMax){
-        if (text.length > lengthMin && text.length < lengthMax) {
+        if (text.length > lengthMin && text.length <= lengthMax) {
             var allChars = /^\s*([A-Za-z\u00C0-\u017F ]{1,}([\.,]|[-']|))*$/i;
             return allChars.test(text);
         }
@@ -72,7 +72,7 @@ class Validator {
     }
 
     telefono(number, lengthMin, lengthMax) {
-        if (number.length > lengthMin && number.length < lengthMax) {
+        if (number.length > lengthMin && number.length <= lengthMax) {
             var re = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
             return re.test(number);
         }
@@ -81,7 +81,7 @@ class Validator {
 
     nocivico(numeroCivico, lengthMin, lengthMax) {
         var re = /^[a-zA-Z0-9 ]+$/;
-        if (numeroCivico.length > lengthMin && numeroCivico.length < lengthMax) {
+        if (numeroCivico.length > lengthMin && numeroCivico.length <= lengthMax) {
             return re.test(numeroCivico);
         }
         return false;
@@ -89,7 +89,7 @@ class Validator {
 
     cap(cap, lengthMin, lengthMax){
         var re = /^[0-9]+$/;
-        if(cap.length > lengthMin && cap.length < lengthMax){
+        if(cap.length > lengthMin && cap.length <= lengthMax){
             return re.test(cap);
         }
         return false;

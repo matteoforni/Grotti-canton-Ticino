@@ -209,6 +209,7 @@ const global_length_min = 0;
 const global_length_max = 50;
 const pass_length_min = 8;
 const no_civico_length_max = 5;
+const telefono_length_min = 9;
 const telefono_length_max = 20;
 const cap_length_max = 5;
 
@@ -242,7 +243,7 @@ function manage(obj, selector) {
     }else if (selector == "no_civico"){
         status = validator.nocivico(obj.value, global_length_min, no_civico_length_max);
     }else if (selector == "telefono"){
-        status = validator.telefono(obj.value, global_length_min, telefono_length_max);
+        status = validator.telefono(obj.value, telefono_length_min, telefono_length_max);
     }
 
     if (status) {
