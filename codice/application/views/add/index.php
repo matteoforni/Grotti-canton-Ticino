@@ -62,6 +62,7 @@
                             foreach ($_SESSION['errors'] as $item) {
                                 echo "<p class='text-danger'>" . $item . "</p><br>";
                             }
+                            unset($_SESSION['errors']);
                         }
                         ?>
                     </form>
