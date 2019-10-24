@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 class MailManager
 {
-    public function sendMail($email, $body){
+    public function sendMail($email, $body, $subject){
         require_once "./vendor/phpmailer/phpmailer/src/Exception.php";
         require_once "./vendor/phpmailer/phpmailer/src/PHPMailer.php";
         require_once "./vendor/phpmailer/phpmailer/src/SMTP.php";
@@ -22,7 +22,7 @@ class MailManager
             $mail->Username = EMAIL;
             $mail->Password = PASSWORD;
             $mail->SetFrom(EMAIL);
-            $mail->Subject = "Grotti Ticino - Reimposta la tua password";
+            $mail->Subject = $subject;
             $mail->Body = $body;
             $mail->AddAddress($email);
 

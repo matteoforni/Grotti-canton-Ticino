@@ -58,9 +58,9 @@ class Gestione
                     if($user['email'] == $email){
                         //Se l'utente esiste imposto la nuova password e invio un email di notifica
                         (new DBConnection)->setPassword($email, $password);
-                        $body = "La tua password è stata reimpostata da uno dei nostri admin, la tua nuova password è la seguente: <br>" . $password;
+                        $body = "<h5>La tua password è stata reimpostata da uno dei nostri admin</h5>La tua nuova password è la seguente: <b>" . $password . "</b>";
                         //Se l'email non viene inviata correttamente si ritorna un errore
-                        if(!$mm->sendMail($email, $body)){
+                        if(!$mm->sendMail($email, $body, "Grotti Ticinesi - Password Modificata")){
                             array_push($errors, "Impossibile inviare l'email");
                             $_SESSION['errors'] = $errors;
                             header('Location: ' . URL . 'admin');

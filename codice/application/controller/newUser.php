@@ -92,7 +92,8 @@ class NewUser
                         (new DBConnection())->addUser($firstname, $lastname, $username, $email, $password);
                         unset($_POST);
                         $mm = new MailManager();
-                        $mm->sendMail($email, "Un admin di Grotti Ticinesi ha creato un account con la tua email, la password per accedervi è la seguente: <br>" . $password);
+                        $body = "<h5>Un admin di Grotti Ticinesi ha creato un account con la tua email</h5>La password per accedervi è la seguente: <b>" . $password . "</b>";
+                        $mm->sendMail($email, $body, "Grotti Ticinesi - Benvenuto");
                         header('Location: ' . URL . 'login');
                         exit();
                     }catch(Exception $e){
