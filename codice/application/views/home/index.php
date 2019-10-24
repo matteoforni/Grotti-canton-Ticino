@@ -98,7 +98,10 @@
             "searching": false,
             "bLengthChange": false,
             "info" : false,
-            "iDisplayLength": 15
+            "iDisplayLength": 15,
+            "oLanguage": {
+                "sEmptyTable": "Nessun grotto da mostrare"
+            }
         });
         $('.dataTables_length').addClass('bs-select');
 

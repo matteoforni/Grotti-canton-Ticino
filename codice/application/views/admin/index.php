@@ -158,7 +158,7 @@
                 "info" : false,
                 "iDisplayLength": 5,
                 "oLanguage": {
-                    "sEmptyTable": "Nessun dato da mostrare"
+                    "sEmptyTable": "Nessun utente da mostrare"
                 }
             });
             $('#grotti_table').DataTable({
@@ -167,7 +167,7 @@
                 "info" : false,
                 "iDisplayLength": 5,
                 "oLanguage": {
-                    "sEmptyTable": "Nessun dato da mostrare"
+                    "sEmptyTable": "Nessun grotto da mostrare"
                 }
             });
             $('#ins_table').DataTable({
@@ -176,7 +176,7 @@
                 "info" : false,
                 "iDisplayLength": 5,
                 "oLanguage": {
-                    "sEmptyTable": "Nessun dato da mostrare"
+                    "sEmptyTable": "Nessun nuovo inserimento da mostrare"
                 }
             });
             $('.dataTables_length').addClass('bs-select');
