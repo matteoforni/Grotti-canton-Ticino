@@ -42,6 +42,7 @@
                         foreach ($_SESSION['errors'] as $item) {
                             echo "<p class='text-danger'>" . $item . "</p><br>";
                         }
+                        unset($_SESSION['errors']);
                     }
                     ?>
                 </form>
@@ -50,13 +51,8 @@
     </div>
 </div>
 <script>
-    //Array contenente gli input andati a buon fine o che hanno riportato problemi.
-    var inputs = [false, false, false, false, false, false];
-
     $(document).ready(function () {
         //Quando la pagina ha caricato completamente aggiungo i listener agli input.
         addRegisterListeners();
-
     });
-
 </script>

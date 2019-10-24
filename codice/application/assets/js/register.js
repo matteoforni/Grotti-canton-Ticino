@@ -1,4 +1,5 @@
 var validator = new Validator();
+console.log("[INFO] Loaded register.js");
 
 function addRegisterListeners() {
     //Aggiunge evento keydown ai campi
@@ -29,17 +30,47 @@ function addRegisterListeners() {
         manage(this, "lastname");
     });
     $("#username").keyup(function() {
-        manage(this, "email");
+        manage(this, "username");
     });
     //Aggiunge evento keyup ai campi
     $("#email").keyup(function() {
-        manage(this, "username");
+        manage(this, "email");
     });
     $("#password").keyup(function() {
         manage(this, "password");
     });
     $("#repassword").keyup(function() {
         manage(this, "repassword");
+    });
+}
+
+function addUpdateUserListeners() {
+    //Aggiunge evento keydown ai campi
+    $("#firstname").keydown(function() {
+        manage(this, "firstname");
+    });
+    $("#lastname").keydown(function() {
+        manage(this, "lastname");
+    });
+    $("#username").keydown(function() {
+        manage(this, "username");
+    });
+    $("#password").keydown(function() {
+        manage(this, "password");
+    });
+
+    //Aggiunge evento keyup ai campi
+    $("#firstname").keyup(function() {
+        manage(this, "firstname");
+    });
+    $("#lastname").keyup(function() {
+        manage(this, "lastname");
+    });
+    $("#username").keyup(function() {
+        manage(this, "username");
+    });
+    $("#password").keyup(function() {
+        manage(this, "password");
     });
 }
 
@@ -60,7 +91,6 @@ function addLoginListeners() {
     $("#password").keyup(function() {
         manage(this, "password");
     });
-
 }
 
 function addResetListeners() {
@@ -87,6 +117,49 @@ function addResetListeners() {
     });
 }
 
+
+function addUpdateGrottoListeners() {
+    //Aggiunge evento keydown ai campi
+    $("#name").keydown(function() {
+        manage(this, "name");
+    });
+    $("#cap").keydown(function() {
+        manage(this, "cap");
+    });
+    $("#paese").keydown(function() {
+        manage(this, "paese");
+    });
+    $("#via").keydown(function() {
+        manage(this, "via");
+    });
+    $("#no_civico").keydown(function() {
+        manage(this, "no_civico");
+    });
+    $("#telefono").keydown(function() {
+        manage(this, "telefono");
+    });
+
+
+    //Aggiunge evento keyup ai campi
+    $("#name").keyup(function() {
+        manage(this, "name");
+    });
+    $("#cap").keyup(function() {
+        manage(this, "cap");
+    });
+    $("#paese").keyup(function() {
+        manage(this, "paese");
+    });
+    $("#via").keyup(function() {
+        manage(this, "via");
+    });
+    $("#no_civico").keyup(function() {
+        manage(this, "no_civico");
+    });
+    $("#telefono").keyup(function() {
+        manage(this, "telefono");
+    });
+}
 
 function addGrottoListeners() {
     //Aggiunge evento keydown ai campi
@@ -129,8 +202,8 @@ function addGrottoListeners() {
     $("#telefono").keyup(function() {
         manage(this, "telefono");
     });
-
 }
+
 //PARAMS
 const global_length_min = 0;
 const global_length_max = 50;
