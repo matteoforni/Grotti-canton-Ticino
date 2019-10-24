@@ -11,6 +11,7 @@
                             foreach ($_SESSION['errors'] as $error) {
                                 echo "<p class='text-danger'>" . $error . "</p>";
                             }
+                            unset($_SESSION['errors']);
                         }
                     ?>
                     
@@ -20,15 +21,15 @@
 
                         <table id="utenti_table" class="table table-hover table-responsive-md">
                             <thead>
-                            <tr class="text-center">
-                                <th scope="col">Email</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Cognome</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Ruolo</th>
-                                <th scope="col">Modifica</th>
-                                <th scope="col">Elimina</th>
-                            </tr>
+                                <tr class="text-center">
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Cognome</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Ruolo</th>
+                                    <th scope="col">Modifica</th>
+                                    <th scope="col">Elimina</th>
+                                </tr>
                             </thead>
                             <tbody>
                             <?php foreach ($_SESSION['users'] as $row): ?>
@@ -142,18 +143,27 @@
                 "bLengthChange": false,
                 "info" : false,
                 "iDisplayLength": 7,
+                "oLanguage": {
+                    "sEmptyTable": "Nessun dato da mostrare"
+                }
             });
             $('#grotti_table').DataTable({
                 "searching": false,
                 "bLengthChange": false,
                 "info" : false,
                 "iDisplayLength": 7,
+                "oLanguage": {
+                    "sEmptyTable": "Nessun dato da mostrare"
+                }
             });
             $('#ins_table').DataTable({
                 "searching": false,
                 "bLengthChange": false,
                 "info" : false,
                 "iDisplayLength": 7,
+                "oLanguage": {
+                    "sEmptyTable": "Nessun dato da mostrare"
+                }
             });
             $('.dataTables_length').addClass('bs-select');
 
