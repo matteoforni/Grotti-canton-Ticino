@@ -95,6 +95,14 @@
                                 </div>
                             </div>
                         <?php endif; ?>
+                        <?php
+                        if(isset($_SESSION['errors'])){
+                            foreach ($_SESSION['errors'] as $item) {
+                                echo "<p class='text-danger'>" . $item . "</p><br>";
+                            }
+                            unset($_SESSION['errors']);
+                        }
+                        ?>
                     </form>
                 </div>
                 <div id="mapResults" class="mb-5"></div>
@@ -103,14 +111,20 @@
     </div>
 <?php endif; ?>
 
-
 <?php if(isset($_SESSION['utente']) && isset($_SESSION['ruoli'])): ?>
     <script>
         $('#update').attr("action", "<?php URL ?>gestione/updateUtente/<?php echo $_SESSION['utente']['email']; ?>");
+        $(document).ready(function () {
+            addUpdateUserListeners();
+        });
     </script>
 <?php elseif (isset($_SESSION['grotto']) && isset($_SESSION['fasce_prezzo'])): ?>
     <script>
         $('#update').attr("action", "<?php URL ?>gestione/updateGrotto/<?php echo $_SESSION['grotto']['id']; ?>");
+
+        $(document).ready(function () {
+            addUpdateGrottoListeners();
+        });
 
         //Istanzio le variabili che vanno a completare l'indirizzo
         var nocivico;

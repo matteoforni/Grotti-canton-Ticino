@@ -85,16 +85,16 @@ class Gestione
                 $user = (new DBConnection)->getUser($email);
                 //Se l'utente esiste e i campi inseriti sono diversi da quelli già impostati essi vengono cambiati
                 if($user != null){
-                    if($user['firstname'] != $firstname){
+                    if($user['nome'] != $firstname){
                         (new DBConnection)->updateUtente($email, 'nome', $firstname);
                     }
-                    if($user['lastname'] != $lastname){
+                    if($user['cognome'] != $lastname){
                         (new DBConnection)->updateUtente($email, 'cognome', $lastname);
                     }
                     if($user['username'] != $username){
                         (new DBConnection)->updateUtente($email, 'username', $username);
                     }
-                    if($user['ruoli'] != $ruolo){
+                    if($user['nome_ruolo'] != $ruolo){
                         //Se si vuole passare da admin a utente
                         if($ruolo == 'utente'){
                             //Verifico che ci sia sempre un admin
