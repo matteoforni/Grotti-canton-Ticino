@@ -17,6 +17,7 @@ class MailManager
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Host = "smtp.gmail.com";
             $mail->Port = 587;
+            $mail->CharSet = 'UTF-8';
             $mail->IsHTML(true);
             $mail->Username = EMAIL;
             $mail->Password = PASSWORD;
