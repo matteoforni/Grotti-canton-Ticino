@@ -45,6 +45,13 @@
                             <?php endforeach; ?>
                             </tbody>
                         </table>
+                        <div class="card col-md-4 offset-md-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Aggiungi un utente</h5>
+                                <p class="card-text">Aggiungi un nuovo utente, gli verrà inviata la password via email.</p>
+                                <a class="card-link btn btn-info btn-sm" href="<?php echo URL; ?>newUser">Aggiungi</a>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Sezione di gestione dei grotti -->
@@ -82,6 +89,13 @@
                             <?php endforeach; ?>
                             </tbody>
                         </table>
+                        <div class="card col-md-4 offset-md-4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Aggiungi un grotto</h5>
+                                <p class="card-text">Aggiungi un nuovo grotto tramite la pagina apposita.</p>
+                                <a class="card-link btn btn-info btn-sm" href="<?php echo URL; ?>add">Aggiungi</a>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Sezione di gestione degli inserimenti -->
@@ -142,7 +156,7 @@
                 "searching": false,
                 "bLengthChange": false,
                 "info" : false,
-                "iDisplayLength": 7,
+                "iDisplayLength": 5,
                 "oLanguage": {
                     "sEmptyTable": "Nessun dato da mostrare"
                 }
@@ -151,7 +165,7 @@
                 "searching": false,
                 "bLengthChange": false,
                 "info" : false,
-                "iDisplayLength": 7,
+                "iDisplayLength": 5,
                 "oLanguage": {
                     "sEmptyTable": "Nessun dato da mostrare"
                 }
@@ -160,7 +174,7 @@
                 "searching": false,
                 "bLengthChange": false,
                 "info" : false,
-                "iDisplayLength": 7,
+                "iDisplayLength": 5,
                 "oLanguage": {
                     "sEmptyTable": "Nessun dato da mostrare"
                 }

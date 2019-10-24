@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/assets/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/js/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/gestione.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/gestione.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/models/mail_manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/models/mail_manager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/views/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/add/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/gestione/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/gestione/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/login/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/login/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/register/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/register/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +97,7 @@
       <workItem from="1571311094902" duration="10493000" />
       <workItem from="1571397399476" duration="9987000" />
       <workItem from="1571743080549" duration="10739000" />
-      <workItem from="1571915865417" duration="1922000" />
+      <workItem from="1571915865417" duration="4688000" />
     </task>
     <servers />
   </component>
