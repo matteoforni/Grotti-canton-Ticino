@@ -112,7 +112,7 @@
 
         var contentString = `
                 <div class='content modal-body'>
-                    <h1 id="nome" style='color:black;'>  <?php echo $row['nome']; ?></h1>
+                    <a class='text-dark' href='<?php echo URL; ?>grotto/show/<?php echo $row['id']; ?>'><h1 id="nome" style='color:black;'>  <?php echo $row['nome']; ?></h1>
                     <strong id="indirizzo">Indirizzo</strong> <?php echo(" " . $row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?>
                     <br><br>
                     <strong id="telefono">Telefono</strong><?php echo " " . $row['telefono']; ?>
@@ -120,7 +120,7 @@
                     <strong id="valutazione">Valutazione</strong>
                     <div class="rating-container">
                         <div id="valutazione" class="rating" data-rate-value=<?php echo $row['valutazione']; ?>></div>
-                    </div>
+                    </div></a>
                 </div>`;
 
         var infowindow<?php echo $row['id']; ?> = new google.maps.InfoWindow({
