@@ -53,13 +53,19 @@ class Login
                         if ($row['password'] == $password) {
                             $_SESSION['user'] = (new DBConnection)->getUser($email);
                             //verifico se è admin o utente normale
-                            if ($row['nome_ruolo'] == 'admin') {
-                                header('Location: ' . URL . 'admin');
-                                exit();
-                            } elseif ($row['nome_ruolo'] == 'utente') {
-                                header('Location: ' . URL . 'home');
+                            if(!$row['first_login']){
+                                if ($row['nome_ruolo'] == 'admin') {
+                                    header('Location: ' . URL . 'admin');
+                                    exit();
+                                } elseif ($row['nome_ruolo'] == 'utente') {
+                                    header('Location: ' . URL . 'home');
+                                    exit();
+                                }
+                            }else{
+                                header('Location: ' . URL . 'firstLogin');
                                 exit();
                             }
+
                         } else {
                             //se la password è sbagliata ritorno l'errore
                             array_push($errors, "Password o email sbagliate");
