@@ -72,10 +72,10 @@ class DBConnection
      * @param $email string L'email dell'utente da inserire nel db.
      * @param $password string La password dell'utente da inserire nel db.
      */
-    public function addUser($firstname, $lastname, $username, $email, $password){
+    public function addUser($firstname, $lastname, $username, $email, $password, $firstLogin){
         try {
             $db = $this->getConnection();
-            $query = $db->prepare('INSERT INTO utente(email, nome, cognome, username, password, nome_ruolo) VALUES (?, ?, ?, ?, ? , ?)');
+            $query = $db->prepare('INSERT INTO utente(email, nome, cognome, username, password, nome_ruolo, first_login) VALUES (?, ?, ?, ?, ?, ?, ?)');
 
             $password = hash('sha256', $password);
             $type = "utente";
@@ -86,6 +86,7 @@ class DBConnection
             $query->bindParam(4, $username, PDO::PARAM_STR);
             $query->bindParam(5, $password, PDO::PARAM_STR);
             $query->bindParam(6, $type, PDO::PARAM_STR);
+            $query->bindParam(7, $firstLogin, PDO::PARAM_BOOL);
 
             $query->execute();
         }catch (Exception $e){
@@ -110,7 +111,7 @@ class DBConnection
 
             $db = $this->getConnection();
             $query = $db->prepare('SELECT * from grotto WHERE verificato=?;');
-            $query->bindParam(1, $verificato);
+            $query->bindParam(1, $verificato, PDO::PARAM_BOOL);
             $query->execute();
             return $query->fetchAll();
         }catch (Exception $e){
@@ -129,7 +130,7 @@ class DBConnection
         try{
             $db = $this->getConnection();
             $query = $db->prepare('SELECT * FROM grotto WHERE id=?');
-            $query->bindParam(1, $id);
+            $query->bindParam(1, $id, PDO::PARAM_INT);
             $query->execute();
             return $query->fetch();
         }catch (Exception $e){
@@ -148,7 +149,7 @@ class DBConnection
         try{
             $db = $this->getConnection();
             $query = $db->prepare('SELECT * FROM foto WHERE grotto=?');
-            $query->bindParam(1, $id);
+            $query->bindParam(1, $id, PDO::PARAM_INT);
             $query->execute();
             return $query->fetchAll();
         }catch (Exception $e){
@@ -240,8 +241,8 @@ class DBConnection
         try{
             $db = $this->getConnection();
             $query = $db->prepare('INSERT INTO voto(email_utente, id_grotto, voto) VALUES (?, ?, ?)');
-            $query->bindParam(1, $utente);
-            $query->bindParam(2, $grotto);
+            $query->bindParam(1, $utente, PDO::PARAM_STR);
+            $query->bindParam(2, $grotto, PDO::PARAM_INT);
             $query->bindParam(3, $voto);
 
             $query->execute();
@@ -264,8 +265,8 @@ class DBConnection
 
             $token = bin2hex(random_bytes(15));
 
-            $query->bindParam(1, $token);
-            $query->bindParam(2, $email);
+            $query->bindParam(1, $token, PDO::PARAM_STR);
+            $query->bindParam(2, $email, PDO::PARAM_STR);
 
             $query->execute();
 
@@ -288,8 +289,8 @@ class DBConnection
             $query = $db->prepare('UPDATE utente SET password=? WHERE email=?');
 
             $password = hash('sha256', $password);
-            $query->bindParam(1, $password);
-            $query->bindParam(2, $email);
+            $query->bindParam(1, $password, PDO::PARAM_STR);
+            $query->bindParam(2, $email, PDO::PARAM_STR);
 
             $query->execute();
 
@@ -311,8 +312,8 @@ class DBConnection
 
             $validato = 1;
 
-            $query->bindParam(1, $validato);
-            $query->bindParam(2, $id);
+            $query->bindParam(1, $validato, PDO::PARAM_BOOL);
+            $query->bindParam(2, $id, PDO::PARAM_INT);
 
             $query->execute();
         }catch (Exception $e){
@@ -335,13 +336,13 @@ class DBConnection
             if($type == 'grotto'){
                 $query = $db->prepare('DELETE FROM grotto WHERE id=?');
 
-                $query->bindParam(1, $id);
+                $query->bindParam(1, $id, PDO::PARAM_INT);
 
             }elseif ($type == 'utente'){
 
                 $query = $db->prepare('DELETE FROM utente WHERE email=?');
 
-                $query->bindParam(1, $id);
+                $query->bindParam(1, $id, PDO::PARAM_STR);
             }
 
             $query->execute();
@@ -364,8 +365,8 @@ class DBConnection
             $stmt = "UPDATE utente SET " . $campo . "=? WHERE email=?";
             $query = $db->prepare($stmt);
 
-            $query->bindParam(1, $valore);
-            $query->bindParam(2, $email);
+            $query->bindParam(1, $valore, PDO::PARAM_STR);
+            $query->bindParam(2, $email, PDO::PARAM_STR);
 
             $query->execute();
         }catch (Exception $e){
@@ -387,9 +388,45 @@ class DBConnection
             $stmt = "UPDATE grotto SET " . $campo . "=? WHERE id=?";
             $query = $db->prepare($stmt);
 
-            $query->bindParam(1, $valore);
-            $query->bindParam(2, $id);
+            $query->bindParam(1, $valore, PDO::PARAM_STR);
+            $query->bindParam(2, $id, PDO::PARAM_INT);
 
+            $query->execute();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
+
+    /**
+     * Funzione che consente di ottenere il numero di valutazioni effettuate su di un grotto.
+     * @param $grotto int Il grotto su cui sono state fatte le votazioni.
+     * @return mixed Il risultato della query.
+     */
+    public function getNoValutazioni($grotto){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('SELECT count(*) FROM voto where id_grotto=?');
+            $query->bindParam(1, $grotto, PDO::PARAM_INT);
+            $query->execute();
+            return $query->fetch();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
+
+    /**
+     * Funzione che consente di impostare a false il parametro first_login.
+     * @param $email string L'email dell'utente da modificare.
+     */
+    public function setFirstLogin($email){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('UPDATE utente SET first_login=0 WHERE email=?');
+            $query->bindParam(1, $email, PDO::PARAM_STR);
             $query->execute();
         }catch (Exception $e){
             $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
