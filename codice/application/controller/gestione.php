@@ -101,11 +101,12 @@ class Gestione
                             foreach($users as $item){
                                 if($item['nome_ruolo'] == 'admin' && $item['id'] != $user['email']){
                                     (new DBConnection)->updateUtente($email, 'nome_ruolo', $ruolo);
-                                }else{
-                                    array_push($errors, "Deve sempre esserci almeno un admin");
-                                    $_SESSION['errors'] = $errors;
+                                    header('Location: ' . URL . 'admin');
+                                    exit();
                                 }
                             }
+                            array_push($errors, "Deve sempre esserci almeno un admin");
+                            $_SESSION['errors'] = $errors;
                         }else{
                             (new DBConnection)->updateUtente($email, 'nome_ruolo', $ruolo);
                         }
@@ -262,13 +263,14 @@ class Gestione
             if($utente != null){
                 //Verifico che ci sia sempre almeno un admin
                 foreach($utenti as $item){
-                    if($item['nome_ruolo'] == 'admin' && $item['id'] != $utente['id']){
+                    if(($item['nome_ruolo'] == 'admin' && $item['email'] != $utente['email'])){
                         (new DBConnection)->delete($type, $id);
-                    }else{
-                        array_push($errors, "Deve sempre esserci almeno un admin");
-                        $_SESSION['errors'] = $errors;
+                        header('Location: ' . URL . 'admin');
+                        exit();
                     }
                 }
+                array_push($errors, "Deve sempre esserci almeno un admin");
+                $_SESSION['errors'] = $errors;
             }
         }
         header('Location: ' . URL . 'admin');

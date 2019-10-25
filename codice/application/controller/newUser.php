@@ -88,11 +88,11 @@ class NewUser
                 //se non esiste inserisco il nuovo utente nel db
                 if(!$exists) {
                     try {
-                        $password = $token = bin2hex(random_bytes(15));
-                        (new DBConnection())->addUser($firstname, $lastname, $username, $email, $password);
+                        $password = bin2hex(random_bytes(4));
+                        (new DBConnection())->addUser($firstname, $lastname, $username, $email, $password, true);
                         unset($_POST);
                         $mm = new MailManager();
-                        $body = "<h5>Un admin di Grotti Ticinesi ha creato un account con la tua email</h5>La password per accedervi è la seguente: <b>" . $password . "</b>";
+                        $body = "<h3>Un admin di Grotti Ticinesi ha creato un account con la tua email</h3>La password per accedervi è la seguente: <br><b>" . $password . "</b>";
                         $mm->sendMail($email, $body, "Grotti Ticinesi - Benvenuto");
                         header('Location: ' . URL . 'login');
                         exit();
