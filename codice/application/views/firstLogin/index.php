@@ -25,3 +25,9 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        //Quando la pagina ha caricato completamente aggiungo i listener agli input.
+        addResetListeners();
+    });
+</script>
