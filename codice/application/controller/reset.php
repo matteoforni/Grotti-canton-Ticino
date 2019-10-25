@@ -77,7 +77,7 @@ class Reset
         if(isset($_SESSION['mail_sent']) && isset($_SESSION['password'])){
             $user = (new DBConnection())->getUser($_SESSION['mail_sent']);
             if($user['reset_token'] == $token){
-                (new DBConnection())->setPassword($_SESSION['mail_sent'], $_SESSION['password']);
+                (new DBConnection)->setPassword($_SESSION['mail_sent'], $_SESSION['password']);
                 $_SESSION['password_change'] = true;
                 unset($_SESSION['mail_sent']);
             }else{
