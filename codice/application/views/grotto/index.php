@@ -50,7 +50,12 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
                     <div class="my-5">
                         <h5 class="h5">Valutazioni</h5>
                         <p class="ml-2">Fascia di prezzo: <?php echo $grotto['fascia_prezzo']; ?></p>
-                        <span class="ml-2">Valutazione:
+                        <span class="ml-2">
+                            <?php if($_SESSION['noValutazioni'] == 1): ?>
+                                Valutazione media (<?php echo($_SESSION['noValutazioni']); ?> utente ha votato questa località):
+                            <?php else: ?>
+                                Valutazione media (<?php echo($_SESSION['noValutazioni']); ?> utenti hanno votato questa località):
+                            <?php endif; ?>
                             <div class="rating-container-small ml-2">
                                 <div id="valutazione" class="rating-small" data-rate-value=<?php echo $grotto['valutazione']; ?>></div>
                             </div>

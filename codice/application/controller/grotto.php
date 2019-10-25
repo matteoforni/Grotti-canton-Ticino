@@ -37,14 +37,21 @@ class Grotto
         if(isset($_SESSION['img'])){
             unset($_SESSION['img']);
         }
+        if(isset($_SESSION['noValutazioni'])){
+            unset($_SESSION['noValutazioni']);
+        }
 
         //Carico dal DB il grotto e le sue immagini
         $im = new InputManager();
         $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
+
         $grotto = (new DBConnection)->getGrotto($id);
         $images = (new DBConnection)->getImages($id);
+        $noValutazioni = (new DBConnection)->getNoValutazioni($id);
+
         $_SESSION['grotto'] = $grotto;
         $_SESSION['img'] = $images;
+        $_SESSION['noValutazioni'] = $noValutazioni[0]['count(*)'];
         header('Location: ' . URL . 'grotto');
         exit();
     }
