@@ -86,4 +86,36 @@ class Grotto
             }
         }
     }
+
+    public function caricaImmagine(){
+        print_r($_FILES['image']);
+
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['submit'])) {
+                if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                    $filename = $_FILES['image']['name'];
+                    $fileTmpPath = $_FILES['image']['tmp_name'];
+                    $fileNameParts = explode(".", $filename);
+                    $extension = strtolower(end($fileNameParts));
+
+                    $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
+                    if (in_array($extension, $allowedfileExtensions)) {
+                        $filename = hash_file('md5', $fileTmpPath) . '.' . $extension;
+                        $path = IMG_PATH . $filename;
+                        echo "<br>" . $path . "<br>";
+                        if(!file_exists($path)){
+                            if(move_uploaded_file($fileTmpPath, $path))
+                            {
+                                echo 'File is successfully uploaded.';
+                            }else{
+                                echo 'File fail';
+                            }
+                        }else{
+                            echo "File already exists";
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

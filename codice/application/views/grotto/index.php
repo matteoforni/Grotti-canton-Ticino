@@ -62,23 +62,49 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
                         </span>
                     </div>
                     <?php if(isset($_SESSION['user'])): ?>
-                        <div class="my-5 col-md-6 offset-md-3">
-                            <form method="post" class="mb-5 text-center border border-light p-5" action="<?php URL ?>grotto/vota">
-                                <p class="h3 mb-2">Vota</p>
-                                <p class="mb-4">Puoi votare un grotto solo una volta</p>
-                                <input type="hidden" id="val" name="val" value="" />
-                                <div class="rating-add-container">
-                                    <div id="valutazione" name="valutazione" class="rating-add"></div>
-                                </div>
-                                <input class="btn btn-info mt-4" type="submit" id="submit">
-                                <?php
-                                if(isset($_SESSION['errors'])){
-                                    foreach ($_SESSION['errors'] as $item) {
-                                        echo "<p class='text-danger'>" . $item . "</p><br>";
+                        <div class="row">
+                            <div class="my-5 col-md-6">
+                                <form method="post" class="mb-5 text-center border border-light p-5" action="<?php URL ?>grotto/vota">
+                                    <p class="h3 mb-2">Vota</p>
+                                    <p class="mb-4">Puoi votare un grotto solo una volta</p>
+                                    <input type="hidden" id="val" name="val" value="" />
+                                    <div class="rating-add-container">
+                                        <div id="valutazione" name="valutazione" class="rating-add"></div>
+                                    </div>
+                                    <input class="btn btn-info mt-4" type="submit" id="submit" value="Vota">
+                                    <?php
+                                    if(isset($_SESSION['errors'])){
+                                        foreach ($_SESSION['errors'] as $item) {
+                                            echo "<p class='text-danger'>" . $item . "</p><br>";
+                                        }
                                     }
-                                }
-                                ?>
-                            </form>
+                                    ?>
+                                </form>
+                            </div>
+                            <div class="my-5 col-md-6">
+                                <form enctype="multipart/form-data" method="post" class="mb-5 text-center border border-light p-5" action="<?php URL ?>grotto/caricaImmagine">
+                                    <p class="h3 mb-2">Aggiungi immagini</p>
+                                    <p class="mb-4">Aggiungi immagini al grotto</p>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupFileAddon">Upload</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" name="image" class="custom-file-input" id="inputGroupFile"
+                                                   aria-describedby="inputGroupFileAddon">
+                                            <label class="custom-file-label text-left" for="inputGroupFile">Scegli il file</label>
+                                        </div>
+                                    </div>
+                                    <input class="btn btn-info mt-4" type="submit" name="submit" id="submit" value="Aggiungi">
+                                    <?php
+                                    if(isset($_SESSION['errors'])){
+                                        foreach ($_SESSION['errors'] as $item) {
+                                            echo "<p class='text-danger'>" . $item . "</p><br>";
+                                        }
+                                    }
+                                    ?>
+                                </form>
+                            </div>
                         </div>
                     <?php endif; ?>
                 </div>
