@@ -4,16 +4,25 @@
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/antico_grotto_ticino_1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/antico_grotto_ticino_2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/grotto_lafranchi_1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/grotto_lafranchi_2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/grotto_lafranchi_3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/mdb align div left - Cerca con Google.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/mdb align div left - Cerca con Google_files/cb=gapi.loaded_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/mdb align div left - Cerca con Google_files/googlelogo_color_92x30dp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/mdb align div left - Cerca con Google_files/m=NBZ7u,OG6ZHd,RqxLvf,T6sTsf,T7XTS,TxZWcc,URQPYc,WgDvvc,Wq6lxf,aCZVp,aa,aam1T,abd,async,bgd,dvl,eN4qad,exdc,fEVMic,foot,kyn,lazG7b,lu,m,mI3LFb,mUpTid,mpck,mu,o02Jie,oc8g5d,pB6Zqd,qik19b,rHjpXd,sb_wiz,sf,sonic,spch,tl,vs,xz7cCd,zbML3c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/mdb align div left - Cerca con Google_files/m=Uuupec,r36a9c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/mdb align div left - Cerca con Google_files/rs=AA2YrTsI2RgsT8KmZ1d1EnV0KOon40EFpA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/mdb align div left - Cerca con Google_files/rs=AA2YrTv1ij5JfFSoPI4yIlQGTzq48kehlg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/img/mdb align div left - Cerca con Google_files/rs=ACT90oH1S6mefbJ4GVSlxoaLMSVxI4TWlQ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/config/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/controller/gestione.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/gestione.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/controller/grotto.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/grotto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/newUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/newUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/controller/reset.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/reset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/models/DBConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/models/DBConnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/_templates/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/_templates/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/firstLogin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/firstLogin/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codice/application/views/grotto/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/grotto/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/login/reset.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/login/reset.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +115,7 @@
       <workItem from="1571397399476" duration="9987000" />
       <workItem from="1571743080549" duration="10739000" />
       <workItem from="1571915865417" duration="9565000" />
-      <workItem from="1572002428979" duration="4174000" />
+      <workItem from="1572002428979" duration="10658000" />
     </task>
     <servers />
   </component>

@@ -23,3 +23,4 @@ define('USER', 'grotti_user');
 define('PASSWORD', 'GrottiUser&2019');
 define('API_KEY', 'AIzaSyAr7KuBtEj8NW_rUUOQT--axYuJ3D6VeeA');
 define('EMAIL', 'grottiticino@gmail.com');
+define('IMG_PATH', '/var/www/html/Grotti-canton-Ticino/codice/application/assets/img/');
