@@ -82,7 +82,7 @@ class Register
                     }
                     //se non esiste inserisco il nuovo utente nel db
                     if(!$exists) {
-                        (new DBConnection())->addUser($firstname, $lastname, $username, $email, $password);
+                        (new DBConnection())->addUser($firstname, $lastname, $username, $email, $password, false);
                         unset($_POST);
                         header('Location: ' . URL . 'login');
                         exit();
