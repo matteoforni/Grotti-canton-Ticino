@@ -337,12 +337,14 @@ class DBConnection
                 $query = $db->prepare('DELETE FROM grotto WHERE id=?');
 
                 $query->bindParam(1, $id, PDO::PARAM_INT);
-
             }elseif ($type == 'utente'){
-
                 $query = $db->prepare('DELETE FROM utente WHERE email=?');
 
                 $query->bindParam(1, $id, PDO::PARAM_STR);
+            }elseif ($type == 'immagine'){
+                $query = $db->prepare('DELETE FROM foto WHERE id=?');
+
+                $query->bindParam(1, $id, PDO::PARAM_INT);
             }
 
             $query->execute();
@@ -435,6 +437,11 @@ class DBConnection
         }
     }
 
+    /**
+     * Funzione che consente di aggiungere un'immagine al database.
+     * @param $path string Il percorso dove è salvata l'immagine.
+     * @param $grotto int L'id del grotto a cui associare l'immagine.
+     */
     public function addImage($path, $grotto){
         try{
             $db = $this->getConnection();
@@ -442,6 +449,21 @@ class DBConnection
             $query->bindParam(1, $path, PDO::PARAM_STR);
             $query->bindParam(2, $grotto, PDO::PARAM_INT);
             $query->execute();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
+
+    public function getImage($id){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('SELECT * FROM foto WHERE id=?');
+            $query->bindParam(1, $id, PDO::PARAM_INT);
+            $query->execute();
+
+            return $query->fetch();
         }catch (Exception $e){
             $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
             header('Location: ' . URL . 'warning');
