@@ -272,6 +272,21 @@ class Gestione
                 array_push($errors, "Deve sempre esserci almeno un admin");
                 $_SESSION['errors'] = $errors;
             }
+        //Se si vuole eliminare un'immagine
+        }elseif ($type == 'immagine'){
+            //Verifico che l'immagine esista
+            $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
+            $immagine = (new DBConnection)->getImage($id);
+            if($immagine != null){
+                //Se esiste la elimino
+                try {
+                    unlink($immagine['path']);
+                    (new DBConnection)->delete($type, $id);
+                }catch (Exception $e){
+                    array_push($errors, "Impossibile eliminare l'immagine");
+                    $_SESSION['errors'] = $errors;
+                }
+            }
         }
         header('Location: ' . URL . 'admin');
         exit();
