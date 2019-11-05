@@ -6,6 +6,7 @@
     * test funzionamento
 * Fixare validatori (add grotto e register)
 * <i> [DA TESTARE] Migiliorare stile emails</i>
-* <i> [DA TESTARE] IMPORTANTE implementare aggiunta foto del grotto</i>
 * Ricreare schema ER corretto
 * Schema delle classi UML
+* Fixare errori nei form (se si preme con form vuoto)
+* [smooth scroll nella pagina di admin]
