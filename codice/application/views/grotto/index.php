@@ -17,11 +17,11 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
                                 <?php foreach ($img as $item): ?>
                                     <?php if($i == 0): ?>
                                         <div class="carousel-item active">
-                                            <img class="d-block w-100" src="<?php echo $item['path']; ?>" alt="<?php echo $item['titolo']; ?>">
+                                            <img class="d-block w-100" src="<?php echo $item['path']; ?>">
                                         </div>
                                     <?php else: ?>
                                         <div class="carousel-item">
-                                            <img class="d-block w-100" src="<?php echo $item['path']; ?>" alt="<?php echo $item['titolo']; ?>">
+                                            <img class="d-block w-100" src="<?php echo $item['path']; ?>">
                                         </div>
                                     <?php endif; ?>
                                     <?php $i++; ?>
@@ -77,6 +77,7 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
                                         foreach ($_SESSION['errors'] as $item) {
                                             echo "<p class='text-danger'>" . $item . "</p><br>";
                                         }
+                                        unset($_SESSION['errors']);
                                     }
                                     ?>
                                 </form>
@@ -97,10 +98,11 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
                                     </div>
                                     <input class="btn btn-info mt-4" type="submit" name="submit" id="submit" value="Aggiungi">
                                     <?php
-                                    if(isset($_SESSION['errors'])){
-                                        foreach ($_SESSION['errors'] as $item) {
+                                    if(isset($_SESSION['imgErrors'])){
+                                        foreach ($_SESSION['imgErrors'] as $item) {
                                             echo "<p class='text-danger'>" . $item . "</p><br>";
                                         }
+                                        unset($_SESSION['imgErrors']);
                                     }
                                     ?>
                                 </form>
