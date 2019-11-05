@@ -6,3 +6,4 @@ application/config/config.php
 vendor/
 .tmp.drivedownload
 db/
+application/assets/img/
