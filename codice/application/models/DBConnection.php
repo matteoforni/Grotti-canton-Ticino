@@ -434,4 +434,18 @@ class DBConnection
             exit();
         }
     }
+
+    public function addImage($path, $grotto){
+        try{
+            $db = $this->getConnection();
+            $query = $db->prepare('INSERT INTO foto(path, grotto) VALUES (?, ?)');
+            $query->bindParam(1, $path, PDO::PARAM_STR);
+            $query->bindParam(2, $grotto, PDO::PARAM_INT);
+            $query->execute();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
 }
