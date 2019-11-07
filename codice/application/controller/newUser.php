@@ -94,7 +94,7 @@ class NewUser
                         $mm = new MailManager();
                         $body = "<h3>Un admin di Grotti Ticinesi ha creato un account con la tua email</h3>La password per accedervi è la seguente: <br><b>" . $password . "</b>";
                         $mm->sendMail($email, $body, "Grotti Ticinesi - Benvenuto");
-                        header('Location: ' . URL . 'login');
+                        header('Location: ' . URL . 'admin');
                         exit();
                     }catch(Exception $e){
                         $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();

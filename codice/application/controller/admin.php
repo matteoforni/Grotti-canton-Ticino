@@ -33,11 +33,18 @@ class Admin
                         $immagini = (new DBConnection)->getImages($grotto['id']);
 
                     }else{
-                        array_push($immagini, (new DBConnection)->getImages($grotto['id']));
+                        $mom = (new DBConnection)->getImages($grotto['id']);
+                        array_push($immagini, $mom[0]);
                     }
                     $i++;
                 }
-                $_SESSION['immagini'] = array_filter($immagini);
+                if($immagini != null){
+                    $_SESSION['immagini'] = array_filter($immagini);
+                }else{
+                    $_SESSION['immagini'] = array();
+                }
+
+
 
                 ViewLoader::load("_templates/header_admin");
                 ViewLoader::load("admin/index");

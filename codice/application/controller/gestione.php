@@ -250,9 +250,15 @@ class Gestione
             //Verifico che il grotto esiste
             $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
             $grotto = (new DBConnection)->getGrotto($id);
+            $immagini = (new DBConnection)->getImages($id);
             if($grotto != null){
                 //Se esiste lo elimino
                 (new DBConnection)->delete($type, $id);
+                if($immagini != null){
+                    foreach ($immagini as $immagine){
+                        unlink($immagine['path']);
+                    }
+                }
             }
         //Se si vuole eliminare un utente
         }elseif ($type == 'utente'){
@@ -274,6 +280,7 @@ class Gestione
             }
         //Se si vuole eliminare un'immagine
         }elseif ($type == 'immagine'){
+            echo "immagine";
             //Verifico che l'immagine esista
             $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
             $immagine = (new DBConnection)->getImage($id);
