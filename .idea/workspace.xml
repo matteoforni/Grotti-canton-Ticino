@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/grotto/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/grotto/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" beforeDir="false" afterPath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +98,7 @@
       <workItem from="1572002428979" duration="10658000" />
       <workItem from="1572956370722" duration="10930000" />
       <workItem from="1573025156231" duration="270000" />
-      <workItem from="1573129228772" duration="4644000" />
+      <workItem from="1573129228772" duration="5638000" />
     </task>
     <servers />
   </component>
