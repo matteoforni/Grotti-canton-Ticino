@@ -82,6 +82,7 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
                                     ?>
                                 </form>
                             </div>
+                            <!--<img src="./application/assets/img/de909784d06c377e7d8ba955b1fdd62a.jpg">-->
                             <div class="my-5 col-md-6">
                                 <form enctype="multipart/form-data" method="post" class="mb-5 text-center border border-light p-5" action="<?php URL ?>grotto/caricaImmagine">
                                     <p class="h3 mb-2">Aggiungi immagini</p>

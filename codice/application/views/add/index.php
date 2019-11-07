@@ -132,6 +132,7 @@
                 via = document.getElementById('via').value;
                 paese = document.getElementById('paese').value;
                 cap = document.getElementById('cap').value;
+                submitInvoked = false;
                 setMapOnAll(null);
                 geocodeAddress(geocoder, map);
             });
