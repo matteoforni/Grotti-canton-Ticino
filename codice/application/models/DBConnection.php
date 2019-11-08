@@ -470,4 +470,21 @@ class DBConnection
             exit();
         }
     }
+
+    public function getUserFromToken($token){
+        try{
+            $db = $this->getConnection();
+
+            $query = $db->prepare('SELECT * FROM utente where reset_token=?');
+            $query->bindParam(1, $token, PDO::PARAM_STR);
+
+            $query->execute();
+
+            return $query->fetch();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
 }
