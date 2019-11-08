@@ -31,10 +31,11 @@ class Admin
                 foreach($grotti_validati as $grotto){
                     if($i == 0){
                         $immagini = (new DBConnection)->getImages($grotto['id']);
-
                     }else{
                         $mom = (new DBConnection)->getImages($grotto['id']);
-                        array_push($immagini, $mom[0]);
+                        if ($mom != null){
+                            array_push($immagini, $mom[0]);
+                        }
                     }
                     $i++;
                 }

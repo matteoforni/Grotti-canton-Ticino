@@ -41,11 +41,10 @@ class Add
                 //genero un nuovo InputManager e testo gli inserimenti
                 $im = new InputManager();
 
-                $via = "Via ";
                 $name = filter_var($im->checkInputSpace($_POST['name']), FILTER_SANITIZE_STRING);
                 $cap = filter_var($im->checkInput($_POST['cap']), FILTER_SANITIZE_NUMBER_INT);
                 $paese = filter_var($im->checkInputSpace($_POST['paese']), FILTER_SANITIZE_STRING);
-                $via .= filter_var($im->checkInputSpace($_POST['via']), FILTER_SANITIZE_STRING);
+                $via = filter_var($im->checkInputSpace($_POST['via']), FILTER_SANITIZE_STRING);
                 $no_civico = filter_var($im->checkInput($_POST['no_civico']), FILTER_SANITIZE_STRING);
                 $telefono = filter_var($im->checkInput($_POST['telefono']), FILTER_SANITIZE_STRING);
                 $fascia_prezzo = filter_var($im->checkInput($_POST['fascia_prezzo']), FILTER_SANITIZE_STRING);
