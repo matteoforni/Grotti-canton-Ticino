@@ -9,5 +9,5 @@
 * Ricreare schema ER corretto
 * Schema delle classi UML
 * Fixare errori nei form (se si preme con form vuoto)
-* [smooth scroll wow.js nella pagina di admin]
 * Verificare header caricato correttamente (bug in home)
+* Aggiungere condivisione su FB
