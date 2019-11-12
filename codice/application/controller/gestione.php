@@ -1,5 +1,8 @@
 <?php
-
+require_once "./application/models/DBConnection.php";
+require_once "./application/models/grotto_model.php";
+require_once "./application/models/utente_model.php";
+require_once "./application/models/foto_model.php";
 
 class Gestione
 {
@@ -29,7 +32,6 @@ class Gestione
      * @param $email string L'email dell'utente.
      */
     public function updateUtente($email){
-        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
         require_once "./application/models/mail_manager.php";
 
@@ -39,7 +41,7 @@ class Gestione
 
         //Verifico il contenuto della variabile email e carico tutti gli utenti dal DB.
         $email = filter_var($im->checkInput($email), FILTER_SANITIZE_EMAIL);
-        $users = (new DBConnection())->getUsers();
+        $users = (new utente_model)->getUsers();
 
         //Imposto le variabili d'errore.
         $errors = array();
@@ -57,7 +59,7 @@ class Gestione
                 foreach ($users as $user) {
                     if($user['email'] == $email){
                         //Se l'utente esiste imposto la nuova password e invio un email di notifica
-                        (new DBConnection)->setPassword($email, $password);
+                        (new utente_model)->setPassword($email, $password);
                         $body = "<h3>La tua password è stata reimpostata da uno dei nostri admin</h3>La tua nuova password è la seguente: <br><b>" . $password . "</b>";
                         //Se l'email non viene inviata correttamente si ritorna un errore
                         if(!$mm->sendMail($email, $body, "Grotti Ticinesi - Password Modificata")){
@@ -82,25 +84,25 @@ class Gestione
                 $ruolo = filter_var($im->checkInput($_POST['ruoli']), FILTER_SANITIZE_STRING);
 
                 //Carico dal DB i dati dell'utente che sta venendo modificato
-                $user = (new DBConnection)->getUser($email);
+                $user = (new utente_model)->getUser($email);
                 //Se l'utente esiste e i campi inseriti sono diversi da quelli già impostati essi vengono cambiati
                 if($user != null){
                     if($user['nome'] != $firstname){
-                        (new DBConnection)->updateUtente($email, 'nome', $firstname);
+                        (new utente_model)->updateUtente($email, 'nome', $firstname);
                     }
                     if($user['cognome'] != $lastname){
-                        (new DBConnection)->updateUtente($email, 'cognome', $lastname);
+                        (new utente_model)->updateUtente($email, 'cognome', $lastname);
                     }
                     if($user['username'] != $username){
-                        (new DBConnection)->updateUtente($email, 'username', $username);
+                        (new utente_model)->updateUtente($email, 'username', $username);
                     }
                     if($user['nome_ruolo'] != $ruolo){
                         //Se si vuole passare da admin a utente
                         if($ruolo == 'utente'){
                             //Verifico che ci sia sempre un admin
                             foreach($users as $item){
-                                if($item['nome_ruolo'] == 'admin' && $item['id'] != $user['email']){
-                                    (new DBConnection)->updateUtente($email, 'nome_ruolo', $ruolo);
+                                if($item['nome_ruolo'] == 'admin' && $item['email'] != $user['email']){
+                                    (new utente_model)->updateUtente($email, 'nome_ruolo', $ruolo);
                                     header('Location: ' . URL . 'admin');
                                     exit();
                                 }
@@ -108,7 +110,7 @@ class Gestione
                             array_push($errors, "Deve sempre esserci almeno un admin");
                             $_SESSION['errors'] = $errors;
                         }else{
-                            (new DBConnection)->updateUtente($email, 'nome_ruolo', $ruolo);
+                            (new utente_model)->updateUtente($email, 'nome_ruolo', $ruolo);
                         }
                     }
                 }
@@ -126,7 +128,6 @@ class Gestione
      * @param $id int L'identificatore del grotto.
      */
     public function updateGrotto($id){
-        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
         //Genero un input
@@ -161,42 +162,43 @@ class Gestione
                 $lat = filter_var($im->checkInput($_POST['lat']), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                 $lon = filter_var($im->checkInput($_POST['lng']), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
-                $grotto = (new DBConnection)->getGrotto($id);
+                $grotto = (new grotto_model)->getGrotto($id);
                 if($grotto != null){
                     if($grotto['nome'] != $nome){
-                        (new DBConnection)->updateGrotto($id, 'nome', $nome);
+                        (new grotto_model)->updateGrotto($id, 'nome', $nome);
                     }
                     if($grotto['cap'] != $cap){
-                        (new DBConnection)->updateGrotto($id, 'cap', $cap);
-                        (new DBConnection)->updateGrotto($id, 'lat', $lat);
-                        (new DBConnection)->updateGrotto($id, 'lon', $lon);
+                        (new grotto_model)->updateGrotto($id, 'cap', $cap);
+                        (new grotto_model)->updateGrotto($id, 'lat', $lat);
+                        (new grotto_model)->updateGrotto($id, 'lon', $lon);
                     }
                     if($grotto['paese'] != $paese){
-                        (new DBConnection)->updateGrotto($id, 'paese', $paese);
-                        (new DBConnection)->updateGrotto($id, 'lat', $lat);
-                        (new DBConnection)->updateGrotto($id, 'lon', $lon);
+                        (new grotto_model)->updateGrotto($id, 'paese', $paese);
+                        (new grotto_model)->updateGrotto($id, 'lat', $lat);
+                        (new grotto_model)->updateGrotto($id, 'lon', $lon);
                     }
                     if($grotto['via'] != $via){
-                        (new DBConnection)->updateGrotto($id, 'via', $via);
-                        (new DBConnection)->updateGrotto($id, 'lat', $lat);
-                        (new DBConnection)->updateGrotto($id, 'lon', $lon);
+                        (new grotto_model)->updateGrotto($id, 'via', $via);
+                        (new grotto_model)->updateGrotto($id, 'lat', $lat);
+                        (new grotto_model)->updateGrotto($id, 'lon', $lon);
                     }
                     if($grotto['no_civico'] != $nocivico){
-                        (new DBConnection)->updateGrotto($id, 'no_civico', $nocivico);
-                        (new DBConnection)->updateGrotto($id, 'lat', $lat);
-                        (new DBConnection)->updateGrotto($id, 'lon', $lon);
+                        (new grotto_model)->updateGrotto($id, 'no_civico', $nocivico);
+                        (new grotto_model)->updateGrotto($id, 'lat', $lat);
+                        (new grotto_model)->updateGrotto($id, 'lon', $lon);
                     }
                     if($grotto['telefono'] != $telefono){
-                        (new DBConnection)->updateGrotto($id, 'telefono', $telefono);
+                        (new grotto_model)->updateGrotto($id, 'telefono', $telefono);
                     }
                     if($grotto['fascia_prezzo'] != $fasciaprezzo){
-                        (new DBConnection)->updateGrotto($id, 'fascia_prezzo', $fasciaprezzo);
+                        (new grotto_model)->updateGrotto($id, 'fascia_prezzo', $fasciaprezzo);
                     }
                 }
-                header('Location: ' . URL . 'admin');
-                exit();
             }
-            echo "not set";
+            array_push($errors, "Inserire tutti i valori");
+            $_SESSION['errors'] = $errors;
+            header('Location: ' . URL . 'admin');
+            exit();
         }
     }
 
@@ -205,7 +207,6 @@ class Gestione
      * @param $id int L'identificatore del grotto.
      */
     public function acceptGrotto($id){
-        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
         //Genero un input manager e verifico che i campi non contengano codice maligno
@@ -213,10 +214,10 @@ class Gestione
         $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
 
         //Carico il grotto dal DB
-        $grotto = (new DBConnection)->getGrotto($id);
+        $grotto = (new grotto_model)->getGrotto($id);
         //Se il grotto esiste lo imposto come verificato
         if($grotto != null){
-            (new DBConnection)->setVerificato($id);
+            (new grotto_model)->setVerificato($id);
         }
         header('Location: ' . URL . 'admin');
         exit();
@@ -228,7 +229,6 @@ class Gestione
      * @param $id int/string L'identificatore dell'elemento da eliminare (email / id)
      */
     public function elimina($type, $id){
-        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
         //Genero un input manager
@@ -249,11 +249,11 @@ class Gestione
         if($type == 'grotto'){
             //Verifico che il grotto esiste
             $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
-            $grotto = (new DBConnection)->getGrotto($id);
-            $immagini = (new DBConnection)->getImages($id);
+            $grotto = (new grotto_model)->getGrotto($id);
+            $immagini = (new foto_model)->getImages($id);
             if($grotto != null){
                 //Se esiste lo elimino
-                (new DBConnection)->delete($type, $id);
+                (new grotto_model)->delete($id);
                 if($immagini != null){
                     foreach ($immagini as $immagine){
                         unlink($immagine['path']);
@@ -264,13 +264,13 @@ class Gestione
         }elseif ($type == 'utente'){
             //Verifico che l'utente esista
             $id = filter_var($im->checkInput($id), FILTER_SANITIZE_EMAIL);
-            $utenti = (new DBConnection)->getUsers();
-            $utente = (new DBConnection)->getUser($id);
+            $utenti = (new utente_model)->getUsers();
+            $utente = (new utente_model)->getUser($id);
             if($utente != null){
                 //Verifico che ci sia sempre almeno un admin
                 foreach($utenti as $item){
                     if(($item['nome_ruolo'] == 'admin' && $item['email'] != $utente['email'])){
-                        (new DBConnection)->delete($type, $id);
+                        (new utente_model)->delete($id);
                         header('Location: ' . URL . 'admin');
                         exit();
                     }
@@ -283,12 +283,12 @@ class Gestione
             echo "immagine";
             //Verifico che l'immagine esista
             $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
-            $immagine = (new DBConnection)->getImage($id);
+            $immagine = (new foto_model)->getImage($id);
             if($immagine != null){
                 //Se esiste la elimino
                 try {
                     unlink($immagine['path']);
-                    (new DBConnection)->delete($type, $id);
+                    (new foto_model)->delete($id);
                 }catch (Exception $e){
                     array_push($errors, "Impossibile eliminare l'immagine");
                     $_SESSION['errors'] = $errors;

@@ -1,4 +1,6 @@
 <?php
+require_once "./application/models/grotto_model.php";
+
 class Home
 {
     /**
@@ -6,8 +8,7 @@ class Home
      */
     public function index()
     {
-        require_once "./application/models/DBConnection.php";
-        $query = (new DBConnection)->getGrotti(true);
+        $query = (new grotto_model)->getGrotti(true);
         $_SESSION['grotti'] = $query;
 
         if(isset($_SESSION['user'])){

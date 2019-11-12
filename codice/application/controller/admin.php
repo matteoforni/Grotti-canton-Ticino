@@ -1,5 +1,9 @@
 <?php
-
+require_once "./application/models/ruolo_model.php";
+require_once "./application/models/utente_model.php";
+require_once "./application/models/grotto_model.php";
+require_once "./application/models/foto_model.php";
+require_once "./application/models/fascia_prezzo_model.php";
 
 class Admin
 {
@@ -11,18 +15,17 @@ class Admin
         if(isset($_SESSION['user'])){
             //mostro l'index per gli utenti loggati.
             if($_SESSION['user']['nome_ruolo'] == 'admin'){
-                require_once "./application/models/DBConnection.php";
 
                 //Carico gli utenti.
-                $utenti = (new DBConnection)->getUsers();
+                $utenti = (new utente_model)->getUsers();
                 $_SESSION['users'] = $utenti;
 
                 //Carico i grotti già validati.
-                $grotti_validati = (new DBConnection)->getGrotti(true);
+                $grotti_validati = (new grotto_model)->getGrotti(true);
                 $_SESSION['grotti_validati'] = $grotti_validati;
 
                 //Carico i grotti da validare.
-                $grotti = (new DBConnection)->getGrotti(false);
+                $grotti = (new grotto_model)->getGrotti(false);
                 $_SESSION['grotti'] = $grotti;
 
                 //Carico le immagini.
@@ -30,9 +33,9 @@ class Admin
                 $immagini = null;
                 foreach($grotti_validati as $grotto){
                     if($i == 0){
-                        $immagini = (new DBConnection)->getImages($grotto['id']);
+                        $immagini = (new foto_model)->getImages($grotto['id']);
                     }else{
-                        $mom = (new DBConnection)->getImages($grotto['id']);
+                        $mom = (new foto_model)->getImages($grotto['id']);
                         if ($mom != null){
                             array_push($immagini, $mom[0]);
                         }
@@ -70,7 +73,6 @@ class Admin
      */
     public function updateUser($email){
         //Carico le classi che necessito.
-        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
         //Verifico che l'utente sia loggato e che sia un admin.
@@ -86,14 +88,14 @@ class Admin
                     }
                     //Se non è settata carico i ruoli che un utente può avere.
                     if(!isset($_SESSION['ruoli'])){
-                        $ruoli = (new DBConnection)->getRuoli();
+                        $ruoli = (new ruolo_model)->getRuoli();
                         $_SESSION['ruoli'] = $ruoli;
                     }
 
                     //Carico dal DB l'utente.
                     $im = new InputManager();
                     $email = filter_var($im->checkInput($email), FILTER_SANITIZE_EMAIL);
-                    $utente = (new DBConnection)->getUser($email);
+                    $utente = (new utente_model)->getUser($email);
 
                     //Verifico che l'utente esista.
                     if($utente == null){
@@ -116,7 +118,6 @@ class Admin
      */
     public function updateGrotto($id){
         //Carico le classi che necessito.
-        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
         //Verifico che l'utente sia loggato e che sia un admin.
@@ -133,14 +134,14 @@ class Admin
                     }
                     //Se non è settata carico le fascie di prezzo che un grotto può avere.
                     if(!isset($_SESSION['fasce_prezzo'])){
-                        $fasce_prezzo = (new DBConnection)->getFascePrezzo();
+                        $fasce_prezzo = (new fascia_prezzo_model)->getFascePrezzo();
                         $_SESSION['fasce_prezzo'] = $fasce_prezzo;
                     }
 
                     //Carico dal DB il grotto.
                     $im = new InputManager();
                     $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
-                    $grotto = (new DBConnection)->getGrotto($id);
+                    $grotto = (new grotto_model)->getGrotto($id);
 
                     //Verifico che esista.
                     if($grotto == null){

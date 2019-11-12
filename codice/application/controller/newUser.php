@@ -1,5 +1,5 @@
 <?php
-
+require_once "./application/models/utente_model.php";
 
 class NewUser
 {
@@ -26,7 +26,6 @@ class NewUser
 
     public function createUser(){
         //richiamo le classi di cui avrò bisogno
-        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
         require_once "./application/models/mail_manager.php";
 
@@ -77,7 +76,7 @@ class NewUser
 
                 //verifico che la password sia la stessa in entrambi i campi
 
-                $users = (new DBConnection)->getUsers();
+                $users = (new utente_model)->getUsers();
                 //verifico che l'email non sia già in uso
                 foreach ($users as $row) {
                     if ($row['email'] == $email) {
@@ -89,7 +88,7 @@ class NewUser
                 if(!$exists) {
                     try {
                         $password = bin2hex(random_bytes(4));
-                        (new DBConnection())->addUser($firstname, $lastname, $username, $email, $password, true);
+                        (new utente_model)->addUser($firstname, $lastname, $username, $email, $password, true);
                         unset($_POST);
                         $mm = new MailManager();
                         $body = "<h3>Un admin di Grotti Ticinesi ha creato un account con la tua email</h3>La password per accedervi è la seguente: <br><b>" . $password . "</b>";

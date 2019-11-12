@@ -1,12 +1,12 @@
 <?php
-
+require_once "./application/models/fascia_prezzo_model.php";
+require_once "./application/models/grotto_model.php";
 
 class Add
 {
     public function index()
     {
-        require_once "./application/models/DBConnection.php";
-        $query = (new DBConnection)->getFascePrezzo();
+        $query = (new fascia_prezzo_model)->getFascePrezzo();
         $_SESSION['fasce_prezzo'] = $query;
         if(isset($_SESSION['user'])) {
             if ($_SESSION['user']['nome_ruolo'] == 'admin') {
@@ -26,7 +26,6 @@ class Add
     }
 
     public function addGrotto(){
-        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
         $errors = array();
         $exists = false;
@@ -88,15 +87,15 @@ class Add
                 }
 
                 //verifico che la fascia di prezzo esista nel DB
-                $fasce_prezzo = (new DBConnection())->getFascePrezzo();
+                $fasce_prezzo = (new fascia_prezzo_model)->getFascePrezzo();
                 foreach($fasce_prezzo as $item){
                     //se esiste inserisco il campo nel DB
                     if($fascia_prezzo == $item['nome']){
                         //se l'utente è admin il grotto è già verificato mentre se non lo è il grotto è da verificare
                         if($_SESSION['user']['nome_ruolo'] == 'admin'){
-                            (new DBConnection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, 1);
+                            (new grotto_model)->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, 1);
                         }elseif($_SESSION['user']['nome_ruolo'] == 'utente'){
-                            (new DBConnection())->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, 0);
+                            (new grotto_model)->addGrotto($name, $lon, $lat, $no_civico, $via, $paese, $cap, $telefono, $fascia_prezzo, 0);
                         }
                         $_SESSION['grotto_aggiunto'] = true;
                         header('Location: ' . URL . 'add');

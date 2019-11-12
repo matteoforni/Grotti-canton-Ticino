@@ -1,4 +1,6 @@
 <?php
+require_once "./application/models/utente_model.php";
+
 class Login
 {
     /**
@@ -25,7 +27,6 @@ class Login
     {
         //richiamo le classi di cui avrò bisogno
         unset($_SESSION['errors']);
-        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
         $errors = array();
@@ -42,7 +43,7 @@ class Login
                 $password = filter_var($im->checkInput($_POST['password']), FILTER_SANITIZE_STRING);
 
                 //prendo tutti gli utenti nel database
-                $users = (new DBConnection)->getUsers();
+                $users = (new utente_model)->getUsers();
 
                 //eseguo l'hash della password così da poterla comparare con quella nel db
                 $password = hash('sha256', $password);
@@ -51,7 +52,7 @@ class Login
                     if ($row['email'] == $email) {
                         //controllo che la password corrisponda
                         if ($row['password'] == $password) {
-                            $_SESSION['user'] = (new DBConnection)->getUser($email);
+                            $_SESSION['user'] = (new utente_model)->getUser($email);
                             //verifico se è admin o utente normale
                             if(!$row['first_login']){
                                 if ($row['nome_ruolo'] == 'admin') {

@@ -1,5 +1,5 @@
 <?php
-
+require_once "./application/models/utente_model.php";
 
 class FirstLogin
 {
@@ -15,7 +15,6 @@ class FirstLogin
     }
 
     public function changePassword(){
-        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -31,8 +30,8 @@ class FirstLogin
 
                 if($password == $repassword){
                     echo "password uguali: $password <br>";
-                    (new DBConnection)->setPassword($email, $password);
-                    (new DBConnection)->setFirstLogin($email);
+                    (new utente_model)->setPassword($email, $password);
+                    (new utente_model)->setFirstLogin($email);
                     header('Location: ' . URL . 'login');
                     exit();
                 }else{

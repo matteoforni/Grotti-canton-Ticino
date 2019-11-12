@@ -1,5 +1,8 @@
 <?php
-
+require_once "./application/models/grotto_model.php";
+require_once "./application/models/foto_model.php";
+require_once "./application/models/voto_model.php";
+require_once "./application/models/input_manager.php";
 
 class Grotto
 {
@@ -9,8 +12,6 @@ class Grotto
      */
     public function index()
     {
-        require_once "./application/models/DBConnection.php";
-
         if(isset($_SESSION['user'])){
             //mostro l'index per gli utenti loggati
             if($_SESSION['user']['nome_ruolo'] == 'admin'){
@@ -35,9 +36,6 @@ class Grotto
      * @param $id int L'id del grotto premuto.
      */
     public function show($id){
-        require_once "./application/models/DBConnection.php";
-        require_once "./application/models/input_manager.php";
-
         if(isset($_SESSION['grotto'])){
             unset($_SESSION['grotto']);
         }
@@ -52,9 +50,9 @@ class Grotto
         $im = new InputManager();
         $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
 
-        $grotto = (new DBConnection)->getGrotto($id);
-        $images = (new DBConnection)->getImages($id);
-        $noValutazioni = (new DBConnection)->getNoValutazioni($id);
+        $grotto = (new grotto_model)->getGrotto($id);
+        $images = (new foto_model)->getImages($id);
+        $noValutazioni = (new voto_model)->getNoValutazioni($id);
 
         //Salvo i valori nelle sessioni
         $_SESSION['grotto'] = $grotto;
@@ -69,7 +67,6 @@ class Grotto
      */
     public function vota(){
         //Carico le classi necessarie e istanzio gli oggetti relativi
-        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
         $im = new InputManager();
 
@@ -90,7 +87,7 @@ class Grotto
 
                 if($valutazione >= 0 && $valutazione <= 5) {
                     //Inserisco il voto nel DB
-                    (new DBConnection())->addVoto($grotto, $utente, $valutazione);
+                    (new voto_model)->addVoto($grotto, $utente, $valutazione);
                 }else{
                     //se non vengono inseriti i dati in maniera corretta
                     array_push($errors, "Inserire una votazione valida");
@@ -110,7 +107,6 @@ class Grotto
      */
     public function caricaImmagine(){
         //Carico le classi necessarie e istanzio gli oggetti relativi.
-        require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
         $im = new InputManager();
 
@@ -146,11 +142,11 @@ class Grotto
                             //Provo a spostare il file dalla memoria temporanea alla path scelta in precedenza.
                             if(move_uploaded_file($fileTmpPath, $path)) {
                                 //Se tutto è andato a buon fine aggiuno l'immagine al database.
-                                (new DBConnection)->addImage($path, $grotto);
+                                (new foto_model)->addImage($path, $grotto);
                                 if(isset($_SESSION['img'])){
                                     unset($_SESSION['img']);
                                 }
-                                $images = (new DBConnection)->getImages($grotto);
+                                $images = (new foto_model)->getImages($grotto);
                                 $_SESSION['img'] = $images;
                             }else{
                                 //Genero il messaggio d'errore
