@@ -56,8 +56,8 @@ class Reset
                 }
                 array_push($errors, "L'email non è in uso da nessun account");
                 $_SESSION['errors'] = $errors;
-                //header('Location: ' . URL . 'reset');
-                //exit();
+                header('Location: ' . URL . 'reset');
+                exit();
             }
         }
     }
@@ -83,6 +83,9 @@ class Reset
         require_once "./application/models/DBConnection.php";
         require_once "./application/models/input_manager.php";
 
+        unset($_SESSION['errors']);
+        $errors = array();
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //verifico che i campi siano impostati e che non siano stringhe vuote
             if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])
@@ -93,15 +96,29 @@ class Reset
                 $email = filter_var($im->checkInput($_POST['email']), FILTER_SANITIZE_EMAIL);
                 $password = filter_var($im->checkInput($_POST['password']), FILTER_SANITIZE_STRING);
                 $repassword = filter_var($im->checkInput($_POST['repassword']), FILTER_SANITIZE_STRING);
+                $users = (new DBConnection())->getUsers();
 
                 if($password == $repassword){
-                    (new DBConnection)->setPassword($email, $password);
-                    setcookie('password_change', '', time()-3600, '/');
-                    setcookie('password_changed', true, time()+86400, '/');
+                    //Verifico che esista un utente con l'email inserita
+                    foreach ($users as $user) {
+                        if($user['email'] == $email){
+                            (new DBConnection)->setPassword($email, $password);
+                            setcookie('password_change', '', time()-3600, '/');
+                            setcookie('password_changed', true, time()+86400, '/');
+                            header('Location: ' . URL . 'reset');
+                            exit();
+                        }
+                    }
+                    array_push($errors, "L'email non è in uso da nessun account");
+                    $_SESSION['errors'] = $errors;
                 }
-                header('Location: ' . URL . 'reset');
-                exit();
+                array_push($errors, "Le password non sono uguali");
+                $_SESSION['errors'] = $errors;
             }
+            array_push($errors, "Inserire tutti i dati");
+            $_SESSION['errors'] = $errors;
+            header('Location: ' . URL . 'reset');
+            exit();
         }
     }
 }
