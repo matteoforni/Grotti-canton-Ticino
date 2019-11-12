@@ -65,4 +65,22 @@ class foto_model
             exit();
         }
     }
+
+    /**
+     * Funzione che consente di eliminare una foto.
+     * @param $id int L'id della foto.
+     */
+    public function delete($id){
+        try{
+            $query = $this->_connection->prepare('DELETE FROM foto WHERE id=?');
+
+            $query->bindParam(1, $id, PDO::PARAM_INT);
+
+            $query->execute();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
 }

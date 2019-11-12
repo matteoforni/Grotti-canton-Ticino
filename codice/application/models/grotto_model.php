@@ -131,4 +131,22 @@ class grotto_model
             exit();
         }
     }
+
+    /**
+     * Funzione che consente di eliminare un grotto.
+     * @param $id int L'id del grotto.
+     */
+    public function delete($id){
+        try{
+            $query = $this->_connection->prepare('DELETE FROM grotto WHERE id=?');
+
+            $query->bindParam(1, $id, PDO::PARAM_INT);
+
+            $query->execute();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
 }

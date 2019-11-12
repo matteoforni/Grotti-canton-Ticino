@@ -182,4 +182,22 @@ class utente_model
             exit();
         }
     }
+
+    /**
+     * Funzione che consente di eliminare un utente.
+     * @param $email string L'id dell'utente.
+     */
+    public function delete($email){
+        try{
+            $query = $this->_connection->prepare('DELETE FROM utente WHERE email=?');
+
+            $query->bindParam(1, $email, PDO::PARAM_STR);
+
+            $query->execute();
+        }catch (Exception $e){
+            $_SESSION['warning'] = $e->getCode() . " - " . $e->getMessage();
+            header('Location: ' . URL . 'warning');
+            exit();
+        }
+    }
 }
