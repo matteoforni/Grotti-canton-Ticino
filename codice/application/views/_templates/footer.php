@@ -31,8 +31,10 @@
 
 <!-- Validator and register  -->
 <script src="./application/assets/js/validator.js"></script>
-
 <script src="./application/assets/js/register.js"></script>
+
+<!-- Smoothie scroll -->
+<script src="./application/assets/smoothie-js/smoothie.min.js"></script>
 
 </body>
 

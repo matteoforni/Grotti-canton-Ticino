@@ -6,10 +6,10 @@
                     <h1 class="h1 d-block">Amministrazione grotti Ticino</h1>
                     <h6 class="h6">Connesso come: <?php echo $_SESSION['user']['nome'] . " " . $_SESSION['user']['cognome'] . " (" .$_SESSION['user']['username'] . ")" ?></h6>
                     <ul class="list-group list-group-horizontal list-group-flush">
-                        <li class="list-group-item ml-auto"><a class="text-dark" href="#utenti">Utenti</a></li>
-                        <li class="list-group-item"><a class="text-dark" href="#grotti">Grotti</a></li>
-                        <li class="list-group-item"><a class="text-dark" href="#inserimenti">Inserimenti</a></li>
-                        <li class="list-group-item mr-auto"><a class="text-dark" href="#immagini">Immagini</a></li>
+                        <li class="list-group-item ml-auto"><a data-smoothie class="text-dark" href="#utenti">Utenti</a></li>
+                        <li class="list-group-item"><a data-smoothie class="text-dark" href="#grotti">Grotti</a></li>
+                        <li class="list-group-item"><a data-smoothie class="text-dark" href="#inserimenti">Inserimenti</a></li>
+                        <li class="list-group-item mr-auto"><a data-smoothie class="text-dark" href="#immagini">Immagini</a></li>
                     </ul>
                     <?php
                         if(isset($_SESSION['errors'])){
@@ -184,6 +184,9 @@
 
     <script>
         $(document).ready(function () {
+            //Genero lo smooth scroll
+            smoothie();
+
             //Imposto le opzioni della valutazione
             var options = {
                 max_value: 5,
