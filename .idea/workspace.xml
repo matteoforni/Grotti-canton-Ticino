@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/firstLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/firstLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/gestione.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/gestione.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/grotto.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/grotto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/newUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/newUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/controller/reset.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/reset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/models/input_manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/models/input_manager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/models/mail_manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/models/mail_manager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/models/contactForm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/immagini/UML_models.png" beforeDir="false" afterPath="$PROJECT_DIR$/immagini/UML_models.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +109,7 @@
       <workItem from="1573215759318" duration="10364000" />
       <workItem from="1573561013208" duration="8757000" />
       <workItem from="1573639027058" duration="40000" />
-      <workItem from="1573733914444" duration="1353000" />
+      <workItem from="1573733914444" duration="1650000" />
     </task>
     <servers />
   </component>
