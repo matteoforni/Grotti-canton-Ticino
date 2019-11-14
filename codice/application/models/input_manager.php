@@ -1,7 +1,7 @@
 <?php
 
 
-class InputManager
+class input_manager
 {
     /**
      * Funzione che rimuove da una stringa tutti i caratteri che potrebbero essere malevoli.

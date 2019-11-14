@@ -3,7 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/firstLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/firstLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/gestione.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/gestione.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/grotto.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/grotto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/newUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/newUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/reset.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/reset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/models/input_manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/models/input_manager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/models/mail_manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/models/mail_manager.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +50,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/codice/application/assets/smoothie-js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/analisi" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -106,7 +116,9 @@
       <workItem from="1573025156231" duration="270000" />
       <workItem from="1573129228772" duration="5638000" />
       <workItem from="1573215759318" duration="10364000" />
-      <workItem from="1573561013208" duration="7294000" />
+      <workItem from="1573561013208" duration="8757000" />
+      <workItem from="1573639027058" duration="40000" />
+      <workItem from="1573733914444" duration="1353000" />
     </task>
     <servers />
   </component>

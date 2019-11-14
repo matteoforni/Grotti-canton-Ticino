@@ -2,7 +2,7 @@
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
-class MailManager
+class mail_manager
 {
     public function sendMail($email, $body, $subject){
         require_once "./vendor/phpmailer/phpmailer/src/Exception.php";
