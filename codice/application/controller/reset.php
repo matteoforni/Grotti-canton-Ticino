@@ -18,7 +18,7 @@ class Reset
     }
 
     /**
-     * Funziona che gestisce il contenuto dei campi del form quando si esegue un reset dell'email e richiama il MailManager
+     * Funziona che gestisce il contenuto dei campi del form quando si esegue un reset dell'email e richiama il mail_manager
      * per inviare l'email di reset.
      */
     public function sendEmail(){
@@ -33,9 +33,9 @@ class Reset
             //verifico che i campi siano impostati e che non siano stringhe vuote
             if (isset($_POST['email']) && !empty($_POST['email'])) {
 
-                //genero un nuovo InputManager e testo gli inserimenti
-                $im = new InputManager();
-                $mm = new MailManager();
+                //genero un nuovo input_manager e testo gli inserimenti
+                $im = new input_manager();
+                $mm = new mail_manager();
 
                 $email = filter_var($im->checkInput($_POST['email']), FILTER_SANITIZE_EMAIL);
                 $users = (new utente_model)->getUsers();
@@ -66,7 +66,7 @@ class Reset
     public function resetPassword($token){
         require_once "./application/models/input_manager.php";
 
-        $im = new InputManager();
+        $im = new input_manager();
         $token = filter_var($im->checkInput($token), FILTER_SANITIZE_STRING);
 
         $user = (new utente_model)->getUserFromToken($token);
@@ -89,8 +89,8 @@ class Reset
             //verifico che i campi siano impostati e che non siano stringhe vuote
             if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])
                 && isset($_POST['repassword']) && !empty($_POST['repassword'])) {
-                //genero un nuovo InputManager e testo gli inserimenti
-                $im = new InputManager();
+                //genero un nuovo input_manager e testo gli inserimenti
+                $im = new input_manager();
 
                 $email = filter_var($im->checkInput($_POST['email']), FILTER_SANITIZE_EMAIL);
                 $password = filter_var($im->checkInput($_POST['password']), FILTER_SANITIZE_STRING);

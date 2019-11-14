@@ -37,8 +37,8 @@ class Add
                 && isset($_POST['no_civico']) && !empty($_POST['no_civico']) && isset($_POST['telefono']) && !empty($_POST['telefono'])
                 && isset($_POST['fascia_prezzo']) && !empty($_POST['fascia_prezzo'])) {
 
-                //genero un nuovo InputManager e testo gli inserimenti
-                $im = new InputManager();
+                //genero un nuovo input_manager e testo gli inserimenti
+                $im = new input_manager();
 
                 $name = filter_var($im->checkInputSpace($_POST['name']), FILTER_SANITIZE_STRING);
                 $cap = filter_var($im->checkInput($_POST['cap']), FILTER_SANITIZE_NUMBER_INT);

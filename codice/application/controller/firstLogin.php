@@ -22,7 +22,7 @@ class FirstLogin
                 isset($_POST['repassword']) && !empty($_POST['repassword']) &&
                 isset($_POST['email']) && !empty($_POST['email'])){
 
-                $im = new InputManager();
+                $im = new input_manager();
 
                 $email = filter_var($im->checkInput($_POST['email']), FILTER_SANITIZE_EMAIL);
                 $password = filter_var($im->checkInput($_POST['password']), FILTER_SANITIZE_STRING);

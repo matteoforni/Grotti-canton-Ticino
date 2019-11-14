@@ -36,8 +36,8 @@ class Gestione
         require_once "./application/models/mail_manager.php";
 
         //Genero un input e un email manager
-        $im = new InputManager();
-        $mm = new MailManager();
+        $im = new input_manager();
+        $mm = new mail_manager();
 
         //Verifico il contenuto della variabile email e carico tutti gli utenti dal DB.
         $email = filter_var($im->checkInput($email), FILTER_SANITIZE_EMAIL);
@@ -131,7 +131,7 @@ class Gestione
         require_once "./application/models/input_manager.php";
 
         //Genero un input
-        $im = new InputManager();
+        $im = new input_manager();
 
         //Verifico il contenuto della variabile id e carico tutti i grotti dal DB.
         $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
@@ -210,7 +210,7 @@ class Gestione
         require_once "./application/models/input_manager.php";
 
         //Genero un input manager e verifico che i campi non contengano codice maligno
-        $im = new InputManager();
+        $im = new input_manager();
         $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
 
         //Carico il grotto dal DB
@@ -232,7 +232,7 @@ class Gestione
         require_once "./application/models/input_manager.php";
 
         //Genero un input manager
-        $im = new InputManager();
+        $im = new input_manager();
 
         //Elimino le sessioni precedentemente generate
         unset($_SESSION['grotti']);

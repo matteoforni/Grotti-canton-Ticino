@@ -93,7 +93,7 @@ class Admin
                     }
 
                     //Carico dal DB l'utente.
-                    $im = new InputManager();
+                    $im = new input_manager();
                     $email = filter_var($im->checkInput($email), FILTER_SANITIZE_EMAIL);
                     $utente = (new utente_model)->getUser($email);
 
@@ -139,7 +139,7 @@ class Admin
                     }
 
                     //Carico dal DB il grotto.
-                    $im = new InputManager();
+                    $im = new input_manager();
                     $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
                     $grotto = (new grotto_model)->getGrotto($id);
 

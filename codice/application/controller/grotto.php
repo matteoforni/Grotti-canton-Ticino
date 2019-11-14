@@ -47,7 +47,7 @@ class Grotto
         }
 
         //Carico dal DB il grotto e le sue immagini
-        $im = new InputManager();
+        $im = new input_manager();
         $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
 
         $grotto = (new grotto_model)->getGrotto($id);
@@ -68,7 +68,7 @@ class Grotto
     public function vota(){
         //Carico le classi necessarie e istanzio gli oggetti relativi
         require_once "./application/models/input_manager.php";
-        $im = new InputManager();
+        $im = new input_manager();
 
         //Genero l'array contenente gli errori
         $errors = array();
@@ -108,7 +108,7 @@ class Grotto
     public function caricaImmagine(){
         //Carico le classi necessarie e istanzio gli oggetti relativi.
         require_once "./application/models/input_manager.php";
-        $im = new InputManager();
+        $im = new input_manager();
 
         //Genero l'array contenente gli eventuali errori.
         $imgErrors = array();

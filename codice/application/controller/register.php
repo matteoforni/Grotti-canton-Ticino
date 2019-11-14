@@ -29,9 +29,9 @@ class Register
                 isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']) &&
                 isset($_POST['repassword']) && !empty($_POST['repassword']) ) {
 
-                //genero un nuovo InputManager e testo gli inserimenti
+                //genero un nuovo input_manager e testo gli inserimenti
                 $exists = false;
-                $im = new InputManager();
+                $im = new input_manager();
                 $firstname = filter_var($im->checkInputSpace($_POST['firstname']), FILTER_SANITIZE_STRING);
                 $lastname = filter_var($im->checkInputSpace($_POST['lastname']), FILTER_SANITIZE_STRING);
                 $username = filter_var($im->checkInput($_POST['username']), FILTER_SANITIZE_STRING);

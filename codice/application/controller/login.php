@@ -36,8 +36,8 @@ class Login
             //verifico che i campi siano impostati e che non siano stringhe vuote
             if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])) {
 
-                //genero un nuovo InputManager e testo gli inserimenti
-                $im = new InputManager();
+                //genero un nuovo input_manager e testo gli inserimenti
+                $im = new input_manager();
 
                 $email = filter_var($im->checkInput($_POST['email']), FILTER_SANITIZE_EMAIL);
                 $password = filter_var($im->checkInput($_POST['password']), FILTER_SANITIZE_STRING);

@@ -38,9 +38,9 @@ class NewUser
                 && isset($_POST['username']) && !empty($_POST['username']) &&
                 isset($_POST['email']) && !empty($_POST['email'])) {
 
-                //genero un nuovo InputManager e testo gli inserimenti
+                //genero un nuovo input_manager e testo gli inserimenti
                 $exists = false;
-                $im = new InputManager();
+                $im = new input_manager();
                 $firstname = filter_var($im->checkInputSpace($_POST['firstname']), FILTER_SANITIZE_STRING);
                 $lastname = filter_var($im->checkInputSpace($_POST['lastname']), FILTER_SANITIZE_STRING);
                 $username = filter_var($im->checkInput($_POST['username']), FILTER_SANITIZE_STRING);
@@ -90,7 +90,7 @@ class NewUser
                         $password = bin2hex(random_bytes(4));
                         (new utente_model)->addUser($firstname, $lastname, $username, $email, $password, true);
                         unset($_POST);
-                        $mm = new MailManager();
+                        $mm = new mail_manager();
                         $body = "<h3>Un admin di Grotti Ticinesi ha creato un account con la tua email</h3>La password per accedervi è la seguente: <br><b>" . $password . "</b>";
                         $mm->sendMail($email, $body, "Grotti Ticinesi - Benvenuto");
                         header('Location: ' . URL . 'admin');
