@@ -94,6 +94,8 @@
                                     <a href="<?php URL ?>gestione/back" class="btn btn-info my-4 btn-block" type="button">Annulla</a>
                                 </div>
                             </div>
+                            <div id="mapResults" class="mb-5"></div>
+
                         <?php endif; ?>
                         <?php
                         if(isset($_SESSION['errors'])){
@@ -105,7 +107,6 @@
                         ?>
                     </form>
                 </div>
-                <div id="mapResults" class="mb-5"></div>
             </div>
         </div>
     </div>

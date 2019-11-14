@@ -71,6 +71,8 @@ class Login
                             //se la password è sbagliata ritorno l'errore
                             array_push($errors, "Password o email sbagliate");
                             $_SESSION['errors'] = $errors;
+                            header('Location: ' . URL . 'login');
+                            exit();
                         }
                     }
                 }

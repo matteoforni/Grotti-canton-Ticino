@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // carico il file di configurazione
 require 'application/config/config.php';
 
@@ -11,9 +11,6 @@ require 'application/libs/viewloader.php';
 
 // carico le liberie di composer
 require 'vendor/autoload.php';
-
-// faccio partire il notifier
-$GLOBALS["NOTIFIER"] = new Notifier();
 
 // faccio partire l'applicazione
 $app = new Application();

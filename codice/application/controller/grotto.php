@@ -36,16 +36,6 @@ class Grotto
      * @param $id int L'id del grotto premuto.
      */
     public function show($id){
-        if(isset($_SESSION['grotto'])){
-            unset($_SESSION['grotto']);
-        }
-        if(isset($_SESSION['img'])){
-            unset($_SESSION['img']);
-        }
-        if(isset($_SESSION['noValutazioni'])){
-            unset($_SESSION['noValutazioni']);
-        }
-
         //Carico dal DB il grotto e le sue immagini
         $im = new input_manager();
         $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
@@ -53,11 +43,10 @@ class Grotto
         $grotto = (new grotto_model)->getGrotto($id);
         $images = (new foto_model)->getImages($id);
         $noValutazioni = (new voto_model)->getNoValutazioni($id);
-
         //Salvo i valori nelle sessioni
         $_SESSION['grotto'] = $grotto;
         $_SESSION['img'] = $images;
-        $_SESSION['noValutazioni'] = $noValutazioni[0]['count(*)'];
+        $_SESSION['noValutazioni'] = $noValutazioni[0];
         header('Location: ' . URL . 'grotto');
         exit();
     }
