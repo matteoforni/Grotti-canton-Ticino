@@ -22,7 +22,6 @@ class Reset
      * per inviare l'email di reset.
      */
     public function sendEmail(){
-        echo "send email";
         require_once "./application/models/input_manager.php";
         require_once "./application/models/mail_manager.php";
 
@@ -56,6 +55,11 @@ class Reset
                     }
                 }
                 array_push($errors, "L'email non è in uso da nessun account");
+                $_SESSION['errors'] = $errors;
+                header('Location: ' . URL . 'reset');
+                exit();
+            }else{
+                array_push($errors, "Inserire un email valida");
                 $_SESSION['errors'] = $errors;
                 header('Location: ' . URL . 'reset');
                 exit();

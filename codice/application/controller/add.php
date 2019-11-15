@@ -36,7 +36,6 @@ class Add
                 && isset($_POST['paese']) && !empty($_POST['paese']) && isset($_POST['via']) && !empty($_POST['via'])
                 && isset($_POST['no_civico']) && !empty($_POST['no_civico']) && isset($_POST['telefono']) && !empty($_POST['telefono'])
                 && isset($_POST['fascia_prezzo']) && !empty($_POST['fascia_prezzo'])) {
-
                 //genero un nuovo input_manager e testo gli inserimenti
                 $im = new input_manager();
 
