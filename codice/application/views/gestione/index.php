@@ -39,10 +39,12 @@
                             </small>
                             <div class="form-row mb-4">
                                 <div class="col">
-                                    <input type="submit" class="w-100 btn btn-warning my-4 border-dark" id="submit" value="Modifica">
+                                <button type="submit" class="w-100 btn btn-warning my-4 border-dark" id="submit">
+                                    <i class='fas fa-user-edit'></i>
+                                </button>
                                 </div>
                                 <div class="col">
-                                    <a href="<?php URL ?>gestione/back" class="btn btn-info my-4 btn-block" type="button">Annulla</a>
+                                    <a href="<?php URL ?>gestione/back" class="btn btn-info my-4 btn-block" type="button"><i class="fas fa-undo"></i></a>
                                 </div>
                             </div>
                         <?php elseif (isset($_SESSION['grotto']) && isset($_SESSION['fasce_prezzo'])): ?>
@@ -85,13 +87,13 @@
 
                             <div class="form-row mb-4">
                                 <div class="col">
-                                    <button type="button" class="w-100 btn btn-warning my-4 border-dark" id="submitbtn">Modifica</button>
+                                    <button type="button" class="w-100 btn btn-warning my-4 border-dark" id="submitbtn"><i class="fas fa-edit"></i></button>
                                 </div>
                                 <div class="col">
-                                    <button type="button" class="btn btn-info my-4 border-dark" id="check">Verifica</button>
+                                    <button type="button" class="btn btn-info my-4 border-dark" id="check"><i class="fas fa-map-marked-alt"></i></button>
                                 </div>
                                 <div class="col">
-                                    <a href="<?php URL ?>gestione/back" class="btn btn-info my-4 btn-block" type="button">Annulla</a>
+                                    <a href="<?php URL ?>gestione/back" class="btn btn-info my-4 btn-block" type="button"><i class="fas fa-undo"></i></a>
                                 </div>
                             </div>
                             <div id="mapResults" class="mb-5"></div>

@@ -36,6 +36,9 @@
 <!-- Smoothie scroll -->
 <script src="./application/assets/smoothie-js/smoothie.min.js"></script>
 
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/56cb13ebcf.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

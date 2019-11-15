@@ -44,8 +44,8 @@
                                     <td><?php echo $row['cognome']; ?></td>
                                     <td><?php echo $row['username']; ?></td>
                                     <td><?php echo $row['nome_ruolo']; ?></td>
-                                    <td><a type="button" class="btn btn-sm btn-warning" href="<?php echo URL; ?>admin/updateUser/<?php echo $row['email']; ?>">Modifica</a></td>
-                                    <td><a type="button" class="btn btn-sm btn-danger" href="<?php echo URL; ?>gestione/elimina/utente/<?php echo $row['email']; ?>">Elimina</a></td>
+                                    <td><a href="<?php echo URL; ?>admin/updateUser/<?php echo $row['email']; ?>"><i class="fas fa-user-edit"></i></a></td>
+                                    <td><a href="<?php echo URL; ?>gestione/elimina/utente/<?php echo $row['email']; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -54,7 +54,7 @@
                             <div class="card-body text-center">
                                 <h5 class="card-title">Aggiungi un utente</h5>
                                 <p class="card-text">Aggiungi un nuovo utente, gli verrà inviata la password via email.</p>
-                                <a class="card-link btn btn-info btn-sm" href="<?php echo URL; ?>newUser">Aggiungi</a>
+                                <a class="card-link btn btn-info btn-sm" href="<?php echo URL; ?>newUser"><i class="fas fa-user-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -88,8 +88,8 @@
                                             <div id="valutazione" class="rating" data-rate-value=<?php echo $row['valutazione']; ?>></div>
                                         </div>
                                     </td>
-                                    <td><a type="button" class="btn btn-sm btn-warning" href="<?php echo URL; ?>admin/updateGrotto/<?php echo $row['id']; ?>">Modifica</a></td>
-                                    <td><a type="button" class="btn btn-sm btn-danger" href="<?php echo URL; ?>gestione/elimina/grotto/<?php echo $row['id']; ?>">Elimina</a></td>
+                                    <td><a href="<?php echo URL; ?>admin/updateGrotto/<?php echo $row['id']; ?>"><i class="fas fa-edit"></i></a></td>
+                                    <td><a href="<?php echo URL; ?>gestione/elimina/grotto/<?php echo $row['id']; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -98,7 +98,7 @@
                             <div class="card-body text-center">
                                 <h5 class="card-title">Aggiungi un grotto</h5>
                                 <p class="card-text">Aggiungi un nuovo grotto tramite la pagina apposita.</p>
-                                <a class="card-link btn btn-info btn-sm" href="<?php echo URL; ?>add">Aggiungi</a>
+                                <a class="card-link btn btn-info btn-sm" href="<?php echo URL; ?>add"><i class="fas fa-map-marked-alt"></i></a>
                             </div>
                         </div>
                     </div>
@@ -124,8 +124,8 @@
                                     <td><?php echo($row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?></td>
                                     <td><?php echo $row['telefono']; ?></td>
                                     <td><?php echo $row['fascia_prezzo']; ?></td>
-                                    <td><a type="button" class="btn btn-sm btn-warning" href="<?php echo URL; ?>gestione/acceptGrotto/<?php echo $row['id']; ?>">Accetta</a></td>
-                                    <td><a type="button" class="btn btn-sm btn-danger" href="<?php echo URL; ?>gestione/elimina/grotto/<?php echo $row['id']; ?>">Elimina</a></td>
+                                    <td><a href="<?php echo URL; ?>gestione/acceptGrotto/<?php echo $row['id']; ?>"><i class="fas fa-check-square"></i></a></td>
+                                    <td><a href="<?php echo URL; ?>gestione/elimina/grotto/<?php echo $row['id']; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -150,7 +150,7 @@
                                     <td><?php echo $row['id']; ?></td>
                                     <td><?php echo $row['path']; ?></td>
                                     <td><?php echo $_SESSION['grotti_validati'][array_search($row['grotto'], array_column($_SESSION['grotti_validati'], 'id'))]['nome']; ?></td>
-                                    <td><a type="button" class="btn btn-sm btn-danger" href="<?php echo URL; ?>gestione/elimina/immagine/<?php echo $row['id']; ?>">Elimina</a></td>
+                                    <td><a href="<?php echo URL; ?>gestione/elimina/immagine/<?php echo $row['id']; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
