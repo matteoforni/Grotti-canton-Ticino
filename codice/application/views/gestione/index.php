@@ -163,7 +163,6 @@
                 via = document.getElementById('via').value;
                 paese = document.getElementById('paese').value;
                 cap = document.getElementById('cap').value;
-                console.log("click di check");
                 setMapOnAll(null);
                 geocodeAddress(geocoder, map);
             });
@@ -174,7 +173,6 @@
                 paese = document.getElementById('paese').value;
                 cap = document.getElementById('cap').value;
                 submitInvoked = true;
-                console.log("click di submit");
                 setMapOnAll(null);
                 geocodeAddress(geocoder, map);
             });
@@ -182,8 +180,6 @@
 
         //Funzione che esegue il submit di un form dopo aver inserito negli input nascosti i valori di lat e lng
         function submitForm(lat, long){
-            console.log("submit form");
-
             $('#lat').val(lat);
             $('#lng').val(long);
             $('#update').submit();

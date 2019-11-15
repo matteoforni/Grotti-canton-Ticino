@@ -26,6 +26,7 @@
 }
 #mapResults{
     width: 50vw;
+    max-width: 100%;
     height: 70vh;
     margin: auto;
 }
@@ -37,6 +38,7 @@
     }
     #mapResults{
         width: 80vw;
+        max-width: 100%;
         height: 70vh;
         margin: auto;
     }

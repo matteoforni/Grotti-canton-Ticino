@@ -50,7 +50,7 @@
 
                             <div class="form-row mb-4">
                                 <div class="col">
-                                    <p class="btn btn-info my-4 btn-block" id="submitbtn"> Aggiungi </p>
+                                    <p class="btn btn-info my-4 btn-block" id="submitbtn">Aggiungi</p>
                                 </div>
                                 <div class="col">
                                     <button class="btn btn-info my-4 btn-block" type="button" id="check">Verifica</button>
