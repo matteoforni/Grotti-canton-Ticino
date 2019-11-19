@@ -4,7 +4,6 @@
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analisi/MatteoForni_SchemaLogico.docx" beforeDir="false" afterPath="$PROJECT_DIR$/analisi/MatteoForni_SchemaLogico.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" beforeDir="false" afterPath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -112,7 +111,7 @@
       <workItem from="1573639027058" duration="40000" />
       <workItem from="1573733914444" duration="9571000" />
       <workItem from="1573820316906" duration="7355000" />
-      <workItem from="1574168396643" duration="2151000" />
+      <workItem from="1574168396643" duration="4925000" />
     </task>
     <servers />
   </component>
