@@ -30,10 +30,4 @@ class Home
             ViewLoader::load("_templates/footer");
         }
     }
-
-    public function logout(){
-        unset($_SESSION['user']);
-        header('Location: ' . URL . 'home');
-        exit();
-    }
 }

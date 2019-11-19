@@ -43,7 +43,7 @@
                     <a class="nav-link" href="<?php URL ?>add">Aggiungi grotto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php URL ?>home/logout">Logout</a>
+                    <a class="nav-link" href="<?php URL ?>login/logout">Logout</a>
                 </li>
             </ul>
         </div>

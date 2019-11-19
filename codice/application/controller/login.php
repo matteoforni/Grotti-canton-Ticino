@@ -88,4 +88,10 @@ class Login
             exit();
         }
     }
+
+    public function logout(){
+        unset($_SESSION['user']);
+        header('Location: ' . URL . 'home');
+        exit();
+    }
 }
