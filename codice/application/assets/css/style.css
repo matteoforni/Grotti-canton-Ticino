@@ -42,7 +42,9 @@
         height: 70vh;
         margin: auto;
     }
-
+    .tool-name{
+        display: none;
+    }
 }
 .waves-input-wrapper{
     width: 100% !important;

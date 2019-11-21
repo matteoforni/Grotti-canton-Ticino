@@ -270,7 +270,14 @@ class Gestione
                 //Verifico che ci sia sempre almeno un admin
                 foreach($utenti as $item){
                     if(($item['nome_ruolo'] == 'admin' && $item['email'] != $utente['email'])){
-                        (new utente_model)->delete($id);
+                        //Verifico che l'utente non stia cercando di eliminare se stesso
+                        if($item['email'] =! $_SESSION['user']['email']){
+                            (new utente_model)->delete($id);
+                        }else{
+                            //Se l'admin sta provando ad eliminarsi da solo mostro l'errore
+                            array_push($errors, "Non puoi eliminare te stesso");
+                            $_SESSION['errors'] = $errors;
+                        }
                         header('Location: ' . URL . 'admin');
                         exit();
                     }

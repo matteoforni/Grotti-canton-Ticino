@@ -30,7 +30,7 @@
 <body>
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light grey lighten-3 scrolling-navbar">
-        <a class="navbar-brand" href="<?php URL ?>home"><strong>Grotti Ticinesi</strong></a>
+        <a class="navbar-brand" href="<?php URL ?>home"><strong>Grotti Ticinesi</strong></a><a href="#" class="tool-name text-dark" data-toggle="tooltip" title="<?php echo $_SESSION['user']['nome_ruolo']; ?>"><?php echo " Connesso come: " . $_SESSION['user']['nome'] . " " .  $_SESSION['user']['cognome']; ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

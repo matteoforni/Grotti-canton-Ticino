@@ -11,11 +11,11 @@
 
 <!-- Footer -->
 
+<!-- Popper JS -->
+<script type="text/javascript" src="./application/assets/mdb/js/popper.min.js"></script>
+
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="./application/assets/mdb/js/bootstrap.min.js"></script>
-
-<!-- Tooltips -->
-<script type="text/javascript" src="./application/assets/mdb/js/popper.min.js"></script>
 
 <!-- Material Design Bootstrap -->
 <script type="text/javascript" src="./application/assets/mdb/js/mdb.min.js"></script>
@@ -38,6 +38,12 @@
 
 <!-- Font Awesome -->
 <script src="https://kit.fontawesome.com/56cb13ebcf.js" crossorigin="anonymous"></script>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 
 </body>
 
