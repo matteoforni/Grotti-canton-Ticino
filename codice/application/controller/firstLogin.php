@@ -29,7 +29,6 @@ class FirstLogin
                 $repassword = filter_var($im->checkInput($_POST['repassword']), FILTER_SANITIZE_STRING);
 
                 if($password == $repassword){
-                    echo "password uguali: $password <br>";
                     (new utente_model)->setPassword($email, $password);
                     (new utente_model)->setFirstLogin($email);
                     header('Location: ' . URL . 'login');
