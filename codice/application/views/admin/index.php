@@ -45,7 +45,7 @@
                                     <td><?php echo $row['username']; ?></td>
                                     <td><?php echo $row['nome_ruolo']; ?></td>
                                     <td><a href="<?php echo URL; ?>admin/updateUser/<?php echo $row['email']; ?>"><i class="fas fa-user-edit"></i></a></td>
-                                    <td><a href="<?php echo URL; ?>gestione/elimina/utente/<?php echo $row['email']; ?>"><i class="fas fa-trash-alt"></i></a></td>
+                                    <td><a class="delete-utente" data-id="<?php echo $row['email']; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -89,7 +89,7 @@
                                         </div>
                                     </td>
                                     <td><a href="<?php echo URL; ?>admin/updateGrotto/<?php echo $row['id']; ?>"><i class="fas fa-edit"></i></a></td>
-                                    <td><a href="<?php echo URL; ?>gestione/elimina/grotto/<?php echo $row['id']; ?>"><i class="fas fa-trash-alt"></i></a></td>
+                                    <td><a class="delete-grotto" data-id="<?php echo $row['id']; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -125,7 +125,7 @@
                                     <td><?php echo $row['telefono']; ?></td>
                                     <td><?php echo $row['fascia_prezzo']; ?></td>
                                     <td><a href="<?php echo URL; ?>gestione/acceptGrotto/<?php echo $row['id']; ?>"><i class="fas fa-check-square"></i></a></td>
-                                    <td><a href="<?php echo URL; ?>gestione/elimina/grotto/<?php echo $row['id']; ?>"><i class="fas fa-trash-alt"></i></a></td>
+                                    <td><a class="delete-grotto" data-id="<?php echo $row['id']; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -146,16 +146,79 @@
                             </thead>
                             <tbody>
                             <?php foreach ($_SESSION['immagini'] as $row): ?>
-                                <tr class="text-center table-row click-row" data-href="<?php echo $row['path']; ?>">
-                                    <td><?php echo $row['id']; ?></td>
-                                    <td><?php echo $row['path']; ?></td>
-                                    <td><?php echo $_SESSION['grotti_validati'][array_search($row['grotto'], array_column($_SESSION['grotti_validati'], 'id'))]['nome']; ?></td>
-                                    <td><a href="<?php echo URL; ?>gestione/elimina/immagine/<?php echo $row['id']; ?>"><i class="fas fa-trash-alt"></i></a></td>
+                                <tr class="text-center table-row click-row-img" data-href="<?php echo $row['path']; ?>">
+                                    <td class="click-elem-img"><?php echo $row['id']; ?></td>
+                                    <td class="click-elem-img"><?php echo $row['path']; ?></td>
+                                    <td class="click-elem-img"><?php echo $_SESSION['grotti_validati'][array_search($row['grotto'], array_column($_SESSION['grotti_validati'], 'id'))]['nome']; ?></td>
+                                    <td><a class="delete-img" data-id="<?php echo $row['id']; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale che mostra il bottone di conferma dell'eliminazione dell'utente -->
+    <div class="modal fade" id="delete-utente-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-utente-label"><i class="fas fa-exclamation-triangle"></i> Attenzione</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4 class="modal-body-del-utente">Sei sicuro di volere eliminare l'utente?</h4>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" id="delete-utente-a" class="btn btn-danger" href="">Elimina</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale che mostra il bottone di conferma dell'eliminazione -->
+    <div class="modal fade" id="delete-grotto-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-label"><i class="fas fa-exclamation-triangle"></i> Attenzione</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4>Sei sicuro di voler eliminare il grotto?</h4>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" id="delete-grotto-a" class="btn btn-danger" href="">Elimina</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale che mostra il bottone di conferma dell'eliminazione -->
+    <div class="modal fade" id="delete-img-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-label"><i class="fas fa-exclamation-triangle"></i> Attenzione</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4>Sei sicuro di voler eliminare l'immagine?</h4>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" id="delete-img-a" class="btn btn-danger" href="">Elimina</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Chiudi</button>
                 </div>
             </div>
         </div>
@@ -167,7 +230,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-label"></h5>
+                    <h5 class="modal-title" id="modal-label-img"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -176,7 +239,7 @@
                     <img id="modal-body-img" src="">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Chiudi</button>
                 </div>
             </div>
         </div>
@@ -184,6 +247,7 @@
 
     <script>
         $(document).ready(function () {
+            var url =
             //Genero lo smooth scroll
             smoothie();
 
@@ -244,9 +308,27 @@
             });
             $('.dataTables_length').addClass('bs-select');
 
-            $(".click-row").click(function() {
-                $('#modal-body-img').attr('src', $(this).data("href"));
-                $('#modal-label').attr('content', $(this).data("href"));
+            $('.delete-utente').click(function () {
+                var val = "<?php echo URL; ?>" + "gestione/elimina/utente/" + $(this).data("id");
+                $('#delete-utente-a').attr('href', val);
+                $('#delete-utente-modal').modal();
+            });
+
+            $('.delete-grotto').click(function () {
+                var val = "<?php echo URL; ?>" + "gestione/elimina/grotto/" + $(this).data("id");
+                $('#delete-grotto-a').attr('href', val);
+                $('#delete-grotto-modal').modal();
+            });
+
+            $('.delete-img').click(function () {
+                var val = "<?php echo URL; ?>" + "gestione/elimina/immagine/" + $(this).data("id");
+                $('#delete-img-a').attr('href', val);
+                $('#delete-img-modal').modal();
+            });
+
+            $(".click-elem-img").click(function() {
+                $('#modal-body-img').attr('src', $('.click-row-img').data("href"));
+                $('#modal-label-img').attr('content', $('.click-row-img').data("href"));
                 $('#img-modal').modal();
             });
         });
