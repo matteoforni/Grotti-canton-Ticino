@@ -70,14 +70,22 @@ class Reset
     public function resetPassword($token){
         require_once "./application/models/input_manager.php";
 
-        $im = new input_manager();
-        $token = filter_var($im->checkInput($token), FILTER_SANITIZE_STRING);
+        if(isset($_COOKIE['mail_sent'])){
+            $im = new input_manager();
+            $token = filter_var($im->checkInput($token), FILTER_SANITIZE_STRING);
 
-        $user = (new utente_model)->getUserFromToken($token);
-        if($user != null){
-            setcookie('password_change', true, time()+86400, '/');
-            setcookie('user_mail', $user['email'], time()+86400, '/');
-            setcookie('mail_sent', '', time()-3600, '/');
+            $user = (new utente_model)->getUserFromToken($token);
+            if($user != null){
+                setcookie('password_change', true, time()+86400, '/');
+                setcookie('user_mail', $user['email'], time()+86400, '/');
+                setcookie('mail_sent', '', time()-3600, '/');
+                header('Location: ' . URL . 'reset');
+                exit();
+            }else{
+                header('Location: ' . URL . 'login');
+                exit();
+            }
+        }else{
             header('Location: ' . URL . 'reset');
             exit();
         }
