@@ -271,7 +271,7 @@ class Gestione
                 foreach($utenti as $item){
                     if(($item['nome_ruolo'] == 'admin' && $item['email'] != $utente['email'])){
                         //Verifico che l'utente non stia cercando di eliminare se stesso
-                        if($item['email'] =! $_SESSION['user']['email']){
+                        if($utente['email'] != $_SESSION['user']['email']){
                             (new utente_model)->delete($id);
                         }else{
                             //Se l'admin sta provando ad eliminarsi da solo mostro l'errore
@@ -287,7 +287,6 @@ class Gestione
             }
         //Se si vuole eliminare un'immagine
         }elseif ($type == 'immagine'){
-            echo "immagine";
             //Verifico che l'immagine esista
             $id = filter_var($im->checkInput($id), FILTER_SANITIZE_NUMBER_INT);
             $immagine = (new foto_model)->getImage($id);
@@ -301,9 +300,9 @@ class Gestione
                     $_SESSION['errors'] = $errors;
                 }
             }
+            header('Location: ' . URL . 'admin');
+            exit();
         }
-        header('Location: ' . URL . 'admin');
-        exit();
     }
 
     /**

@@ -65,6 +65,7 @@
                                 unset($_SESSION['errors']);
                             }
                             ?>
+                            <div id="mapResults" class="mb-5"></div>
                         </form>
                     <?php elseif($_SESSION['grotto_aggiunto'] == true): ?>
                         <h1 class="h1 text-center">Grotto creato con successo!</h1>
@@ -80,7 +81,6 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <div id="mapResults" class="mb-5"></div>
         </div>
     </div>
     <!--<script src="./application/assets/js/grotto.js"></script>-->

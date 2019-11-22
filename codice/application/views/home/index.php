@@ -24,7 +24,6 @@
                                 <td><?php echo $row['telefono']; ?></td>
                                 <td><?php echo $row['fascia_prezzo']; ?></td>
                                 <td>
-                                    <p class="hidden"><?php echo $row['valutazione']; ?></p>
                                     <div class="rating-container-small">
                                         <div id="valutazione" class="rating" data-rate-value=<?php echo $row['valutazione']; ?>></div>
                                     </div>
@@ -40,32 +39,8 @@
 </div>
 
 <script>
-    $(document).ready(function($) {
-        //Imposto le opzioni
-        var options = {
-            max_value: 5,
-            step_size: 0.5,
-            readonly: true,
-        };
-
-        //Istanzio la valutazione
-        $(".rating").rate(options);
-
-        //Mantengo sempre centrate le stelle
-        var margin = $('.rating-container-small').width()/2 - $('.rating').width()/2;
-        $(".rating").css('margin-left', margin);
-        $(window).resize(function () {
-            var margin = $('.rating-container-small').width()/2 - $('.rating').width()/2;
-            $(".rating").css('margin-left', margin);
-        });
-
-
-        $(".click-row").click(function() {
-            window.location = $(this).data("href");
-        });
-    });
-
     let map;
+    let ready = false;
     var infowindowOpen = null;
     function initMap() {
         let center_loc = {
@@ -109,24 +84,19 @@
 
     function setMarkers(map, locations) {
         <?php foreach ($_SESSION['grotti'] as $row): ?>
-
         var contentString = `
                 <div class='content modal-body'>
-                    <a class='text-dark' href='<?php echo URL; ?>grotto/show/<?php echo $row['id']; ?>'><h1 id="nome" style='color:black;'>  <?php echo $row['nome']; ?></h1>
-                    <strong id="indirizzo">Indirizzo</strong> <?php echo(" " . $row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?>
+                    <a class='text-dark' href='<?php echo URL; ?>grotto/show/<?php echo $row['id']; ?>'><h1 id='nome' style='color:black;'>  <?php echo $row['nome']; ?></h1>
+                    <strong id='indirizzo'>Indirizzo</strong> <?php echo(" " . $row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?>
                     <br><br>
-                    <strong id="telefono">Telefono</strong><?php echo " " . $row['telefono']; ?>
-                    <br><br>
-                    <strong id="valutazione">Valutazione</strong>
-                    <div class="rating-container">
-                        <div id="valutazione" class="rating" data-rate-value=<?php echo $row['valutazione']; ?>></div>
-                    </div></a>
+                    <strong id='telefono'>Telefono</strong><?php echo " " . $row['telefono']; ?>
+                    <br><br></a>
+                    <strong id='valutazione'>Valutazione: </strong><?php echo $row['valutazione'] == '' ? 'Nessun voto' : $row['valutazione'] . ' su 5'; ?>
                 </div>`;
 
         var infowindow<?php echo $row['id']; ?> = new google.maps.InfoWindow({
             content: contentString
         });
-
         var luogo = {lat: <?php echo floatval($row['lat']); ?>, lng: <?php echo floatval($row['lon']); ?> };
 
         var marker<?php echo $row['id']; ?> = new google.maps.Marker({
@@ -137,7 +107,7 @@
         });
 
         marker<?php echo $row['id']; ?>.addListener('click', function() {
-
+            console.log(infowindow<?php echo $row['id']; ?>);
             if (infowindowOpen != null){
                 infowindowOpen.close();
             }
@@ -149,6 +119,32 @@
         });
         <?php endforeach; ?>
     }
+
+    $(document).ready(function($) {
+        //Imposto le opzioni
+        var options = {
+            max_value: 5,
+            step_size: 0.5,
+            readonly: true,
+        };
+
+        //Istanzio la valutazione
+        $(".rating").rate(options);
+
+        //Mantengo sempre centrate le stelle
+        var margin = $('.rating-container-small').width()/2 - $('.rating').width()/2;
+        $(".rating").css('margin-left', margin);
+        $(window).resize(function () {
+            var margin = $('.rating-container-small').width()/2 - $('.rating').width()/2;
+            $(".rating").css('margin-left', margin);
+        });
+
+
+        $(".click-row").click(function() {
+            window.location = $(this).data("href");
+        });
+    });
+
 </script>
 
 <script async defer

@@ -146,10 +146,10 @@
                             </thead>
                             <tbody>
                             <?php foreach ($_SESSION['immagini'] as $row): ?>
-                                <tr class="text-center table-row click-row-img" data-href="<?php echo $row['path']; ?>">
-                                    <td class="click-elem-img"><?php echo $row['id']; ?></td>
-                                    <td class="click-elem-img"><?php echo $row['path']; ?></td>
-                                    <td class="click-elem-img"><?php echo $_SESSION['grotti_validati'][array_search($row['grotto'], array_column($_SESSION['grotti_validati'], 'id'))]['nome']; ?></td>
+                                <tr class="text-center table-row click-row-img">
+                                    <td class="click-elem-img" data-href="<?php echo $row['path']; ?>"><?php echo $row['id']; ?></td>
+                                    <td class="click-elem-img" data-href="<?php echo $row['path']; ?>"><?php echo $row['path']; ?></td>
+                                    <td class="click-elem-img" data-href="<?php echo $row['path']; ?>"><?php echo $_SESSION['grotti_validati'][array_search($row['grotto'], array_column($_SESSION['grotti_validati'], 'id'))]['nome']; ?></td>
                                     <td><a class="delete-img" data-id="<?php echo $row['id']; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
@@ -327,8 +327,8 @@
             });
 
             $(".click-elem-img").click(function() {
-                $('#modal-body-img').attr('src', $('.click-row-img').data("href"));
-                $('#modal-label-img').attr('content', $('.click-row-img').data("href"));
+                $('#modal-body-img').attr('src', $(this).data("href"));
+                $('#modal-label-img').attr('content', $(this).data("href"));
                 $('#img-modal').modal();
             });
         });
