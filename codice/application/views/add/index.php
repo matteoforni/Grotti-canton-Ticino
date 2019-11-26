@@ -64,6 +64,7 @@
                                 }
                                 unset($_SESSION['errors']);
                             }
+                            unset($_SESSION['data']);
                             ?>
                             <div id="mapResults" class="mb-5"></div>
                         </form>

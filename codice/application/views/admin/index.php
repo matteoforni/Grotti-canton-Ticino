@@ -19,6 +19,13 @@
                             unset($_SESSION['errors']);
                         }
                     ?>
+
+                    <?php if (isset($_SESSION['deleted'])): ?>
+                        <div class="alert alert-success" role="alert">
+                            Eliminazione avvenuta con successo [<?php echo ucfirst($_SESSION['deleted']['type']) . " - " . $_SESSION['deleted']['id']; ?>]
+                        </div>
+                        <?php unset($_SESSION['deleted']) ?>
+                    <?php endif; ?>
                     
                     <!-- Sezione di gestione degli utenti -->
                     <div class="my-5" id="utenti">
@@ -81,7 +88,18 @@
                                     <td><?php echo $row['nome']; ?></td>
                                     <td><?php echo($row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?></td>
                                     <td><?php echo $row['telefono']; ?></td>
-                                    <td><?php echo $row['fascia_prezzo']; ?></td>
+                                    <td>
+                                        <?php if ($row['fascia_prezzo'] == 'Caro'): ?>
+                                            <p class="hidden">3</p>
+                                            <i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i>
+                                        <?php elseif ($row['fascia_prezzo'] == 'Nella norma'): ?>
+                                            <p class="hidden">2</p>
+                                            <i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i>
+                                        <?php else: ?>
+                                            <p class="hidden">1</p>
+                                            <i class="fas fa-dollar-sign"></i>
+                                        <?php endif; ?>
+                                    </td>
                                     <td>
                                         <p class="hidden"><?php echo $row['valutazione']; ?></p>
                                         <div class="rating-container-small">
@@ -123,7 +141,18 @@
                                     <td><?php echo $row['nome']; ?></td>
                                     <td><?php echo($row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?></td>
                                     <td><?php echo $row['telefono']; ?></td>
-                                    <td><?php echo $row['fascia_prezzo']; ?></td>
+                                    <td>
+                                        <?php if ($row['fascia_prezzo'] == 'Caro'): ?>
+                                            <p class="hidden">3</p>
+                                            <i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i>
+                                        <?php elseif ($row['fascia_prezzo'] == 'Nella norma'): ?>
+                                            <p class="hidden">2</p>
+                                            <i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i>
+                                        <?php else: ?>
+                                            <p class="hidden">1</p>
+                                            <i class="fas fa-dollar-sign"></i>
+                                        <?php endif; ?>
+                                    </td>
                                     <td><a href="<?php echo URL; ?>gestione/acceptGrotto/<?php echo $row['id']; ?>"><i class="fas fa-check-square"></i></a></td>
                                     <td><a class="delete-grotto" data-id="<?php echo $row['id']; ?>"><i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
@@ -247,7 +276,6 @@
 
     <script>
         $(document).ready(function () {
-            var url =
             //Genero lo smooth scroll
             smoothie();
 

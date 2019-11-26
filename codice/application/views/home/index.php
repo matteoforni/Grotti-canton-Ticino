@@ -22,8 +22,20 @@
                                 <td><?php echo $row['nome']; ?></td>
                                 <td><?php echo($row['cap'] . " " . $row['paese'] . ", " .$row['via'] . " " . $row['no_civico']); ?></td>
                                 <td><?php echo $row['telefono']; ?></td>
-                                <td><?php echo $row['fascia_prezzo']; ?></td>
                                 <td>
+                                    <?php if ($row['fascia_prezzo'] == 'Caro'): ?>
+                                        <p class="hidden">3</p>
+                                        <i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i>
+                                    <?php elseif ($row['fascia_prezzo'] == 'Nella norma'): ?>
+                                        <p class="hidden">2</p>
+                                        <i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i>
+                                    <?php else: ?>
+                                        <p class="hidden">1</p>
+                                        <i class="fas fa-dollar-sign"></i>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <p class="hidden"><?php echo $row['valutazione']; ?></p>
                                     <div class="rating-container-small">
                                         <div id="valutazione" class="rating" data-rate-value=<?php echo $row['valutazione']; ?>></div>
                                     </div>
