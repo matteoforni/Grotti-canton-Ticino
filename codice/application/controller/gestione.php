@@ -193,6 +193,8 @@ class Gestione
                     if($grotto['fascia_prezzo'] != $fasciaprezzo){
                         (new grotto_model)->updateGrotto($id, 'fascia_prezzo', $fasciaprezzo);
                     }
+                    header('Location: ' . URL . 'admin');
+                    exit();
                 }
             }
             array_push($errors, "Inserire tutti i valori");
@@ -239,6 +241,10 @@ class Gestione
         unset($_SESSION['grotti_validati']);
         unset($_SESSION['users']);
 
+        if(isset($_SESSION['deleted'])){
+            unset($_SESSION['deleted']);
+        }
+
         //Se vi erano errori in precedenza li elimino
         if(isset($_SESSION['errors'])) {
             unset($_SESSION['errors']);
@@ -254,11 +260,14 @@ class Gestione
             if($grotto != null){
                 //Se esiste lo elimino
                 (new grotto_model)->delete($id);
+                $_SESSION['deleted'] = array("type" => $type, "id" => $id);
                 if($immagini != null){
                     foreach ($immagini as $immagine){
                         unlink($immagine['path']);
                     }
                 }
+                header('Location: ' . URL . 'admin');
+                exit();
             }
         //Se si vuole eliminare un utente
         }elseif ($type == 'utente'){
@@ -273,6 +282,7 @@ class Gestione
                         //Verifico che l'utente non stia cercando di eliminare se stesso
                         if($utente['email'] != $_SESSION['user']['email']){
                             (new utente_model)->delete($id);
+                            $_SESSION['deleted'] = array("type" => $type, "id" => $id);
                         }else{
                             //Se l'admin sta provando ad eliminarsi da solo mostro l'errore
                             array_push($errors, "Non puoi eliminare te stesso");
@@ -284,6 +294,8 @@ class Gestione
                 }
                 array_push($errors, "Deve sempre esserci almeno un admin");
                 $_SESSION['errors'] = $errors;
+                header('Location: ' . URL . 'admin');
+                exit();
             }
         //Se si vuole eliminare un'immagine
         }elseif ($type == 'immagine'){
@@ -295,6 +307,7 @@ class Gestione
                 try {
                     unlink($immagine['path']);
                     (new foto_model)->delete($id);
+                    $_SESSION['deleted'] = array("type" => $type, "id" => $id);
                 }catch (Exception $e){
                     array_push($errors, "Impossibile eliminare l'immagine");
                     $_SESSION['errors'] = $errors;

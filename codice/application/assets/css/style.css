@@ -15,9 +15,15 @@
 .rating-container-small{
     font-size: 120%;
 }
-
+.alert-success{
+    display: block;
+}
 .hidden{
     display: none;
+}
+.carousel-indicators{
+    color: black;
+    border: white;
 }
 .rating-add-container{
     font-size: 170%;
@@ -53,7 +59,7 @@
 
 .carousel-inner img {
     object-fit: scale-down;
-    max-height: 40vw;
+    max-height: 30vw;
 }
 #modal-body-img{
     align-items: center;
