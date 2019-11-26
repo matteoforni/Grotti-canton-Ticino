@@ -3,8 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/_templates/header_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/_templates/header_admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/_templates/header_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/_templates/header_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/gestione.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/gestione.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/grotto/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/grotto/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/home/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/register/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/register/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" beforeDir="false" afterPath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +121,8 @@
       <workItem from="1574168396643" duration="5702000" />
       <workItem from="1574234731365" duration="27000" />
       <workItem from="1574338734738" duration="10355000" />
-      <workItem from="1574425470812" duration="7633000" />
+      <workItem from="1574425470812" duration="8363000" />
+      <workItem from="1574770825818" duration="5677000" />
     </task>
     <servers />
   </component>

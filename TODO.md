@@ -6,3 +6,4 @@
 * Fixare validatori (add grotto e register)
 * [Aggiungere condivisione su FB
 * Commentare TUTTO
+* Inserire nel diario che ho cambiato il trigger di mysql
