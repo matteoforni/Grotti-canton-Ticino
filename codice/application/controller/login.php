@@ -42,6 +42,21 @@ class Login
                 $email = filter_var($im->checkInput($_POST['email']), FILTER_SANITIZE_EMAIL);
                 $password = filter_var($im->checkInput($_POST['password']), FILTER_SANITIZE_STRING);
 
+                //verifico che la lunghezza dei campi corrisponda con quella consentita
+                if(!(strlen($email) > 0 && strlen($email) <= 50) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
+                    array_push($errors, "L'email deve essere formattata nel seguente modo: indirizzo@dominio.xx");
+                }
+                if(!(strlen($password) >= 8) || !preg_match('/^[a-zA-Z\d._\-*%&!?$@+#+,;:]+$/', $password)){
+                    array_push($errors, "La password deve essere almeno lunga 8 caratteri");
+                }
+
+                //se sono di lunghezze sbagliate ritorno l'errore
+                if(count($errors) != 0){
+                    $_SESSION['errors'] = $errors;
+                    header('Location: ' . URL . 'register');
+                    exit();
+                }
+
                 //prendo tutti gli utenti nel database
                 $users = (new utente_model)->getUsers();
 

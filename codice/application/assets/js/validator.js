@@ -21,7 +21,7 @@ class Validator {
 
     username(text, lengthMin, lengthMax) {
         if (text.length > lengthMin && text.length <= lengthMax) {
-            var allChars = /^\s*([A-Za-z\u00C0-\u017F0-9 ]{1}([\.,]|[-']|))*$/i;
+            var allChars = /^\s*([A-Za-z\u00C0-\u017F0-9 _]{1}([\.,]|[-']|))*$/i;
             return allChars.test(text);
         }
         return false;

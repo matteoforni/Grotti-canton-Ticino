@@ -50,23 +50,26 @@ class Add
                 $lon = filter_var($im->checkInput($_POST['lng']), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
                 //verifico che la lunghezza dei campi corrisponda con quella consentita
-                if(!(strlen($name) > 0 && strlen($name) <= 50)){
-                    array_push($errors, "Il nome deve essere lungo tra 1 e 50 caratteri");
+                if(!(strlen($name) > 0 && strlen($name) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $name)){
+                    array_push($errors, "Inserire un nome corretto [solo lettere]");
                 }
-                if(!(strlen($paese) > 0 && strlen($paese) <= 50)){
-                    array_push($errors, "Il paese deve essere lungo tra 1 e 50 caratteri");
+                if(!(strlen($paese) > 0 && strlen($paese) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $paese)){
+                    array_push($errors, "Inserire un paese valido [solo lettere]");
                 }
-                if(!(strlen($via) > 0 && strlen($via) <= 50)){
-                    array_push($errors, "La via deve essere lunga tra 1 e 50 caratteri");
+                if(!(strlen($via) > 0 && strlen($via) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $via)){
+                    array_push($errors, "Inserire una via valida [solo lettere]");
                 }
-                if(!(strlen($no_civico) > 0 && strlen($no_civico) <= 10)){
-                    array_push($errors, "Il numero civico deve essere lungo tra 1 e 10 caratteri");
+                if(!(strlen($no_civico) > 0 && strlen($no_civico) <= 10) || !preg_match('/^[0-9a-zA-Z ]+$/', $no_civico)){
+                    array_push($errors, "Inserire un numero civico valido");
                 }
-                if(!(strlen($telefono) > 0 && strlen($telefono) <= 20)){
-                    array_push($errors, "Il telefono deve essere lungo tra 1 e 20 caratteri");
+                if(!(strlen($cap) > 0 && strlen($cap) <= 5) || !preg_match('/^[0-9]+$/', $cap)){
+                    array_push($errors, "Inserire un CAP valido");
+                }
+                if(!(strlen($telefono) > 0 && strlen($telefono) <= 20) || !preg_match('/^\+?[0-9 ]+$/', $telefono)){
+                    array_push($errors, "Inserire un numero di telefono valido");
                 }
                 if(!(strlen($fascia_prezzo) > 0 && strlen($fascia_prezzo) <= 50)){
-                    array_push($errors, "La fascia di prezzo deve essere lunga tra 1 e 50 caratteri");
+                    array_push($errors, "Inserire una fascia di prezzo valida");
                 }
 
                 //se sono di lunghezze sbagliate ritorno l'errore
@@ -113,8 +116,9 @@ class Add
                 //se non vengono inseriti tutti i campi ritorno un errore
                 array_push($errors, "Inserire tutti i dati");
                 $_SESSION['errors'] = $errors;
-                header('Location: ' . URL . 'add');
-                exit();
+                print_r($_POST);
+                //header('Location: ' . URL . 'add');
+                //exit();
             }
         }
     }

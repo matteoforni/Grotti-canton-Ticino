@@ -55,6 +55,12 @@ class Gestione
             if(isset($_POST['password']) && !empty($_POST['password'])){
                 //Verifico che il valore inserito non contenga codice maligno
                 $password = filter_var($im->checkInput($_POST['password']), FILTER_SANITIZE_STRING);
+                if(!(strlen($password) >= 8) || !preg_match('/^[a-zA-Z\d._\-*%&!?$@+#+,;:]+$/', $password)){
+                    array_push($errors, "La password deve essere almeno lunga 8 caratteri");
+                    $_SESSION['errors'] = $errors;
+                    header('Location: ' . URL . 'gestione');
+                    exit();
+                }
                 //Controllo che esista un utente con quella email
                 foreach ($users as $user) {
                     if($user['email'] == $email){
@@ -82,6 +88,33 @@ class Gestione
                 $lastname = filter_var($im->checkInputSpace($_POST['lastname']), FILTER_SANITIZE_STRING);
                 $username = filter_var($im->checkInput($_POST['username']), FILTER_SANITIZE_STRING);
                 $ruolo = filter_var($im->checkInput($_POST['ruoli']), FILTER_SANITIZE_STRING);
+
+                //verifico che la lunghezza dei campi corrisponda con quella consentita e che non contengano valori sbagliati
+                if(!(strlen($firstname) > 0 && strlen($firstname) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $firstname)){
+                    array_push($errors, "Il nome deve essere lungo tra gli 1 e 50 caratteri e deve contenere solo lettere");
+                }
+                if(!(strlen($lastname) > 0 && strlen($lastname) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $lastname)){
+                    array_push($errors, "Il cognome deve essere lungo tra gli 1 e 50 caratteri e deve contenere solo lettere");
+                }
+                if(!(strlen($username) > 0 && strlen($username) <= 50) || !preg_match('/^[a-zA-Z0-9\d._\- ]+$/', $username)){
+                    array_push($errors, "Lo username deve essere lungo tra gli 1 e 50 caratteri");
+                }
+                if(!(strlen($ruolo) > 0 && strlen($ruolo) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $ruolo)){
+                    array_push($errors, "Inserire un ruolo corretto");
+                }
+
+                //se sono di lunghezze sbagliate ritorno l'errore
+                if(count($errors) != 0){
+                    $_SESSION['errors'] = $errors;
+                    $data = array(
+                        'firstname' => $firstname,
+                        'lastname' => $lastname,
+                        'username' => $username,
+                    );
+                    $_SESSION['data'] = $data;
+                    header('Location: ' . URL . 'gestione');
+                    exit();
+                }
 
                 //Carico dal DB i dati dell'utente che sta venendo modificato
                 $user = (new utente_model)->getUser($email);
@@ -161,6 +194,45 @@ class Gestione
                 $fasciaprezzo = filter_var($im->checkInputSpace($_POST['fascia_prezzo']), FILTER_SANITIZE_STRING);
                 $lat = filter_var($im->checkInput($_POST['lat']), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                 $lon = filter_var($im->checkInput($_POST['lng']), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+
+                //verifico che la lunghezza dei campi corrisponda con quella consentita
+                if(!(strlen($nome) > 0 && strlen($nome) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $nome)){
+                    array_push($errors, "Inserire un nome corretto [solo lettere]");
+                }
+                if(!(strlen($paese) > 0 && strlen($paese) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $paese)){
+                    array_push($errors, "Inserire un paese valido [solo lettere]");
+                }
+                if(!(strlen($via) > 0 && strlen($via) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $via)){
+                    array_push($errors, "Inserire una via valida [solo lettere]");
+                }
+                if(!(strlen($nocivico) > 0 && strlen($nocivico) <= 10) || !preg_match('/^[0-9a-zA-Z ]+$/', $nocivico)){
+                    array_push($errors, "Inserire un numero civico valido");
+                }
+                if(!(strlen($cap) > 0 && strlen($cap) <= 5) || !preg_match('/^[0-9]+$/', $cap)){
+                    array_push($errors, "Inserire un CAP valido");
+                }
+                if(!(strlen($telefono) > 0 && strlen($telefono) <= 20) || !preg_match('/^\+?[0-9 ]+$/', $telefono)){
+                    array_push($errors, "Inserire un numero di telefono valido");
+                }
+                if(!(strlen($fasciaprezzo) > 0 && strlen($fasciaprezzo) <= 50)){
+                    array_push($errors, "Inserire una fascia di prezzo valida");
+                }
+
+                //se sono di lunghezze sbagliate ritorno l'errore
+                if(count($errors) != 0){
+                    $_SESSION['errors'] = $errors;
+                    $data = array(
+                        'name' => $nome,
+                        'cap' => $cap,
+                        'paese' => $paese,
+                        'via' => $via,
+                        'no_civico' => $nocivico,
+                        'telefono' => $telefono
+                    );
+                    $_SESSION['data'] = $data;
+                    header('Location: ' . URL . 'add');
+                    exit();
+                }
 
                 $grotto = (new grotto_model)->getGrotto($id);
                 if($grotto != null){

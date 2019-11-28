@@ -11,31 +11,31 @@
 
                             <p class="h4 mb-4">Aggiungi un grotto</p>
 
-                            <input type="text" id="name" name="name" class="form-control mb-4" placeholder="Nome" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['username']:null;  ?>">
+                            <input type="text" id="name" name="name" class="form-control mb-4" placeholder="Nome" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['name']:null;  ?>">
                             <div id="error-name" class="alert alert-danger" role="alert">Inserire uno nome valido</div>
 
                             <div class="form-row mb-4">
                                 <div class="col">
-                                    <input type="text" id="cap" name="cap" class="form-control" placeholder="CAP" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['firstname']:null;  ?>">
+                                    <input type="text" id="cap" name="cap" class="form-control" placeholder="CAP" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['cap']:null;  ?>">
                                     <div id="error-cap" class="alert alert-danger" role="alert" >Inserire un CAP valido</div>
                                 </div>
                                 <div class="col">
-                                    <input type="text" id="paese" name="paese" class="form-control" placeholder="Paese" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['lastname']:null;  ?>">
+                                    <input type="text" id="paese" name="paese" class="form-control" placeholder="Paese" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['paese']:null;  ?>">
                                     <div id="error-paese" class="alert alert-danger" role="alert" >Inserire un paese valido</div>
                                 </div>
                             </div>
                             <div class="form-row mb-4">
                                 <div class="col">
-                                    <input type="text" id="via" name="via" class="form-control" placeholder="Via" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['firstname']:null;  ?>">
+                                    <input type="text" id="via" name="via" class="form-control" placeholder="Via" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['via']:null;  ?>">
                                     <div id="error-via" class="alert alert-danger" role="alert" >Inserire una via valido</div>
                                 </div>
                                 <div class="col">
-                                    <input type="text" id="no_civico" name="no_civico" class="form-control" placeholder="Numero Civico" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['firstname']:null;  ?>">
+                                    <input type="text" id="no_civico" name="no_civico" class="form-control" placeholder="Numero Civico" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['no_civico']:null;  ?>">
                                     <div id="error-no_civico" class="alert alert-danger" role="alert" >Inserire un numero civico valido</div>
                                 </div>
                             </div>
 
-                            <input type="text" id="telefono" name="telefono" class="form-control mb-4" placeholder="Telefono" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['email']:null;  ?>">
+                            <input type="text" id="telefono" name="telefono" class="form-control mb-4" placeholder="Telefono" value="<?php echo (isset($_SESSION['data']) && $_SESSION['data'] != null)?$_SESSION['data']['telefono']:null;  ?>">
                             <div id="error-telefono" class="alert alert-danger" role="alert" >Inserire un telefono valido</div>
 
                             <select name="fascia_prezzo" id="fascia_prezzo" class="mb-4 browser-default custom-select">

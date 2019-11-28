@@ -107,6 +107,20 @@ class Reset
                 $email = filter_var($im->checkInput($_POST['email']), FILTER_SANITIZE_EMAIL);
                 $password = filter_var($im->checkInput($_POST['password']), FILTER_SANITIZE_STRING);
                 $repassword = filter_var($im->checkInput($_POST['repassword']), FILTER_SANITIZE_STRING);
+
+                if(!(strlen($email) > 0 && strlen($email) <= 50) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
+                    array_push($errors, "L'email deve essere formattata nel seguente modo: indirizzo@dominio.xx");
+                    $_SESSION['errors'] = $errors;
+                    header('Location: ' . URL . 'reset');
+                    exit();
+                }
+                if(!(strlen($password) >= 8) || !preg_match('/^[a-zA-Z\d._\-*%&!?$@+#+,;:]+$/', $password)){
+                    array_push($errors, "La password deve essere almeno lunga 8 caratteri");
+                    $_SESSION['errors'] = $errors;
+                    header('Location: ' . URL . 'reset');
+                    exit();
+                }
+
                 $users = (new utente_model)->getUsers();
 
                 if($password == $repassword){
@@ -122,9 +136,14 @@ class Reset
                     }
                     array_push($errors, "L'email non è in uso da nessun account");
                     $_SESSION['errors'] = $errors;
+                    header('Location: ' . URL . 'reset');
+                    exit();
+                }else{
+                    array_push($errors, "Le password non sono uguali");
+                    $_SESSION['errors'] = $errors;
+                    header('Location: ' . URL . 'reset');
+                    exit();
                 }
-                array_push($errors, "Le password non sono uguali");
-                $_SESSION['errors'] = $errors;
             }
             array_push($errors, "Inserire tutti i dati");
             $_SESSION['errors'] = $errors;

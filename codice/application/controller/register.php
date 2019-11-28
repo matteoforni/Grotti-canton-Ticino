@@ -39,20 +39,20 @@ class Register
                 $password = filter_var($im->checkInput($_POST['password']), FILTER_SANITIZE_STRING);
                 $repassword = filter_var($im->checkInput($_POST['repassword']), FILTER_SANITIZE_STRING);
 
-                //verifico che la lunghezza dei campi corrisponda con quella consentita
-                if(!(strlen($firstname) > 0 && strlen($firstname) <= 50)){
-                    array_push($errors, "Il nome deve essere lungo tra gli 1 e 50 caratteri");
+                //verifico che la lunghezza dei campi corrisponda con quella consentita e che non contengano valori sbagliati
+                if(!(strlen($firstname) > 0 && strlen($firstname) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $firstname)){
+                    array_push($errors, "Il nome deve essere lungo tra gli 1 e 50 caratteri e deve contenere solo lettere");
                 }
-                if(!(strlen($lastname) > 0 && strlen($lastname) <= 50)){
-                    array_push($errors, "Il cognome deve essere lungo tra gli 1 e 50 caratteri");
+                if(!(strlen($lastname) > 0 && strlen($lastname) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $lastname)){
+                    array_push($errors, "Il cognome deve essere lungo tra gli 1 e 50 caratteri e deve contenere solo lettere");
                 }
-                if(!(strlen($username) > 0 && strlen($username) <= 50)){
+                if(!(strlen($username) > 0 && strlen($username) <= 50) || !preg_match('/^[a-zA-Z0-9\d._\- ]+$/', $username)){
                     array_push($errors, "Lo username deve essere lungo tra gli 1 e 50 caratteri");
                 }
-                if(!(strlen($email) > 0 && strlen($email) <= 50)){
+                if(!(strlen($email) > 0 && strlen($email) <= 50) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
                     array_push($errors, "L'email deve essere formattata nel seguente modo: indirizzo@dominio.xx");
                 }
-                if(!(strlen($password) >= 8)){
+                if(!(strlen($password) >= 8) || !preg_match('/^[a-zA-Z\d._\-*%&!?$@+#+,;:]+$/', $password)){
                     array_push($errors, "La password deve essere almeno lunga 8 caratteri");
                 }
 
@@ -69,7 +69,6 @@ class Register
                     header('Location: ' . URL . 'register');
                     exit();
                 }
-
                 //verifico che la password sia la stessa in entrambi i campi
                 if($password == $repassword) {
 
