@@ -4,6 +4,14 @@
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/js/validator.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/js/validator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/firstLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/firstLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/gestione.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/gestione.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/reset.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/reset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/add/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" beforeDir="false" afterPath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,7 +123,9 @@
       <workItem from="1574234731365" duration="27000" />
       <workItem from="1574338734738" duration="10355000" />
       <workItem from="1574425470812" duration="8363000" />
-      <workItem from="1574770825818" duration="7107000" />
+      <workItem from="1574770825818" duration="7762000" />
+      <workItem from="1574943790321" duration="47000" />
+      <workItem from="1574944149075" duration="7007000" />
     </task>
     <servers />
   </component>
