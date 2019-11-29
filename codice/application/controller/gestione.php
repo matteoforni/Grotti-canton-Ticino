@@ -230,7 +230,7 @@ class Gestione
                         'telefono' => $telefono
                     );
                     $_SESSION['data'] = $data;
-                    header('Location: ' . URL . 'add');
+                    header('Location: ' . URL . 'gestione');
                     exit();
                 }
 
