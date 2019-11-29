@@ -47,16 +47,16 @@ class NewUser
                 $email = filter_var($im->checkInput($_POST['email']), FILTER_SANITIZE_EMAIL);
 
                 //verifico che la lunghezza dei campi corrisponda con quella consentita
-                if(!(strlen($firstname) > 0 && strlen($firstname) <= 50)){
+                if(!(strlen($firstname) > 0 && strlen($firstname) <= 50) || !preg_match('/^[\p{L}a-zA-Z\' ]+$/', $firstname)){
                     array_push($errors, "Il nome deve essere lungo tra gli 1 e 50 caratteri");
                 }
-                if(!(strlen($lastname) > 0 && strlen($lastname) <= 50)){
+                if(!(strlen($lastname) > 0 && strlen($lastname) <= 50) || !preg_match('/^[\p{L}a-zA-Z\' ]+$/', $lastname)){
                     array_push($errors, "Il cognome deve essere lungo tra gli 1 e 50 caratteri");
                 }
-                if(!(strlen($username) > 0 && strlen($username) <= 50)){
+                if(!(strlen($username) > 0 && strlen($username) <= 50) || !preg_match('/^[\p{L}a-zA-Z0-9\d._\- ]+$/', $username)){
                     array_push($errors, "Lo username deve essere lungo tra gli 1 e 50 caratteri");
                 }
-                if(!(strlen($email) > 0 && strlen($email) <= 50)){
+                if(!(strlen($email) > 0 && strlen($email) <= 50) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
                     array_push($errors, "L'email deve essere formattata nel seguente modo: indirizzo@dominio.xx");
                 }
 
@@ -91,7 +91,7 @@ class NewUser
                         (new utente_model)->addUser($firstname, $lastname, $username, $email, $password, true);
                         unset($_POST);
                         $mm = new mail_manager();
-                        $body = "<h3>Un admin di Grotti Ticinesi ha creato un account con la tua email</h3>La password per accedervi è la seguente: <br><b>" . $password . "</b>";
+                        $body = "<h3>Un admin di Grotti Ticinesi ha creato un account con la tua email</h3>La password per accedervi è la seguente: <br><b>" . $password . "</b><br><br>Accedi dal seguente link: <a href='" . URL . "login'>Grotti ticino</a>";
                         $mm->sendMail($email, $body, "Grotti Ticinesi - Benvenuto");
                         header('Location: ' . URL . 'admin');
                         exit();
@@ -110,7 +110,7 @@ class NewUser
                         'email' => $email
                     );
                     $_SESSION['data'] = $data;
-                    header('Location: ' . URL . 'register');
+                    header('Location: ' . URL . 'newUser');
                     exit();
                 }
                 //se le password non sono uguali ritorno l'errore

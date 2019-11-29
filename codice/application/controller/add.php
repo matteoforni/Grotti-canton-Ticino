@@ -50,13 +50,13 @@ class Add
                 $lon = filter_var($im->checkInput($_POST['lng']), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
                 //verifico che la lunghezza dei campi corrisponda con quella consentita
-                if(!(strlen($name) > 0 && strlen($name) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $name)){
+                if(!(strlen($name) > 0 && strlen($name) <= 50) || !preg_match('/^[\p{L}a-zA-Z\' ]+$/', $name)){
                     array_push($errors, "Inserire un nome corretto [solo lettere]");
                 }
-                if(!(strlen($paese) > 0 && strlen($paese) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $paese)){
+                if(!(strlen($paese) > 0 && strlen($paese) <= 50) || !preg_match('/^[\p{L}a-zA-Z\' ]+$/', $paese)){
                     array_push($errors, "Inserire un paese valido [solo lettere]");
                 }
-                if(!(strlen($via) > 0 && strlen($via) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $via)){
+                if(!(strlen($via) > 0 && strlen($via) <= 50) || !preg_match('/^[\p{L}a-zA-Z\' ]+$/', $via)){
                     array_push($errors, "Inserire una via valida [solo lettere]");
                 }
                 if(!(strlen($no_civico) > 0 && strlen($no_civico) <= 10) || !preg_match('/^[0-9a-zA-Z ]+$/', $no_civico)){

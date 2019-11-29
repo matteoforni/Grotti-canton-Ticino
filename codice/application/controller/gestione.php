@@ -90,13 +90,13 @@ class Gestione
                 $ruolo = filter_var($im->checkInput($_POST['ruoli']), FILTER_SANITIZE_STRING);
 
                 //verifico che la lunghezza dei campi corrisponda con quella consentita e che non contengano valori sbagliati
-                if(!(strlen($firstname) > 0 && strlen($firstname) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $firstname)){
+                if(!(strlen($firstname) > 0 && strlen($firstname) <= 50) || !preg_match('/^[\p{L}a-zA-Z\' ]+$/', $firstname)){
                     array_push($errors, "Il nome deve essere lungo tra gli 1 e 50 caratteri e deve contenere solo lettere");
                 }
-                if(!(strlen($lastname) > 0 && strlen($lastname) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $lastname)){
+                if(!(strlen($lastname) > 0 && strlen($lastname) <= 50) || !preg_match('/^[\p{L}a-zA-Z\' ]+$/', $lastname)){
                     array_push($errors, "Il cognome deve essere lungo tra gli 1 e 50 caratteri e deve contenere solo lettere");
                 }
-                if(!(strlen($username) > 0 && strlen($username) <= 50) || !preg_match('/^[a-zA-Z0-9\d._\- ]+$/', $username)){
+                if(!(strlen($username) > 0 && strlen($username) <= 50) || !preg_match('/^[\p{L}a-zA-Z0-9\d._\- ]+$/', $username)){
                     array_push($errors, "Lo username deve essere lungo tra gli 1 e 50 caratteri");
                 }
                 if(!(strlen($ruolo) > 0 && strlen($ruolo) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $ruolo)){
@@ -196,13 +196,13 @@ class Gestione
                 $lon = filter_var($im->checkInput($_POST['lng']), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
                 //verifico che la lunghezza dei campi corrisponda con quella consentita
-                if(!(strlen($nome) > 0 && strlen($nome) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $nome)){
+                if(!(strlen($nome) > 0 && strlen($nome) <= 50) || !preg_match('/^[\p{L}a-zA-Z\' ]+$/', $nome)){
                     array_push($errors, "Inserire un nome corretto [solo lettere]");
                 }
-                if(!(strlen($paese) > 0 && strlen($paese) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $paese)){
+                if(!(strlen($paese) > 0 && strlen($paese) <= 50) || !preg_match('/^[\p{L}a-zA-Z\' ]+$/', $paese)){
                     array_push($errors, "Inserire un paese valido [solo lettere]");
                 }
-                if(!(strlen($via) > 0 && strlen($via) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $via)){
+                if(!(strlen($via) > 0 && strlen($via) <= 50) || !preg_match('/^[\p{L}a-zA-Z\' ]+$/', $via)){
                     array_push($errors, "Inserire una via valida [solo lettere]");
                 }
                 if(!(strlen($nocivico) > 0 && strlen($nocivico) <= 10) || !preg_match('/^[0-9a-zA-Z ]+$/', $nocivico)){

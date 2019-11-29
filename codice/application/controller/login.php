@@ -46,14 +46,14 @@ class Login
                 if(!(strlen($email) > 0 && strlen($email) <= 50) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
                     array_push($errors, "L'email deve essere formattata nel seguente modo: indirizzo@dominio.xx");
                 }
-                if(!(strlen($password) >= 8) || !preg_match('/^[a-zA-Z\d._\-*%&!?$@+#+,;:]+$/', $password)){
+                if(!(strlen($password) >= 8) || !preg_match('/^[\p{L}a-zA-Z\d._\-*%&!?$@+#+,;:]+$/', $password)){
                     array_push($errors, "La password deve essere almeno lunga 8 caratteri");
                 }
 
                 //se sono di lunghezze sbagliate ritorno l'errore
                 if(count($errors) != 0){
                     $_SESSION['errors'] = $errors;
-                    header('Location: ' . URL . 'register');
+                    header('Location: ' . URL . 'login');
                     exit();
                 }
 

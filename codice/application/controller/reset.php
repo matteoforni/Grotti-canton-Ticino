@@ -114,7 +114,7 @@ class Reset
                     header('Location: ' . URL . 'reset');
                     exit();
                 }
-                if(!(strlen($password) >= 8) || !preg_match('/^[a-zA-Z\d._\-*%&!?$@+#+,;:]+$/', $password)){
+                if(!(strlen($password) >= 8) || !preg_match('/^[\p{L}a-zA-Z\d._\-*%&!?$@+#+,;:]+$/', $password)){
                     array_push($errors, "La password deve essere almeno lunga 8 caratteri");
                     $_SESSION['errors'] = $errors;
                     header('Location: ' . URL . 'reset');
