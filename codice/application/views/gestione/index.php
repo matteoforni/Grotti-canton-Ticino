@@ -44,7 +44,7 @@
                                 </button>
                                 </div>
                                 <div class="col">
-                                    <a href="<?php URL ?>gestione/back" class="btn btn-info my-4 btn-block" type="button"><i class="fas fa-undo"></i></a>
+                                    <a href="<?php URL ?>gestione/back" class="btn btn-info my-4 btn-block" type="button"><i class="fas fa-long-arrow-alt-left"></i></a>
                                 </div>
                             </div>
                         <?php elseif (isset($_SESSION['grotto']) && isset($_SESSION['fasce_prezzo'])): ?>
@@ -93,7 +93,7 @@
                                     <button type="button" class="btn btn-info my-4 border-dark" id="check"><i class="fas fa-map-marked-alt"></i></button>
                                 </div>
                                 <div class="col">
-                                    <a href="<?php URL ?>gestione/back" class="btn btn-info my-4 btn-block" type="button"><i class="fas fa-undo"></i></a>
+                                    <a href="<?php URL ?>gestione/back" class="btn btn-info my-4 btn-block" type="button"><i class="fas fa-long-arrow-alt-left"></i></a>
                                 </div>
                             </div>
                             <div id="mapResults" class="mb-5"></div>
