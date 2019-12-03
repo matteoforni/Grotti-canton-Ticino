@@ -5,7 +5,7 @@ class Validator {
 
     firstname(text, lengthMin, lengthMax) {
         if (text.length > lengthMin && text.length <= lengthMax) {
-            var allChars = /^\s*([A-Za-z\u00C0-\u017F ]{1}([\.]|[-']|))*$/i;
+            var allChars = /^\s*([A-Za-z\u00C0-\u017F ]{1}([\.]|[']|))*$/i;
             return allChars.test(text);
         }
         return false;
@@ -13,7 +13,7 @@ class Validator {
 
     lastname(text, lengthMin, lengthMax) {
         if (text.length > lengthMin && text.length <= lengthMax) {
-            var allChars = /^\s*([A-Za-z\u00C0-\u017F ]{1}([\.,]|[-']|))*$/i;
+            var allChars = /^\s*([A-Za-z\u00C0-\u017F ]{1}([\.,]|[']|))*$/i;
             return allChars.test(text);
         }
         return false;

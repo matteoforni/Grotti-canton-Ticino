@@ -47,6 +47,14 @@
                                     <a href="<?php URL ?>gestione/back" class="btn btn-info my-4 btn-block" type="button"><i class="fas fa-long-arrow-alt-left"></i></a>
                                 </div>
                             </div>
+                            <?php
+                            if(isset($_SESSION['errors'])){
+                                foreach ($_SESSION['errors'] as $item) {
+                                    echo "<p class='text-danger'>" . $item . "</p><br>";
+                                }
+                                unset($_SESSION['errors']);
+                            }
+                            ?>
                         <?php elseif (isset($_SESSION['grotto']) && isset($_SESSION['fasce_prezzo'])): ?>
                             <p class="h4 mb-4">Modifica grotto</p>
                             <input type="text" id="name" name="name" class="form-control mb-4" placeholder="Nome" value="<?php echo $_SESSION['grotto']['nome']; ?>">
@@ -96,17 +104,17 @@
                                     <a href="<?php URL ?>gestione/back" class="btn btn-info my-4 btn-block" type="button"><i class="fas fa-long-arrow-alt-left"></i></a>
                                 </div>
                             </div>
+                            <?php
+                            if(isset($_SESSION['errors'])){
+                                foreach ($_SESSION['errors'] as $item) {
+                                    echo "<p class='text-danger'>" . $item . "</p><br>";
+                                }
+                                unset($_SESSION['errors']);
+                            }
+                            ?>
                             <div id="mapResults" class="mb-5"></div>
 
                         <?php endif; ?>
-                        <?php
-                        if(isset($_SESSION['errors'])){
-                            foreach ($_SESSION['errors'] as $item) {
-                                echo "<p class='text-danger'>" . $item . "</p><br>";
-                            }
-                            unset($_SESSION['errors']);
-                        }
-                        ?>
                     </form>
                 </div>
             </div>

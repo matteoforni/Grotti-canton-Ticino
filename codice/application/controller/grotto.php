@@ -144,7 +144,7 @@ class Grotto
                             }
                         }else{
                             //Genero il messaggio d'errore
-                            array_push($imgErrors, "L'immagine scelta è già associata al grotto");
+                            array_push($imgErrors, "L'immagine scelta è già associata ad un grotto");
                             $_SESSION['imgErrors'] = $imgErrors;
                         }
                     }else{

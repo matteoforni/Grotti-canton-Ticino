@@ -97,7 +97,7 @@ class Gestione
                     array_push($errors, "Il cognome deve essere lungo tra gli 1 e 50 caratteri e deve contenere solo lettere");
                 }
                 if(!(strlen($username) > 0 && strlen($username) <= 50) || !preg_match('/^[\p{L}a-zA-Z0-9\d._\- ]+$/', $username)){
-                    array_push($errors, "Lo username deve essere lungo tra gli 1 e 50 caratteri");
+                    array_push($errors, "Lo username deve essere lungo tra gli 1 e 50 caratteri e puo contenere solo numeri, lettere e i seguenti simboli [.-_]");
                 }
                 if(!(strlen($ruolo) > 0 && strlen($ruolo) <= 50) || !preg_match('/^[a-zA-Z\' ]+$/', $ruolo)){
                     array_push($errors, "Inserire un ruolo corretto");
@@ -205,7 +205,7 @@ class Gestione
                 if(!(strlen($via) > 0 && strlen($via) <= 50) || !preg_match('/^[\p{L}a-zA-Z\' ]+$/', $via)){
                     array_push($errors, "Inserire una via valida [solo lettere]");
                 }
-                if(!(strlen($nocivico) > 0 && strlen($nocivico) <= 10) || !preg_match('/^[0-9a-zA-Z ]+$/', $nocivico)){
+                if(!(strlen($nocivico) > 0 && strlen($nocivico) <= 5) || !preg_match('/^[0-9a-zA-Z ]+$/', $nocivico)){
                     array_push($errors, "Inserire un numero civico valido");
                 }
                 if(!(strlen($cap) > 0 && strlen($cap) <= 5) || !preg_match('/^[0-9]+$/', $cap)){
@@ -233,6 +233,7 @@ class Gestione
                     header('Location: ' . URL . 'gestione');
                     exit();
                 }
+                print_r($errors);
 
                 $grotto = (new grotto_model)->getGrotto($id);
                 if($grotto != null){
@@ -271,7 +272,7 @@ class Gestione
             }
             array_push($errors, "Inserire tutti i valori");
             $_SESSION['errors'] = $errors;
-            header('Location: ' . URL . 'admin');
+            header('Location: ' . URL . 'gestione');
             exit();
         }
     }
