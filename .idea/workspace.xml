@@ -4,6 +4,11 @@
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/assets/js/validator.js" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/assets/js/validator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/gestione.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/gestione.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/controller/grotto.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/controller/grotto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codice/application/views/gestione/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/gestione/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" beforeDir="false" afterPath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +126,8 @@
       <workItem from="1574770825818" duration="7762000" />
       <workItem from="1574943790321" duration="47000" />
       <workItem from="1574944149075" duration="8111000" />
-      <workItem from="1575030833160" duration="5817000" />
+      <workItem from="1575030833160" duration="6617000" />
+      <workItem from="1575382024072" duration="1499000" />
     </task>
     <servers />
   </component>
