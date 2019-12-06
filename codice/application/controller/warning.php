@@ -2,6 +2,9 @@
 
 class Warning
 {
+    /**
+     * Funzione che carica la pagina di errore
+     */
     public function index()
     {
         if(isset($_SESSION['user'])){

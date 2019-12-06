@@ -140,14 +140,17 @@ class Gestione
                                     exit();
                                 }
                             }
+                            //Genero l'errore
                             array_push($errors, "Deve sempre esserci almeno un admin");
                             $_SESSION['errors'] = $errors;
                         }else{
+                            //Aggiorno l'utente
                             (new utente_model)->updateUtente($email, 'nome_ruolo', $ruolo);
                         }
                     }
                 }
             }else{
+                //Genero l'errore
                 array_push($errors, "Devi compilare tutti i campi");
                 $_SESSION['errors'] = $errors;
             }
@@ -233,10 +236,11 @@ class Gestione
                     header('Location: ' . URL . 'gestione');
                     exit();
                 }
-                print_r($errors);
 
+                //Controllo che esista il grotto
                 $grotto = (new grotto_model)->getGrotto($id);
                 if($grotto != null){
+                    //Verifico che i campi inseriti sono diversi
                     if($grotto['nome'] != $nome){
                         (new grotto_model)->updateGrotto($id, 'nome', $nome);
                     }
@@ -269,11 +273,13 @@ class Gestione
                     header('Location: ' . URL . 'admin');
                     exit();
                 }
+            }else{
+                //Se non vengono inseriti tutti i dati ritorno un errore
+                array_push($errors, "Inserire tutti i valori");
+                $_SESSION['errors'] = $errors;
+                header('Location: ' . URL . 'gestione');
+                exit();
             }
-            array_push($errors, "Inserire tutti i valori");
-            $_SESSION['errors'] = $errors;
-            header('Location: ' . URL . 'gestione');
-            exit();
         }
     }
 

@@ -12,8 +12,9 @@ class Admin
      */
     public function index()
     {
+        //Verifico che l'utente sia connesso
         if(isset($_SESSION['user'])){
-            //mostro l'index per gli utenti loggati.
+            //Mostro l'index per gli utenti loggati.
             if($_SESSION['user']['nome_ruolo'] == 'admin'){
 
                 //Carico gli utenti.
@@ -54,13 +55,13 @@ class Admin
                 ViewLoader::load("admin/index");
                 ViewLoader::load("_templates/footer");
             }elseif($_SESSION['user']['nome_ruolo'] == 'utente'){
-                //mostro l'index di base se l'utente non è admin.
+                //Mostro l'index di base se l'utente non è admin.
                 ViewLoader::load("_templates/header_user");
                 ViewLoader::load("home/index");
                 ViewLoader::load("_templates/footer");
             }
         }else{
-            //mostro l'index di base se l'utente non è connesso.
+            //Mostro l'index di base se l'utente non è connesso.
             ViewLoader::load("_templates/header_base");
             ViewLoader::load("home/index");
             ViewLoader::load("_templates/footer");

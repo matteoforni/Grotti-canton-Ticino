@@ -15,6 +15,9 @@ class Register
 
     }
 
+    /**
+     * Funzione che consente di registrare un nuovo utente
+     */
     public function createUser(){
         //richiamo le classi di cui avrò bisogno
         require_once "./application/models/input_manager.php";

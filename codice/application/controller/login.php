@@ -104,6 +104,9 @@ class Login
         }
     }
 
+    /**
+     * Funzione che consente di uscire dall'account alla quale si è connessi
+     */
     public function logout(){
         unset($_SESSION['user']);
         header('Location: ' . URL . 'home');

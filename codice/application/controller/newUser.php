@@ -3,6 +3,9 @@ require_once "./application/models/utente_model.php";
 
 class NewUser
 {
+    /**
+     * Funzione che carica la pagina di creazione di un nuovo utente
+     */
     public function index()
     {
         if(isset($_SESSION['user'])){
@@ -24,6 +27,9 @@ class NewUser
         }
     }
 
+    /**
+     * Funzione che consente di generare un nuovo utente
+     */
     public function createUser(){
         //richiamo le classi di cui avrò bisogno
         require_once "./application/models/input_manager.php";
