@@ -2,7 +2,7 @@
 .vscode
 .vs
 .htaccess
-application/config/config.php
+application/config/
 vendor/
 .tmp.drivedownload
 db/
