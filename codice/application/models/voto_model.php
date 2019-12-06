@@ -3,8 +3,14 @@
 
 class voto_model
 {
+    /**
+     * @var PDO Attributo contenente la connessione al database
+     */
     private $_connection;
 
+    /**
+     * voto_model constructor.
+     */
     public function __construct()
     {
         require_once "./application/models/DBConnection.php";

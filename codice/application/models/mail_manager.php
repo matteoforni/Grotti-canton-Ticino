@@ -4,6 +4,13 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 class mail_manager
 {
+    /**
+     * Funzione che consente di inviare un email tramite la libreria phpmailer
+     * @param $email string L'indirizzo a cui inviare il messaggio
+     * @param $body string Il contenuto del messaggio
+     * @param $subject string Il soggetto del messaggio
+     * @return bool Se l'operazione ha avuto successo o meno
+     */
     public function sendMail($email, $body, $subject){
         require_once "./vendor/phpmailer/phpmailer/src/Exception.php";
         require_once "./vendor/phpmailer/phpmailer/src/PHPMailer.php";

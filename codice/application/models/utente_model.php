@@ -3,8 +3,14 @@
 
 class utente_model
 {
+    /**
+     * @var PDO Attributo contenente la connessione al database
+     */
     private $_connection;
 
+    /**
+     * utente_model constructor.
+     */
     public function __construct()
     {
         require_once "./application/models/DBConnection.php";

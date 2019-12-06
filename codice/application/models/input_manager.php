@@ -15,6 +15,12 @@ class input_manager
 
         return $input;
     }
+
+    /**
+     * Funzione che rimuove da una stringa tutti i caratteri esclusi gli spazi che potrebbero essere malevoli.
+     * @param $input L'input da pulire.
+     * @return string L'input pulito.
+     */
     public function checkInputSpace($input){
         $input = ltrim($input);
         $input = rtrim($input);
