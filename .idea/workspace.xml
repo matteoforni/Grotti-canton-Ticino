@@ -4,8 +4,6 @@
     <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" beforeDir="false" afterPath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +124,7 @@
       <workItem from="1575030833160" duration="6617000" />
       <workItem from="1575382024072" duration="1862000" />
       <workItem from="1575383893868" duration="682000" />
-      <workItem from="1575635552628" duration="367000" />
+      <workItem from="1575635552628" duration="4667000" />
     </task>
     <servers />
   </component>
