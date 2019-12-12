@@ -59,7 +59,7 @@ if(isset($_SESSION['grotto']) && isset($_SESSION['img'])): ?>
                             <div class="my-5 col-md-6">
                                 <form method="post" class="mb-5 text-center border border-light p-5" action="<?php URL ?>grotto/vota">
                                     <p class="h3 mb-2">Vota</p>
-                                    <p class="mb-4">Puoi votare un grotto solo una volta</p>
+                                    <p class="mb-4">Dai un voto da 1 - 5 a questa località</p>
                                     <input type="hidden" id="val" name="val" value="" />
                                     <div class="rating-add-container">
                                         <div id="valutazione" name="valutazione" class="rating-add"></div>
