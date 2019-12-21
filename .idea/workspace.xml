@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codice/application/views/grotto/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/codice/application/views/grotto/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentazione/MatteoForni_Abstract.docx" beforeDir="false" afterPath="$PROJECT_DIR$/documentazione/MatteoForni_Abstract.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" beforeDir="false" afterPath="$PROJECT_DIR$/documentazione/MatteoForni_Documentazione_Grotti.docx" afterDir="false" />
-    </list>
+    <list default="true" id="c527cc08-2bd2-4629-9049-2cce323cd3a8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,6 +125,7 @@
       <workItem from="1575635552628" duration="4667000" />
       <workItem from="1575983422649" duration="3127000" />
       <workItem from="1576155163985" duration="1572000" />
+      <workItem from="1576845156779" duration="12000" />
     </task>
     <servers />
   </component>
